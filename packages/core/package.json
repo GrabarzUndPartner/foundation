@@ -1,0 +1,20 @@
+{
+    "name": "@foundation/core",
+    "version": "1.0.0",
+    "author": "Thorn-Welf Walli",
+    "contributors": [
+      {
+        "name": "Thorn-Welf Walli",
+        "email": "thorn.walli@grabarzundpartner.de"
+      },
+      {
+        "name": "Jan Szidat",
+        "email": "jan.szidat@grabarzundpartner.de"
+      }
+    ],
+    "license": "MIT",
+    "private": true,
+    "scripts": {},
+    "dependencies": {}
+  }
+  

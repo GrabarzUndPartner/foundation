@@ -1,0 +1,9 @@
+# Folders
+.history/
+.nuxt/
+.reports/
+dist/
+node_modules/
+
+packages/module/templates/
+packages/module/plugins/

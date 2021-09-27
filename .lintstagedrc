@@ -1,0 +1,8 @@
+{
+  "*.(js|vue)": [
+    "eslint --ext .js,.vue ."
+  ],
+  "*.(vue|css)": [
+    "stylelint --fix"
+  ]
+}
