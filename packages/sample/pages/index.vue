@@ -1,17 +1,17 @@
 <template>
-  <base-button @click="onClick" />
+  <div>
+    <ul>
+      <li>
+        <nuxt-link to="/collapsible-container">
+          collapsible-container
+        </nuxt-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import BaseButton from '@foundation/core/Button';
 export default {
-  components: {
-    BaseButton
-  },
-  methods: {
-    onClick () {
-      console.log('click button');
-    }
-  }
+
 };
 </script>
