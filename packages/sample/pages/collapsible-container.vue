@@ -13,29 +13,21 @@
       <accordeon-default />
     </fieldset>
     <hr>
-
     <fieldset>
       <legend>FlyoutNavi (Index)</legend>
       <flyout-navi-index />
     </fieldset>
     <fieldset>
       <legend>FlyoutNavi (Default)</legend>
-      <div style="position: relative; height: 300px;">
+      <div class="flyout-container">
         <flyout-navi-default />
       </div>
     </fieldset>
-    <!-- <default-button @click="onClick" /> -->
-    <!-- <accordeon />
-    <hr>
-    <flyout-navi /> -->
-    <!--
-    <transformable /> -->
   </div>
 </template>
 
 <script>
 /* eslint-disable vue/no-unused-components */
-import DefaultButton from '@foundation/core/Button/default';
 import CollapsibleContainer from '@foundation/core/CollapsibleContainer';
 import AccordeonIndex from '@foundation/core/CollapsibleContainer/mutation/Accordeon';
 import AccordeonDefault from '@foundation/core/CollapsibleContainer/mutation/Accordeon/Default';
@@ -52,7 +44,6 @@ export default {
     CollapsibleContainer,
     AccordeonIndex,
     AccordeonDefault,
-    DefaultButton,
     FlyoutNaviIndex,
     FlyoutNaviDefault,
     Transformable
@@ -78,3 +69,10 @@ export default {
   }
 };
 </script>
+
+<style lang="postcss" scoped>
+.flyout-container {
+  position: relative;
+  height: 300px;
+}
+</style>

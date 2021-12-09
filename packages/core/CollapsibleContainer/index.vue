@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import BaseSelect from '../Select';
+import BaseSelect from '../base/Select';
 import Dataset from './classes/Dataset';
 
 export default {
