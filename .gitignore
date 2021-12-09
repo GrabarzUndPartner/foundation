@@ -1,0 +1,28 @@
+# Folders
+.history/
+.nuxt/
+.reports/
+dist/
+node_modules/
+env/nuxt/cert/
+
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# Node template
+# Logs
+logs
+*.log
+*.log.*
+
+# Files
+.DS_Store
+.scannerwork
+.eslintcache
+sw.*
+env/cert/*
+!env/cert/README.md

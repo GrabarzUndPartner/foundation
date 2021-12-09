@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "es2015",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@foundation/core/*": [
+        "../core/*"
+      ],
+      "@foundation/sample/*": [
+        "../sample/*"
+      ],
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
