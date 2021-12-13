@@ -1,20 +1,26 @@
 <template>
-  <base-button>Label</base-button>
+  <button-base v-bind="$attrs" v-on="$listeners">
+    <slot name="default" />
+  </button-base>
 </template>
 
 <script>
-import BaseButton from '@foundation/core/Button';
+import ButtonBase from './base';
+
 export default {
   components: {
-    BaseButton
-  }
+    ButtonBase
+  },
+
+  inheritAttrs: false
 };
 </script>
 
+
 <style lang="postcss" scoped>
 >>> .button {
-  color: #333;
-  background: #eee;
-  border: solid #ccc 1px;
+  color: white;
+  background: #b00;
+  border: solid #000 2px;
 }
 </style>

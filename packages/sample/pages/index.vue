@@ -16,6 +16,10 @@ export default {
     return {
       links: [
         {
+          title: 'button',
+          to: '/button'
+        },
+        {
           title: 'collapsible-container',
           to: '/collapsible-container'
         },
