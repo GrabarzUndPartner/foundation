@@ -1,5 +1,5 @@
 <template>
-  <base-slider class="arrow-slider" v-bind="sliderData" :settings="settings">
+  <base-slider class="pagination-slider" v-bind="sliderData" :settings="settings">
     <template #prev="arrowOption">
       <span class="custom-arrow arrow-slider-arrow prev" :data-options="JSON.stringify(arrowOption)">prev</span>
     </template>
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import BaseSlider from '../';
-import BaseSlide from '../slide/';
+import BaseSlider from '../../index';
+import BaseSlide from '../../slide';
 
 export default {
   components: {
@@ -42,17 +42,12 @@ export default {
         arrows: true
       }
     };
-  },
-  methods: {
-
   }
 };
 </script>
 
 <style lang="postcss" scoped>
-.arrow-slider {
-  background: red;
-
+.pagination-slider {
   & .slick-dots {
     & li {
       & .custom-dot {

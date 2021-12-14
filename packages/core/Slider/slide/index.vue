@@ -1,8 +1,5 @@
 <template>
   <div class="slider-slide">
-    <!--  <slot name="background">
-      <base-picture v-if="picture" v-bind="picture" />
-    </slot> -->
     <slot name="text">
       <p v-if="copy" v-html="copy" />
     </slot>
@@ -10,8 +7,6 @@
 </template>
 
 <script>
-// import BasePicture from '../../picture/base';
-
 export default {
   components: {
     // BasePicture
@@ -55,7 +50,7 @@ export default {
       font-family: Arial, sans-serif;
       font-size: 20px;
       color: white;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+      background: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 100%) 100%);
     }
   }
 </style>

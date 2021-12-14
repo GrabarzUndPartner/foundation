@@ -9,7 +9,6 @@
     "@nuxtjs",
     "plugin:nuxt/recommended",
     "plugin:security/recommended",
-    "plugin:sonarjs/recommended",
     "plugin:no-unsanitized/DOM"
   ],
   "plugins": [
@@ -45,7 +44,6 @@
         "ignores": []
       }
     ],
-    "sonarjs/no-duplicate-string": 0,
     "no-multiple-empty-lines": [
       "error",
       {
@@ -59,6 +57,7 @@
     ],
     "no-debugger": 1,
     "no-console": 1,
-    "no-empty-function": "error"
+    "no-empty-function": "error",
+    "vue/multi-word-component-names": "off"
   }
 }

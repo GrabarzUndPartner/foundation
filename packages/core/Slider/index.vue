@@ -1,5 +1,5 @@
 <template>
-  <vue-slick-carousel v-bind="sliderSettings">
+  <vue-slick-carousel ref="swiper" class="slider" v-bind="sliderSettings" @afterChange="onAfterChange">
     <template v-if="$scopedSlots.prev" #prevArrow="arrowOption">
       <slot name="prev" :arrowOption="arrowOption" />
     </template>
@@ -11,7 +11,9 @@
     </template>
 
     <template #default>
-      <slot v-for="(slide, index) in slides" :slide="slide" :index="index" />
+      <slot v-for="(slide, index) in slides" :slide="slide" :index="index">
+        <div :key="index" v-html="slide.copy" />
+      </slot>
     </template>
   </vue-slick-carousel>
 </template>
@@ -20,11 +22,11 @@
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
-import PointerNavigation from './../mixins/PointerNavigation';
+// import PointerNavigation from './../mixins/PointerNavigation';
 
 export default {
   components: { VueSlickCarousel },
-  mixins: [PointerNavigation],
+  // mixins: [PointerNavigation],
   props: {
     settings: {
       type: Object,
@@ -42,6 +44,7 @@ export default {
 
   data () {
     return {
+      activeSlide: 0,
       defaultSettings: {
         dots: false,
         dotsClass: 'slick-dots custom-dot-class',
@@ -61,11 +64,22 @@ export default {
   },
 
   mounted () {
-    console.log('mounted slider', this.slides);
+    this.lala = 'base';
+    console.log('mounted slider', this.lala);
+    this.swiper = this.$refs.swiper;
+  },
+
+  methods: {
+    onAfterChange (index) {
+      this.$emit('afterChange', index);
+    }
   }
 };
 </script>
 
-<style>
-
+<style lang="postcss" scoped>
+.slider {
+  display: block;
+  width: 800px;
+}
 </style>

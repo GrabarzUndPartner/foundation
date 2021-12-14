@@ -20,12 +20,14 @@ export default {
   },
   methods: {
     initSwiperCursors (el, excludes) {
-      const mouseMove = fromEvent(el, 'mousemove');
-      const pointerUp = fromEvent(el, 'click');
+      console.log('#', el, excludes);
+      const mouseMove = fromEvent(el.$el, 'mousemove');
+      const pointerUp = fromEvent(el.$el, 'click');
 
       this.subscriptions.push(
         transformEvent(mouseMove, excludes)
           .subscribe((e) => {
+            console.log('mousemove', excludes);
             this.arrowDirection = e.x;
           })
       );
@@ -33,15 +35,17 @@ export default {
       this.subscriptions.push(
         transformEvent(pointerUp, excludes)
           .subscribe((e) => {
+            console.log('pointerUp');
+
             switch (e.x) {
               case -1:
                 if (!this.isTouch) {
-                  this.swiper.slidePrev();
+                  this.$refs.myswiper.swiper.prev();
                 }
                 break;
               case 1:
                 if (!this.isTouch) {
-                  this.swiper.slideNext();
+                  this.$refs.myswiper.swiper.next();
                 }
                 break;
 
@@ -80,6 +84,8 @@ function calcMovement (e, excludes) {
 
 function isExcluded (e, excludes) {
   const element = document.elementFromPoint(e.x, e.y);
+
+  console.log('element', element);
 
   const matches = excludes.filter((selector) => {
     return element.matches(selector);

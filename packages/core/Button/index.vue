@@ -1,5 +1,5 @@
 <template>
-  <button :aria-label="label" v-on="$listeners">
+  <button class="button"  v-bind="$attrs" v-on="$listeners">
     <slot>{{ label }}</slot>
   </button>
 </template>

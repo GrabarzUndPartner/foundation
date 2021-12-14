@@ -1,17 +1,50 @@
 <template>
-  <base-button @click="onClick" />
+  <div>
+    <ul>
+      <li v-for="(link, index) in links" :key="index">
+        <nuxt-link v-bind="link">
+          {{ link.title }}
+        </nuxt-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import BaseButton from '@foundation/core/Button';
 export default {
-  components: {
-    BaseButton
-  },
-  methods: {
-    onClick () {
-      console.log('click button');
-    }
+  data () {
+    return {
+      links: [
+        {
+          title: 'button',
+          to: '/button'
+        },
+        {
+          title: 'collapsible-container',
+          to: '/collapsible-container'
+        },
+        {
+          title: 'dialog',
+          to: '/dialog'
+        },
+        {
+          title: 'article',
+          to: '/article'
+        },
+        {
+          title: 'iframe',
+          to: '/iframe'
+        },
+        {
+          title: 'toggle',
+          to: '/toggle'
+        },
+        {
+          title: 'slider',
+          to: '/slider'
+        }
+      ]
+    };
   }
 };
 </script>
