@@ -7,7 +7,7 @@
     v-on="$listeners"
   >
     <slot name="icon" />
-    <slot>
+    <slot name="default">
       <span v-if="label" v-html="label" />
     </slot>
   </button>
@@ -19,7 +19,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Button Label'
+      default: null
     },
     disabled: {
       type: Boolean,
@@ -33,8 +33,8 @@ export default {
   computed: {
     classes () {
       return {
-        'style-disabled': this.disabled,
-        'style-loading': this.loading
+        disabled: this.disabled,
+        loading: this.loading
       };
     }
   }

@@ -34,7 +34,7 @@
     <fieldset>
       <legend>Mutation icon button, reversedOrder</legend>
       <form>
-        <button-icon icon-name="icn" icon-size="xs" label="IconButton" :reversed-order="true" />
+        <button-icon icon-name="icn" icon-size="md" label="IconButton" :reversed-order="true" />
       </form>
     </fieldset>
     <fieldset>
@@ -49,6 +49,12 @@
         <button-icon icon-name="icn" icon-size="xs" :loading="true" label="IconButton loading" />
       </form>
     </fieldset>
+    <fieldset>
+      <legend>Mutation file</legend>
+      <form>
+        <button-file icon-name="icn" icon-size="xs" label="Upload" />
+      </form>
+    </fieldset>
   </div>
 </template>
 
@@ -57,12 +63,14 @@
 import BaseButton from '@foundation/core/Button';
 import DefaultButton from '@foundation/core/Button/default';
 import ButtonIcon from '@foundation/core/Button/mutation/Icon';
+import ButtonFile from '@foundation/core/Button/mutation/File';
 
 export default {
   components: {
     BaseButton,
     DefaultButton,
-    ButtonIcon
+    ButtonIcon,
+    ButtonFile
   },
   data () {
     return {

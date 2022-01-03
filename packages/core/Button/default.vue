@@ -1,7 +1,5 @@
 <template>
-  <button-base class="design-default" v-bind="$attrs" v-on="$listeners">
-    <slot name="default" />
-  </button-base>
+  <button-base class="design-default" v-bind="$attrs" v-on="$listeners" />
 </template>
 
 <script>
@@ -20,7 +18,7 @@ export default {
 .design-default {
   position: relative;
 
-  &.style-loading {
+  &.loading {
     pointer-events: none;
 
     & >>> * {
