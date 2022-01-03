@@ -1,11 +1,11 @@
 <template>
-  <button-base v-bind="$attrs" v-on="$listeners">
+  <button-base class="design-default" v-bind="$attrs" v-on="$listeners">
     <slot name="default" />
   </button-base>
 </template>
 
 <script>
-import ButtonBase from './base';
+import ButtonBase from './';
 
 export default {
   components: {
@@ -16,11 +16,42 @@ export default {
 };
 </script>
 
-
 <style lang="postcss" scoped>
->>> .button {
-  color: white;
-  background: #b00;
-  border: solid #000 2px;
+.design-default {
+  position: relative;
+
+  &.style-loading {
+    pointer-events: none;
+
+    & >>> * {
+      opacity: 0;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      box-sizing: border-box;
+      width: 1em;
+      height: 1em;
+      content: "";
+      border: 0.2em solid rgb(0 0 0 / 100%);
+      border-top-color: rgb(0 0 0 / 30%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: 50% 50%;
+      animation: spin 0.5s infinite linear;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 </style>
