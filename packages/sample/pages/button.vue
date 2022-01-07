@@ -4,55 +4,44 @@
     <fieldset>
       <legend>Base button</legend>
       <form>
-        <base-button label="BaseButton" />
+        <core-button-base label="BaseButton" />
       </form>
     </fieldset>
     <fieldset>
       <legend>Default button disabled</legend>
       <form>
-        <default-button label="DefaultButton disabled" :disabled="true" />
+        <core-button-default label="Disabled" :disabled="true" />
       </form>
     </fieldset>
     <fieldset>
-      <legend>Default button loading</legend>
+      <legend>Sample button</legend>
       <form>
-        <default-button label="DefaultButton loading" :loading="true" />
+        <sample-button label="Label" />
       </form>
     </fieldset>
     <fieldset>
-      <legend>Mutation icon button</legend>
+      <legend>Sample button disabled</legend>
       <form>
-        <button-icon icon-name="icn" icon-size="xs" label="IconButton" />
+        <sample-button label="Disabled" disabled />
       </form>
     </fieldset>
     <fieldset>
-      <legend>Mutation icon button, no label</legend>
+      <legend>Sample button loading</legend>
       <form>
-        <button-icon icon-name="icn" icon-size="md" />
+        <sample-button label="Loading…" loading />
       </form>
     </fieldset>
     <fieldset>
-      <legend>Mutation icon button, reversedOrder</legend>
+      <legend>Sample file button </legend>
       <form>
-        <button-icon icon-name="icn" icon-size="md" label="IconButton" :reversed-order="true" />
+        <sample-button-file label="File Upload" />
       </form>
     </fieldset>
     <fieldset>
-      <legend>Mutation icon button disabled</legend>
+      <legend>Sample modal button </legend>
       <form>
-        <button-icon icon-name="icn" icon-size="xs" :disabled="true" label="IconButton disabled" />
-      </form>
-    </fieldset>
-    <fieldset>
-      <legend>Mutation icon button loading</legend>
-      <form>
-        <button-icon icon-name="icn" icon-size="xs" :loading="true" label="IconButton loading" />
-      </form>
-    </fieldset>
-    <fieldset>
-      <legend>Mutation file</legend>
-      <form>
-        <button-file icon-name="icn" icon-size="xs" label="Upload" />
+        <base-dialog :name="dialogName" />
+        <sample-button-modal :deep="dialogDeep" label="Modal" content="Dialog Content" />
       </form>
     </fieldset>
   </div>
@@ -60,20 +49,30 @@
 
 <script>
 
-import BaseButton from '@foundation/core/Button';
-import DefaultButton from '@foundation/core/Button/default';
-import ButtonIcon from '@foundation/core/Button/mutation/Icon';
-import ButtonFile from '@foundation/core/Button/mutation/File';
+import BaseDialog from '@foundation/core/Dialog';
+import Deep from '@foundation/core/Button/classes/Deep';
+
+import CoreButtonBase from '@foundation/core/Button';
+import CoreButtonDefault from '@foundation/core/Button/default';
+
+import SampleButton from '@/components/atoms/Button';
+import SampleButtonFile from '@/components/atoms/button/File';
+import SampleButtonModal from '@/components/atoms/button/Modal';
 
 export default {
   components: {
-    BaseButton,
-    DefaultButton,
-    ButtonIcon,
-    ButtonFile
+    BaseDialog,
+    CoreButtonBase,
+    CoreButtonDefault,
+    SampleButton,
+    SampleButtonFile,
+    SampleButtonModal
   },
   data () {
+    const dialogName = 'default';
     return {
+      dialogName,
+      dialogDeep: new Deep(dialogName, true),
       iconButton: {
         iconName: 'check',
         label: 'IconButton'

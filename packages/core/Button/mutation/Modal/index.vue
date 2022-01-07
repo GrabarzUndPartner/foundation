@@ -1,7 +1,7 @@
 <template>
   <component
     :is="component"
-    class="file"
+    class="modal"
     v-bind="$attrs"
     type="button"
     v-on="{...$listeners, click: [onClick].concat($listeners.click || [])}"
@@ -13,34 +13,45 @@
 </template>
 
 <script>
+import Deep from '../../classes/Deep';
 
 export default {
 
   inheritAttrs: false,
 
   props: {
+
     component: {
       type: [Function, Object],
       required: true
     },
-    accept: {
+
+    deep: {
+      type: Deep,
+      required: true
+    },
+
+    content: {
       type: String,
       default: null
-    },
-    multiple: {
-      type: Boolean,
-      default: false
     }
   },
+
+  watch: {
+    '$route.query': {
+      handler (query) {
+        if (process.client && query[this.deep.name] === this.deep.value) {
+          this.$store.commit(`dialog/${this.deep.name}/open`, this.content);
+        }
+      },
+      immediate: true
+    }
+  },
+
   methods: {
-    onClick () {
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.click();
-      input.addEventListener('change', ({ target }) => {
-        this.$emit('change', target.files);
-        input.remove();
-      });
+    onClick (e) {
+      e.preventDefault();
+      this.$router.push({ query: { [this.deep.name]: this.deep.value } });
     }
   }
 };

@@ -6,8 +6,7 @@
     :disabled="disabled"
     v-on="$listeners"
   >
-    <slot name="icon" />
-    <slot name="default">
+    <slot name="default" :label="label">
       <span v-if="label" v-html="label" />
     </slot>
   </button>
@@ -24,17 +23,12 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    loading: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
     classes () {
       return {
-        disabled: this.disabled,
-        loading: this.loading
+        disabled: this.disabled
       };
     }
   }
