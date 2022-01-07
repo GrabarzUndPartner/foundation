@@ -36,16 +36,32 @@
         </template>
       </teaser>
     </fieldset>
+    <fieldset>
+      <legend>Teaser (Editorial)</legend>
+      <editorial v-bind="editorial" />
+    </fieldset>
   </div>
 </template>
 
 <script>/* eslint-disable vue/no-unused-components */
 import BaseArticle from '@foundation/core/Article';
 import Teaser from '@foundation/core/Article/mutation/Teaser';
+import Editorial from '@foundation/core/Article/mutation/Editorial';
 export default {
   components: {
     BaseArticle,
-    Teaser
+    Teaser,
+    Editorial
+  },
+
+  data () {
+    return {
+      editorial: {
+        category: 'Category',
+        headline: 'Headline',
+        subline: 'Subline'
+      }
+    };
   }
 };
 

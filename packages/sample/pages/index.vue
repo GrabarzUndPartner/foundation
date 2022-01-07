@@ -40,8 +40,16 @@ export default {
           to: '/toggle'
         },
         {
-          title: 'slider',
-          to: '/slider'
+          title: 'stage',
+          to: '/stage'
+        },
+        {
+          title: 'image-text',
+          to: '/image-text'
+        },
+        {
+          title: 'Sample page 1',
+          to: '/sample-page-1'
         }
       ]
     };

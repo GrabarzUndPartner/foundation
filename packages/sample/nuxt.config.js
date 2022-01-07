@@ -122,8 +122,12 @@ export default {
   ],
 
   modules: [
-    '@/modules/svg'
-  ]
+    '@/modules/svg',
+    'nuxt-speedkit'
+  ],
+  speedkit: {
+    componentAutoImport: true
+  }
 
 };
 
