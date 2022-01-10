@@ -7,7 +7,7 @@
     </template>
     <template #content>
       <div class="content">
-        <default-article>
+        <default-article :level="2">
           <template #category>
             Category
           </template>

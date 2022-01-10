@@ -36,7 +36,7 @@ export default {
     return {
       imageText: {
         image: {
-          title: 'Stage',
+          title: 'Image Text',
           sources: [
           // eslint-disable-next-line no-secrets/no-secrets
             { src: '/img/stage/1920x1080.jpg', sizes: { sm: '100vw', md: '100vw', lg: '100vw', xl: '100vw', xxl: '100vw' }, media: '(orientation: landscape)' },
@@ -46,7 +46,7 @@ export default {
         },
         headline: {
           tag: 'h1',
-          content: 'This is the headline.'
+          content: 'This is the image-text headline.'
         }
       }
 

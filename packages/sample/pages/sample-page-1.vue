@@ -31,7 +31,7 @@ export default {
         },
         headline: {
           tag: 'h1',
-          content: 'This is the headline.'
+          content: 'This is the stage headline.'
         }
       },
 
