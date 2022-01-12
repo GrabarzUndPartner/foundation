@@ -41,19 +41,29 @@ export default {
     }
 
     this.unsubscribe = this.$store.subscribe((mutation, state) => {
-      console.log(mutation);
       if (mutation.type === `${this.storeName}/open`) {
         this.content = mutation.payload;
 
         const open = !!mutation.payload;
         this.open = !this.preventDefaultOpener && open;
-        this.$emit('open', open);
+        this.onOpen(open);
       }
     });
   },
 
   beforeDestroy () {
     this.unsubscribe();
+  },
+
+  methods: {
+    onOpen (value) {
+      if (value) {
+        this.$el?.showModal();
+      } else {
+        this.$el?.close();
+      }
+      this.$emit('open', value);
+    }
   }
 };
 </script>

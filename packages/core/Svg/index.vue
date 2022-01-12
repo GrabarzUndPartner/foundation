@@ -18,6 +18,7 @@ export default {
   vertical-align: middle;
 
   & svg {
+    display: block;
     width: 100%;
   }
 }

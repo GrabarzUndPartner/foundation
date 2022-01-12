@@ -1,9 +1,11 @@
+import Options from './Options';
+
 export default class Dataset {
   #options = null;
   #model = null;
 
   constructor (options, model) {
-    this.#options = options;
+    this.#options = new Options(options);
     this.#model = model;
   }
 
@@ -17,7 +19,7 @@ export default class Dataset {
 
   toJSON () {
     return {
-      options: this.#options,
+      options: this.#options.toJSON(),
       model: this.#model.toJSON()
     };
   }

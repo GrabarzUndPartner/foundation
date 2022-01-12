@@ -1,10 +1,10 @@
 <template>
-  <base-dialog v-bind="$attrs" :prevent-default-opener="true" v-on="$listeners" @open="onOpen">
+  <base-dialog v-bind="$attrs" :prevent-default-opener="true" v-on="$listeners">
     <template #default="{content, dialogName}">
       <slot name="link" :dialogName="dialogName" :deep="deep">
-        <link-modal :dialog-name="dialogName" :deep="deep">
+        <mutation-modal-opener-to :component="Link" :dialog-name="dialogName" :deep="deep">
           Close
-        </link-modal>
+        </mutation-modal-opener-to>
       </slot>
       <slot name="default" :content="content">
         {{ content }}
@@ -14,30 +14,22 @@
 </template>
 
 <script>
-import Deep from '../../../Link/classes/Deep';
-import LinkModal from '../../../Link/mutation/Modal';
+import Deep from '../../../mutation/classes/Deep';
+import Link from '../../../Link';
+import MutationModalOpenerTo from '../../../mutation/ModalOpenerTo';
 import BaseDialog from '../../index';
 
 export default {
   components: {
     BaseDialog,
-    LinkModal
+    MutationModalOpenerTo
   },
 
   data () {
     return {
+      Link,
       deep: new Deep(this.$attrs.name)
     };
-  },
-
-  methods: {
-    onOpen (value) {
-      if (value) {
-        this.$el?.showModal();
-      } else {
-        this.$el?.close();
-      }
-    }
   }
 };
 </script>

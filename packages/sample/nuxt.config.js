@@ -5,7 +5,9 @@ import fs from 'fs';
 const isDev = process.env.NODE_ENV === 'development'; ;
 
 export default {
+  dev: isDev,
   target: 'static',
+  srcDir: 'src/',
 
   server: {
     host: getHost(),
@@ -98,7 +100,10 @@ export default {
       plugins: {
         'postcss-preset-env': {
           preserve: true,
-          stage: 0
+          stage: 0,
+          importFrom: [
+            'src/globals/postcss.js'
+          ]
         },
         'postcss-normalize': {},
         'postcss-momentum-scrolling': [

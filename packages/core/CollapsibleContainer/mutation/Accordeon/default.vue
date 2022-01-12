@@ -6,39 +6,42 @@
     v-on="$listeners"
   >
     <template #label="{option}">
-      {{ option.label }}
-      <icon size="small">
+      <span>
+        {{ option.label }}
+      </span>
+      <icon-default size="medium">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
-      </icon>
+      </icon-default>
     </template>
     <template #content="{show, option}">
-      <accordeon-transition-expand>
+      <transition-expand>
         <section v-show="show">
-          <slot name="content" :option="option">
-            {{ option.content }}
-          </slot>
+          <div>
+            <slot name="content" :option="option">
+              {{ option.content }}
+            </slot>
+          </div>
         </section>
-      </accordeon-transition-expand>
+      </transition-expand>
     </template>
   </accordeon>
 </template>
 
 <script>
 
-import Icon from '../../../Icon';
-import AccordeonTransitionExpand from '../../transition/expand';
+import IconDefault from '../../../Icon/default';
+import TransitionExpand from '../../transition/expand';
 import Dataset from '../../classes/Dataset';
 import Model from '../../classes/Model';
-import Option from '../../classes/Option';
 import Accordeon from './index';
 
 export default {
   components: {
     Accordeon,
-    AccordeonTransitionExpand,
-    Icon
+    TransitionExpand,
+    IconDefault
   },
 
   inheritAttrs: false,
@@ -47,15 +50,11 @@ export default {
     dataset: {
       type: Dataset,
       default () {
-        const model = new Model(`default-${Math.random()}`, 'b');
-        const options = [
+        return new Dataset([
           { label: 'LABEL A', value: 'a', content: 'CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A ' },
           { label: 'LABEL B', value: 'b', content: 'CONTENT B' },
           { label: 'LABEL C', value: 'c', content: 'CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C ' }
-        ].map(({ label, value, content }) => {
-          return new Option(label, value, content);
-        });
-        return new Dataset(options, model);
+        ], new Model(`default-${Math.random()}`, 'b'));
       }
     }
   }
@@ -66,36 +65,51 @@ export default {
 .accordeon.design-default {
   display: flex;
   flex-wrap: wrap;
+  font-family: sans-serif;
 
   & >>> {
-    & label {
-      display: block;
-      width: 100%;
+    & input:checked + label {
+      & > .icon {
+        transform: rotate(180deg);
+      }
+    }
 
-      & .icon svg {
-        width: 48px;
+    & input:checked + label,
+    & input:focus + label,
+    & label:hover {
+      color: #fff;
+      background: #333;
+    }
+
+    & label {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: calc(8 / 16 * 1em);
+      background: #eee;
+
+      & .icon {
+        order: 0;
+        margin-right: calc(8 / 16 * 1em);
+        transition: transform 0.2s;
+      }
+
+      & > span {
+        flex: 1;
+        order: 1;
+        font-size: calc(14 / 16 * 1em);
+        line-height: 1;
       }
     }
   }
 
   & > section {
-    /* display: block !important; */
     width: 100%;
-  }
-}
-</style>
 
-<style lang="postcss" type="design" scoped>
-.design-default {
-  & >>> {
-    & input {
-      &:focus + label {
-        box-shadow: 0 0 5px #2196f3;
-      }
-
-      &:checked + label > .icon svg {
-        transform: rotate(180deg);
-      }
+    & > div {
+      padding: calc(8 / 16 * 1em);
+      border: solid #eee 1px;
+      border-top-width: 0;
     }
   }
 }
