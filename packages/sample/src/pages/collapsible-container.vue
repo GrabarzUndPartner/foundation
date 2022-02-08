@@ -2,12 +2,13 @@
   <div>
     <fieldset>
       <legend>CollapsibleContainer</legend>
-      <collapsible-container :dataset="dataset" collapsible />
+      <collapsible-container :dataset="datasetA" collapsible />
     </fieldset>
     <fieldset>
       <legend>Accordeon (Index)</legend>
-      <accordeon-index :dataset="dataset" />
+      <accordeon-index :dataset="datasetB" />
     </fieldset>
+
     <fieldset>
       <legend>Accordeon (Default)</legend>
       <accordeon-default />
@@ -15,7 +16,7 @@
     <hr>
     <fieldset>
       <legend>FlyoutNavi (Index)</legend>
-      <flyout-navi-index :dataset="dataset" />
+      <flyout-navi-index :dataset="datasetC" />
     </fieldset>
     <fieldset>
       <legend>FlyoutNavi (Default)</legend>
@@ -29,11 +30,11 @@
 <script>
 /* eslint-disable vue/no-unused-components */
 import CollapsibleContainer from '@foundation/core/CollapsibleContainer';
-import AccordeonIndex from '@foundation/core/CollapsibleContainer/mutation/Accordeon';
-import AccordeonDefault from '@foundation/core/CollapsibleContainer/mutation/Accordeon/Default';
-import FlyoutNaviIndex from '@foundation/core/CollapsibleContainer/mutation/FlyoutNavi';
-import FlyoutNaviDefault from '@foundation/core/CollapsibleContainer/mutation/FlyoutNavi/default';
-import Transformable from '@foundation/core/CollapsibleContainer/mutation/Transformable';
+import AccordeonIndex from '@foundation/core/CollapsibleContainer/Accordeon';
+import AccordeonDefault from '@foundation/core/CollapsibleContainer/Accordeon/Default';
+import FlyoutNaviIndex from '@foundation/core/CollapsibleContainer/FlyoutNavi';
+import FlyoutNaviDefault from '@foundation/core/CollapsibleContainer/FlyoutNavi/default';
+import Transformable from '@foundation/core/CollapsibleContainer/Transformable';
 
 import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
 import Model from '@foundation/core/CollapsibleContainer/classes/Model';
@@ -49,13 +50,18 @@ export default {
   },
   data () {
     return {
-      dataset: new Dataset([
-        { label: 'LABEL A', value: 'a', content: 'CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A ' },
-        { label: 'LABEL B', value: 'b', content: 'CONTENT B' },
-        { label: 'LABEL C', value: 'c', content: 'CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C ' }
-      ], new Model('default', 'b'))
+      datasetA: getDataset('Label A'),
+      datasetB: getDataset('Label B'),
+      datasetC: getDataset('Label C')
     };
   }
+};
+const getDataset = (label) => {
+  return new Dataset([
+    { label: label + '1', value: 'a', content: 'CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A CONTENT A ' },
+    { label: label + '2', value: 'b', content: 'CONTENT B' },
+    { label: label + '3', value: 'c', content: 'CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C CONTENT C ' }
+  ], new Model('default', 'b'));
 };
 </script>
 

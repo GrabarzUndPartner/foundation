@@ -17,3 +17,9 @@ export default {
   inheritAttrs: false
 };
 </script>
+
+<style lang="postcss" scoped>
+.design-default {
+  font-family: monospace;
+}
+</style>

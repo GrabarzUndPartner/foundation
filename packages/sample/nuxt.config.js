@@ -2,7 +2,9 @@
 import path from 'path';
 import fs from 'fs';
 
-const isDev = process.env.NODE_ENV === 'development'; ;
+import * as functions from './src/globals/postcss/functions';
+
+const isDev = process.env.NODE_ENV === 'development'; ;;
 
 export default {
   dev: isDev,
@@ -51,7 +53,8 @@ export default {
   build: {
 
     transpile: [
-      '@foundation/core'
+      '@foundation/core',
+      '@splidejs/splide-extension-intersection'
     ],
 
     analyze: false,
@@ -109,6 +112,21 @@ export default {
         'postcss-momentum-scrolling': [
           'scroll'
         ],
+        'postcss-functions': {
+          functions
+        },
+        rfs: {
+          twoDimensional: false,
+          baseValue: 16,
+          unit: 'rem',
+          breakpoint: 1200,
+          breakpointUnit: 'px',
+          factor: 10,
+          class: false,
+          unitPrecision: 6,
+          safariIframeResizeBugFix: false,
+          remValue: 16
+        },
         'rucksack-css': {},
         lost: {
           gutter: '15px',
@@ -117,6 +135,31 @@ export default {
         }
       },
       order: 'cssnanoLast'
+    }
+  },
+
+  image: {
+    // The screen sizes predefined by `@nuxt/image`:
+    screens: {
+      default: 320,
+      xxs: 480,
+      xs: 576,
+      sm: 768,
+      md: 996,
+      lg: 1200,
+      xl: 1367,
+      xxl: 1600,
+      '4k': 1921
+    },
+
+    domains: [
+      'picsum.photos', 'img.youtube.com', 'i.vimeocdn.com', 'i.pickadummy.com'
+    ],
+    alias: {
+      picsum: 'https://picsum.photos',
+      youtube: 'https://img.youtube.com',
+      vimeo: 'https://i.vimeocdn.com',
+      pickadummy: 'https://i.pickadummy.com'
     }
   },
 

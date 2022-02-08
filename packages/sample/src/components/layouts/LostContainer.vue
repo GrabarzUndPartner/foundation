@@ -5,7 +5,7 @@
   >
     <slot name="background" />
     <div
-      class="lost-flex-container"
+      :class="{'lost-flex-container': container}"
     >
       <slot />
     </div>
@@ -22,6 +22,10 @@ export default {
       default () {
         return 'div';
       }
+    },
+    container: {
+      type: Boolean,
+      default: true
     }
   }
 
@@ -30,32 +34,28 @@ export default {
 </script>
 
 <style lang="postcss">
-.gp-layouts-default-container {
-  &:first-child {
-    margin-top: 0;
-  }
-
+.lost-container {
   & .lost-flex-container {
     display: flex;
-
-    @media (--xs) {
-      lost-center: 540px;
-    }
 
     @media (--default-max) {
       padding: 0 $lost-gutter;
     }
 
+    @media (--xs) {
+      lost-center: em(540px);
+    }
+
     @media (--sm) {
-      lost-center: 720px;
+      lost-center: em(720px);
     }
 
     @media (--md) {
-      lost-center: 960px;
+      lost-center: em(960px);
     }
 
     @media (--lg) {
-      lost-center: 1140px;
+      lost-center: em(1140px);
     }
   }
 }

@@ -19,15 +19,15 @@ export default {
 <style lang="postcss" scoped>
 .design-default.icon {
   &.small {
-    width: calc(16 / 16 * 1em);
+    width: 16px;
   }
 
   &.medium {
-    width: calc(24 / 16 * 1em);
+    width: 24px;
   }
 
   &.large {
-    width: calc(32 / 16 * 1em);
+    width: 32px;
   }
 }
 </style>

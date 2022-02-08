@@ -22,7 +22,7 @@
 <script>
 import BaseDialog from '@foundation/core/Dialog';
 import Deep from '@foundation/core/mutation/classes/Deep';
-import MenuDialog from '@foundation/core/Dialog/mutation/Menu';
+import MenuDialog from '@foundation/core/Dialog/Menu';
 import SampleLinkModal from '@/components/atoms/link/Modal';
 export default {
   components: {

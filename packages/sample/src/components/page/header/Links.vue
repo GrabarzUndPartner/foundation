@@ -52,8 +52,13 @@ export default {
 
   & li {
     width: calc(1 / 6 * 100%);
-    padding: calc(8 / 16 * 1em);
+    padding: em(8);
   }
+
+  & a.nuxt-link-exact-active {
+    font-weight: bold;
+  }
+
 }
 
 </style>

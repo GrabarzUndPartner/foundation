@@ -1,6 +1,6 @@
 <template>
   <base-button class="atom-button" :class="classes" v-bind="$attrs" v-on="$listeners">
-    <icon v-if="icon || loading" :icon="loading? 'loading' : icon" />
+    <atom-icon v-if="icon || loading" :icon="loading? 'loading' : icon" />
     <slot name="default" :label="label">
       <span v-if="label" v-html="label" />
     </slot>
@@ -10,12 +10,12 @@
 
 <script>
 import BaseButton from '@foundation/core/Button';
-import Icon from '../Icon';
+import AtomIcon from '@/components/atoms/Icon';
 
 export default {
   components: {
     BaseButton,
-    Icon
+    AtomIcon
   },
   props: {
     label: {
@@ -46,12 +46,12 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  padding: calc(8 / 14 * 1em) calc(16 / 14 * 1em);
-  font-size: calc(14 / 16 * 1em);
+  padding: em(8, 14) em(16, 14);
+  font-size: em(14);
   line-height: 1;
   cursor: pointer;
   background: #fff;
-  border: solid #aaa calc(1 / 14 * 1em);
+  border: solid #aaa em(1, 14);
   appearance: none;
 
   &:not([disabled]):hover {
@@ -72,8 +72,8 @@ export default {
   }
 
   & >>> .icon {
-    width: 1em;
-    margin-right: calc(8 / 14 * 1em);
+    width: em(16, 14);
+    margin-right: em(8, 14);
   }
 
 }

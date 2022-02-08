@@ -10,7 +10,7 @@
 
 <script>
 import BaseLink from '@foundation/core/Link';
-import Icon from '../Icon';
+import Icon from '@/components/atoms/Icon';
 
 export default {
   components: {

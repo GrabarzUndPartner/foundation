@@ -2,6 +2,7 @@
   <div>
     <page-header :dataset="headerDataset" />
     <Nuxt />
+    <page-footer :links="footerLinks" />
   </div>
 </template>
 
@@ -10,12 +11,25 @@
 import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
 import Model from '@foundation/core/CollapsibleContainer/classes/Model';
 import PageHeader from '@/components/page/Header';
+import PageFooter from '@/components/page/Footer';
+
 export default {
   components: {
-    PageHeader
+    PageHeader,
+    PageFooter
   },
   data () {
     return {
+      footerLinks: [
+        {
+          title: 'Imprint',
+          to: '#imprint'
+        },
+        {
+          title: 'Disclaimer',
+          to: '#disclaimer'
+        }
+      ],
       headerDataset: new Dataset([
         {
           label: 'Links',
@@ -25,23 +39,35 @@ export default {
             props: {
               links: [
                 {
-                  title: 'button',
+                  title: 'Button',
                   to: '/button'
                 },
                 {
-                  title: 'link',
-                  to: '/link'
-                },
-                {
-                  title: 'collapsible-container',
-                  to: '/collapsible-container'
-                },
-                {
-                  title: 'dialog',
+                  title: 'Dialog',
                   to: '/dialog'
                 },
                 {
-                  title: 'article',
+                  title: 'Headline',
+                  to: '/headline'
+                },
+                {
+                  title: 'Rich Text',
+                  to: '/rich-text'
+                },
+                {
+                  title: 'Collapsible-Container',
+                  to: '/collapsible-container'
+                },
+                {
+                  title: 'Link',
+                  to: '/link'
+                },
+                {
+                  title: 'Slider',
+                  to: '/slider'
+                },
+                {
+                  title: 'Article',
                   to: '/article'
                 },
                 {
@@ -49,20 +75,8 @@ export default {
                   to: '/iframe'
                 },
                 {
-                  title: 'toggle',
+                  title: 'Toggle',
                   to: '/toggle'
-                },
-                {
-                  title: 'stage',
-                  to: '/stage'
-                },
-                {
-                  title: 'image-text',
-                  to: '/image-text'
-                },
-                {
-                  title: 'Sample page 1',
-                  to: '/sample-page-1'
                 }
               ]
             }
@@ -84,22 +98,50 @@ export default {
 </script>
 
 <style lang="postcss">
+@import "@/assets/css/vars.pcss";
+
 body {
   margin: 0;
-  color: #333;
+  color: var(--color-typo);
+
+  & a {
+    color: var(--color-link);
+  }
+
 }
 
 fieldset {
-  padding: calc(16 / 12 * 1em) calc(8 / 12 * 1em);
-  margin: calc(12 / 16 * 1em) 0;
-  border: solid #333 calc(1 / 16 * 1em);
+  padding: em(16) em(8);
+  margin: em(12) 0;
+  border: solid #333 em(1);
 
   & legend {
-    padding: calc(4 / 12 * 1em) calc(8 / 12 * 1em);
+    padding: em(4, 12) em(8, 12);
     font-family: sans-serif;
-    font-size: calc(12 / 16 * 1em);
+    font-size: em(12);
     color: #fff;
     background: #666;
+  }
+}
+
+</style>
+
+<style lang="postcss">
+body {
+  @media (--default-max) {
+    font-size: vw(16, 375);
+  }
+
+  @media (--xs-min-max) {
+    font-size: vw(16, 576);
+  }
+
+  @media (--sm-min-max) {
+    font-size: vw(16, 768);
+  }
+
+  @media (--md-min-max) {
+    font-size: vw(16, 992);
   }
 }
 

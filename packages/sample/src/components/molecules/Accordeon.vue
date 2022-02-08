@@ -10,7 +10,7 @@
 
 <script>
 import BaseAccordeon from '@foundation/core/mutation/Accordeon';
-import Icon from '../Icon';
+import Icon from '@/components/atoms/Icon';
 
 export default {
   components: {

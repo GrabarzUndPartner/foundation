@@ -1,5 +1,9 @@
 <template>
-  <button-base class="design-default" v-bind="$attrs" v-on="$listeners" />
+  <button-base class="design-default" v-bind="$attrs" v-on="$listeners">
+    <template #default="{label}">
+      <slot>{{ label }}</slot>
+    </template>
+  </button-base>
 </template>
 
 <script>
@@ -17,6 +21,7 @@ export default {
 <style lang="postcss" scoped>
 .design-default {
   position: relative;
+  font-family: monospace;
 
   &.loading {
     pointer-events: none;
