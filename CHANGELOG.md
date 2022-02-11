@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.1](https://github.com/GrabarzUndPartner/foundation/compare/v1.0.0...v1.0.1) (2022-02-11)
+
+
+### Bug Fixes
+
+* **update:** add fonts and prepare for lighthouse ([74cc2e2](https://github.com/GrabarzUndPartner/foundation/commit/74cc2e2a46cab8dcb01283ac65d4b7ddb4ca2039))
+
 # 1.0.0 (2022-02-11)
 
 
