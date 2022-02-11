@@ -2,10 +2,14 @@
 import path from 'path';
 import fs from 'fs';
 
-const isDev = process.env.NODE_ENV === 'development'; ;
+import * as functions from './src/globals/postcss/functions';
+
+const isDev = process.env.NODE_ENV === 'development'; ;;
 
 export default {
+  dev: isDev,
   target: 'static',
+  srcDir: 'src/',
 
   server: {
     host: getHost(),
@@ -31,7 +35,7 @@ export default {
   modern: isDev ? false : 'client',
 
   head: {
-    title: 'sample',
+    title: 'G&P Foundation',
     htmlAttrs: {
       lang: 'en'
     },
@@ -49,7 +53,8 @@ export default {
   build: {
 
     transpile: [
-      '@foundation/core'
+      '@foundation/core',
+      '@splidejs/splide-extension-intersection'
     ],
 
     analyze: false,
@@ -98,12 +103,30 @@ export default {
       plugins: {
         'postcss-preset-env': {
           preserve: true,
-          stage: 0
+          stage: 0,
+          importFrom: [
+            'src/globals/postcss.js'
+          ]
         },
         'postcss-normalize': {},
         'postcss-momentum-scrolling': [
           'scroll'
         ],
+        'postcss-functions': {
+          functions
+        },
+        rfs: {
+          twoDimensional: false,
+          baseValue: 16,
+          unit: 'rem',
+          breakpoint: 1200,
+          breakpointUnit: 'px',
+          factor: 10,
+          class: false,
+          unitPrecision: 6,
+          safariIframeResizeBugFix: false,
+          remValue: 16
+        },
         'rucksack-css': {},
         lost: {
           gutter: '15px',
@@ -115,6 +138,31 @@ export default {
     }
   },
 
+  image: {
+    // The screen sizes predefined by `@nuxt/image`:
+    screens: {
+      default: 320,
+      xxs: 480,
+      xs: 576,
+      sm: 768,
+      md: 996,
+      lg: 1200,
+      xl: 1367,
+      xxl: 1600,
+      '4k': 1921
+    },
+
+    domains: [
+      'picsum.photos', 'img.youtube.com', 'i.vimeocdn.com', 'i.pickadummy.com'
+    ],
+    alias: {
+      picsum: 'https://picsum.photos',
+      youtube: 'https://img.youtube.com',
+      vimeo: 'https://i.vimeocdn.com',
+      pickadummy: 'https://i.pickadummy.com'
+    }
+  },
+
   buildModules: [
     '@nuxt/postcss8',
     '@nuxtjs/eslint-module',
@@ -122,8 +170,12 @@ export default {
   ],
 
   modules: [
-    '@/modules/svg'
-  ]
+    '@/modules/svg',
+    'nuxt-speedkit'
+  ],
+  speedkit: {
+    componentAutoImport: true
+  }
 
 };
 

@@ -1,5 +1,5 @@
 <template>
-  <base-icon v-bind="$attrs">
+  <base-icon class="design-default" v-bind="$attrs">
     <slot name="default" />
   </base-icon>
 </template>
@@ -17,17 +17,17 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
->>> .icon {
+.design-default.icon {
   &.small {
-    width: 1em;
+    width: 16px;
   }
 
   &.medium {
-    width: 2em;
+    width: 24px;
   }
 
   &.large {
-    width: 3em;
+    width: 32px;
   }
 }
 </style>

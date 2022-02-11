@@ -4,7 +4,6 @@ const state = () => ({
 
 const mutations = {
   open (state, content) {
-    console.log('open', state, content);
     state.content = content;
   },
 

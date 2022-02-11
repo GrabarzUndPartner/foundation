@@ -1,6 +1,14 @@
 <template>
-  <button class="button" v-on="$listeners">
-    <slot>{{ label }}</slot>
+  <button
+    class="button"
+    :class="classes"
+    v-bind="$attrs"
+    :disabled="disabled"
+    v-on="$listeners"
+  >
+    <slot name="default" :label="label">
+      <span v-if="label" v-html="label" />
+    </slot>
   </button>
 </template>
 
@@ -10,7 +18,18 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Button Label'
+      default: null
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        disabled: this.disabled
+      };
     }
   }
 };
