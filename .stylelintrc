@@ -30,6 +30,15 @@
       {
         "camelCaseSvgKeywords": true
       }
+    ],
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": [
+          "em",
+          "vw"
+        ]
+      }
     ]
   }
 }
