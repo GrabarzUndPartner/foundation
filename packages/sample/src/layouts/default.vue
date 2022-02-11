@@ -71,10 +71,6 @@ export default {
                   to: '/article'
                 },
                 {
-                  title: 'iframe',
-                  to: '/iframe'
-                },
-                {
                   title: 'Toggle',
                   to: '/toggle'
                 }
