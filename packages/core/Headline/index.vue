@@ -1,5 +1,5 @@
 <template>
-  <component :is="`h${level}`" v-bind="$attrs" v-on="$listeners">
+  <component :is="`h${level}`" v-font="font" v-bind="$attrs" v-on="$listeners">
     <slot />
   </component>
 </template>
@@ -12,6 +12,12 @@ export default {
     level: {
       type: Number,
       default: 1
+    },
+    font: {
+      type: [Object, Array],
+      default () {
+        return [];
+      }
     }
   }
 };

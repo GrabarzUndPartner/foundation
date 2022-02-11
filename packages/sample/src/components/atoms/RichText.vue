@@ -1,7 +1,15 @@
 <template>
-  <base-rich-text v-bind="$attrs" class="atom-rich-text" v-on="$listeners">
-    <slot />
-  </base-rich-text>
+  <base-rich-text
+    :font="[
+      $getFont('Poppins'),
+      $getFont('Poppins', 700, 'normal',{selector: 'strong'}),
+      $getFont('Poppins', 400, 'italic',{selector: 'em'}),
+      $getFont('Poppins', 700, 'italic',{selector: 'strong em, em strong'})
+    ]"
+    v-bind="$attrs"
+    class="atom-rich-text"
+    v-on="$listeners"
+  />
 </template>
 
 <script>
@@ -13,18 +21,19 @@ export default {
 </script>
 <style lang="postcss" scoped>
 .atom-rich-text {
-  padding: em(10, 16) 0;
-  font-family: sans-serif;
-  font-size: em(16);
+  font-size: 1em;
 
-  &  >>> {
-    & p {
-      margin: em(10) 0;
-    }
-
+  & >>> {
+    & p,
     & ul,
     & ol {
-      margin: em(10) 0;
+      margin: 0;
+    }
+
+    & * + p,
+    & * + ul,
+    & * + ol {
+      margin-top: em(10);
     }
 
   }

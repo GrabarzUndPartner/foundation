@@ -80,6 +80,7 @@ const isChecked = (context) => {
 
 <style lang="postcss" scoped>
 input.hidden {
+  position: absolute;
   width: 0;
   height: 0;
   opacity: 0;

@@ -1,36 +1,42 @@
 <template>
   <base-slider class="design-default" v-bind="$attrs" v-on="$listeners">
-    <template #default>
+    <template #default="{splideId}">
       <slot>
-        <default-slide>Default Slide 1</default-slide>
-        <default-slide>Default Slide 2</default-slide>
-        <default-slide>Default Slide 3</default-slide>
+        <default-slide :index="0" :splide-id="splideId">
+          Default Slide 1
+        </default-slide>
+        <default-slide :index="1" :splide-id="splideId">
+          Default Slide 2
+        </default-slide>
+        <default-slide :index="2" :splide-id="splideId">
+          Default Slide 3
+        </default-slide>
       </slot>
     </template>
 
-    <template #afterList="{go, hasNext, hasPrev}">
-      <base-button class="navigation" :disabled="!hasPrev" :aria-label="ariaLabel.prev" :aria-controls="`Slider${_uid}-track`" @click="go('<')">
+    <template #afterList="{splideId, go, hasNext, hasPrev}">
+      <base-button class="navigation" :disabled="!hasPrev" :aria-label="ariaLabel.prev" :aria-controls="`${splideId}-track`" @click="go('<')">
         Prev
       </base-button>
-      <base-button class="navigation prev" :disabled="!hasNext" :aria-label="ariaLabel.next" :aria-controls="`Slider${_uid}-track`" @click="go('>')">
+      <base-button class="navigation prev" :disabled="!hasNext" :aria-label="ariaLabel.next" :aria-controls="`${splideId}-track`" @click="go('>')">
         Next
       </base-button>
     </template>
 
-    <template #afterTrack="{length, index:currentIndex, go, hasNext, hasPrev}">
+    <template #afterTrack="{splideId, length, index:currentIndex, go, hasNext, hasPrev}">
       <div class="pagination">
-        <base-button :disabled="!hasPrev" :aria-label="ariaLabel.prev" :aria-controls="`Slider${_uid}-track`" @click="go('<')">
+        <base-button :disabled="!hasPrev" :aria-label="ariaLabel.prev" :aria-controls="`${splideId}-track`" @click="go('<')">
           Prev
         </base-button>
         <ul>
           <li v-for="index in length" :key="index">
-            <base-button :disabled="(index-1) === currentIndex" :aria-label="`${ariaLabel.slide}${(index-1)}`" :aria-controls="`Slider${_uid}-slide${(index-1)}`" @click="go((index-1))">
+            <base-button :disabled="(index-1) === currentIndex" :aria-label="`${ariaLabel.slide}${(index-1)}`" :aria-controls="`${splideId}-slide${(index-1)}`" @click="go((index-1))">
               {{ index }}
             </base-button>
           </li>
         </ul>
         <span>{{ currentIndex + 1 }} / {{ length }}</span>
-        <base-button :disabled="!hasNext" :aria-label="ariaLabel.next" :aria-controls="`Slider${_uid}-track`" @click="go('>')">
+        <base-button :disabled="!hasNext" :aria-label="ariaLabel.next" :aria-controls="`${splideId}-track`" @click="go('>')">
           Next
         </base-button>
       </div>

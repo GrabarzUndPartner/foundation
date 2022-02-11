@@ -1,49 +1,49 @@
 
 <template>
-  <basic-slider class="molecule-slider">
-    <template #default>
-      <image-slide />
-      <text-slide />
-      <image-slide />
-      <text-slide />
+  <base-slider class="molecule-slider" :options="{autoHeight: true, type: 'loop'}">
+    <template #default="{splideId}">
+      <image-slide :index="0" :splide-id="splideId" />
+      <text-slide :index="1" :splide-id="splideId" />
+      <image-slide :index="2" :splide-id="splideId" />
+      <text-slide :index="3" :splide-id="splideId" />
     </template>
 
-    <template #afterList="{go, hasNext, hasPrev}">
-      <base-button class="navigation prev" :disabled="!hasPrev" :aria-label="ariaLabel.prev" :aria-controls="`Slider${_uid}-track`" @click="go('<')">
+    <template #afterList="{splideId, go, hasNext, hasPrev}">
+      <base-button class="navigation prev" :disabled="!hasPrev" :aria-label="ariaLabel.prev" :aria-controls="`${splideId}-track`" @click="go('<')">
         <atom-icon icon="chevronLeft" />
       </base-button>
-      <base-button class="navigation next" :disabled="!hasNext" :aria-label="ariaLabel.next" :aria-controls="`Slider${_uid}-track`" @click="go('>')">
+      <base-button class="navigation next" :disabled="!hasNext" :aria-label="ariaLabel.next" :aria-controls="`${splideId}-track`" @click="go('>')">
         <atom-icon icon="chevronRight" />
       </base-button>
     </template>
 
-    <template #afterTrack="{length, index:currentIndex, go, hasNext, hasPrev}">
+    <template #afterTrack="{splideId, length, index:currentIndex, go, hasNext, hasPrev}">
       <div class="pagination">
         <ul>
           <li v-for="index in length" :key="index">
-            <base-button :disabled="(index-1) === currentIndex" :aria-label="`${ariaLabel.slide}${(index-1)}`" :aria-controls="`Slider${_uid}-slide${(index-1)}`" @click="go((index-1))">
+            <base-button :disabled="(index-1) === currentIndex" :aria-label="`${ariaLabel.slide}${(index-1)}`" :aria-controls="`${splideId}-slide${(index-1)}`" @click="go((index-1))">
               <i />
             </base-button>
           </li>
         </ul>
         <div>
-          <base-button class="prev" :disabled="!hasPrev" :aria-label="ariaLabel.prev" :aria-controls="`Slider${_uid}-track`" @click="go('<')">
+          <base-button class="prev" :disabled="!hasPrev" :aria-label="ariaLabel.prev" :aria-controls="`${splideId}-track`" @click="go('<')">
             <atom-icon icon="chevronLeft" />
           </base-button>
           <span>{{ currentIndex + 1 }} / {{ length }}</span>
-          <base-button class="next" :disabled="!hasNext" :aria-label="ariaLabel.next" :aria-controls="`Slider${_uid}-track`" @click="go('>')">
+          <base-button class="next" :disabled="!hasNext" :aria-label="ariaLabel.next" :aria-controls="`${splideId}-track`" @click="go('>')">
             <atom-icon icon="chevronRight" />
           </base-button>
         </div>
       </div>
     </template>
-  </basic-slider>
+  </base-slider>
 </template>
 
 <script>
 /* eslint-disable vue/no-unused-components */
 
-import BasicSlider from '@foundation/core/Slider';
+import BaseSlider from '@foundation/core/Slider';
 import BaseButton from '@foundation/core/Button';
 import ImageSlide from './slider/ImageSlide';
 import TextSlide from './slider/TextSlide';
@@ -51,7 +51,7 @@ import AtomIcon from '@/components/atoms/Icon';
 
 export default {
   components: {
-    BasicSlider,
+    BaseSlider,
     ImageSlide,
     TextSlide,
     BaseButton,

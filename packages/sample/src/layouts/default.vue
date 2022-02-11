@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-header :dataset="headerDataset" />
+    <page-header :dataset="headerDataset" critical />
     <Nuxt />
     <page-footer :links="footerLinks" />
   </div>
@@ -10,13 +10,13 @@
 
 import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
 import Model from '@foundation/core/CollapsibleContainer/classes/Model';
-import PageHeader from '@/components/page/Header';
-import PageFooter from '@/components/page/Footer';
+
+import speedkitLoader from 'nuxt-speedkit/loader';
 
 export default {
   components: {
-    PageHeader,
-    PageFooter
+    PageHeader: () => import('@/components/page/Header'),
+    PageFooter: speedkitLoader(() => import('@/components/page/Footer'))
   },
   data () {
     return {

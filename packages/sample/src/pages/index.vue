@@ -1,19 +1,21 @@
 
 <template>
   <div>
-    <component :is="component" v-for="({component, props}, index) in content" :key="index" v-bind="props" />
+    <component :is="component" v-for="({component, props}, index) in content" :key="index" v-bind="props" :critical="index < 2" />
   </div>
 </template>
 
 <script>
 
+import speedkitLoader from 'nuxt-speedkit/loader';
+
 export default {
-  speedkitComponents: {
-    OrganismStage: () => import('@/components/organisms/Stage'),
-    OrganismText: () => import('@/components/organisms/Text'),
-    OrganismGallery: () => import('@/components/organisms/Gallery'),
-    OrganismTextImage: () => import('@/components/organisms/TextImage'),
-    OrganismTeaserWall: () => import('@/components/organisms/TeaserWall')
+  components: {
+    OrganismStage: speedkitLoader(() => import('@/components/organisms/Stage')),
+    OrganismText: speedkitLoader(() => import('@/components/organisms/Text')),
+    OrganismGallery: speedkitLoader(() => import('@/components/organisms/Gallery')),
+    OrganismTextImage: speedkitLoader(() => import('@/components/organisms/TextImage')),
+    OrganismTeaserWall: speedkitLoader(() => import('@/components/organisms/TeaserWall'))
 
   },
   data () {
@@ -41,7 +43,7 @@ export default {
           props: {
             overline: 'Sample Overline',
             headline: 'Sample Headline',
-            content: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p> <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
+            content: '<p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em> <strong><em>ut labore et dolore magna aliquyam erat</em></strong>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, sed diam</p> <p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em></p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
           }
         },
         {
@@ -53,7 +55,7 @@ export default {
           props: {
             overline: 'Sample Overline',
             headline: 'Sample Headline',
-            content: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p> <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
+            content: '<p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em> <strong><em>ut labore et dolore magna aliquyam erat</em></strong>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, sed diam</p> <p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em></p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
           }
         },
         {
@@ -61,7 +63,7 @@ export default {
           props: {
             overline: 'TextImage',
             headline: 'First TextImage',
-            content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et…',
+            content: 'Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em> <strong><em>ut labore et dolore magna aliquyam erat</em></strong>, sed diam voluptua. At vero eos et accusam et…',
             revert: false
           }
         },
@@ -70,7 +72,7 @@ export default {
           props: {
             overline: 'TextImage',
             headline: 'Second TextImage',
-            content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et…',
+            content: 'Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em> <strong><em>ut labore et dolore magna aliquyam erat</em></strong>, sed diam voluptua. At vero eos et accusam et…',
             revert: true
           }
         },
@@ -79,7 +81,7 @@ export default {
           props: {
             overline: 'Sample Overline',
             headline: 'Sample Headline',
-            content: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p> <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
+            content: '<p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em> <strong><em>ut labore et dolore magna aliquyam erat</em></strong>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, sed diam</p> <p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em></p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
           }
         },
         {
@@ -87,7 +89,7 @@ export default {
           props: {
             overline: 'Sample Overline',
             headline: 'Sample Headline',
-            content: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p> <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
+            content: '<p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em> <strong><em>ut labore et dolore magna aliquyam erat</em></strong>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, sed diam</p> <p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em></p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
           }
         }
       ],

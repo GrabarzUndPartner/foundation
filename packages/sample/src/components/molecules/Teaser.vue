@@ -2,7 +2,7 @@
   <base-teaser class="molecule-teaser" v-bind="$attrs" v-on="$listeners">
     <template #default>
       <speedkit-picture v-bind="image" />
-      <span>{{ caption }}</span>
+      <span v-font="$getFont('Poppins', 500)">{{ caption }}</span>
     </template>
   </base-teaser>
 </template>
@@ -34,10 +34,10 @@ export default {
 
   & span {
     display: block;
-    margin: em(10, 22);
-    font-family: sans-serif;
-    font-size: em(22);
+    margin: em(10, 16);
+    font-size: em(16);
     text-align: center;
+    letter-spacing: em(0.2, 16);
   }
 
 }
