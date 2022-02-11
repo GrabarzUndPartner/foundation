@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/rich-text", {data:[{_img:{}}],fetch:{},mutations:[]});
