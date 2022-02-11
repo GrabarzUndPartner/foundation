@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import DefaultArticle from '@foundation/core/Article/Default';
+import DefaultArticle from '@foundation/core/Article/default';
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 import ImageTextBase from '../';
 

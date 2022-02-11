@@ -35,7 +35,7 @@ export default {
   modern: isDev ? false : 'client',
 
   head: {
-    title: 'sample',
+    title: 'G&P Foundation',
     htmlAttrs: {
       lang: 'en'
     },
