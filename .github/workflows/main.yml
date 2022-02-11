@@ -82,7 +82,7 @@ jobs:
       - name: Build
         run: |
           npm run generate
-          touch dist/.nojekyll
+          touch packages/sample/dist/.nojekyll
         env:
           WEBSITE_HOST: https://grabarzundpartner.github.io
           BASE_PATH: /foundation/
