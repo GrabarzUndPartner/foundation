@@ -81,7 +81,7 @@ jobs:
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
-          npm run generate --website-host=#
+          npm run static --website-host=http://localhost
           touch dist/.nojekyll
         env:
           DIST_PATH: dist
