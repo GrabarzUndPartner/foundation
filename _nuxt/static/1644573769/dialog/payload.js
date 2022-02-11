@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/dialog", {data:[{_img:{}}],fetch:{},mutations:[]});

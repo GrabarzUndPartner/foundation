@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/button", {data:[{_img:{},_criticalFontStyles:{}}],fetch:{},mutations:[]});

@@ -1,6 +1,6 @@
 /*!
  * Splide.js
- * Version  : 3.6.10
+ * Version  : 3.6.12
  * License  : MIT
  * Copyright: 2022 Naotoshi Fujita
  */
@@ -8,7 +8,7 @@
 
 /*!
  * @splidejs/splide-extension-intersection
- * Version  : 0.1.5
+ * Version  : 0.1.6
  * License  : MIT
  * Copyright: 2022 Naotoshi Fujita
  */
