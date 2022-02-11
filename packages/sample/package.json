@@ -33,6 +33,7 @@
     "js-yaml": "^4.1.0",
     "lost": "8.3.1",
     "nuxt": "2.15.8",
+    "nuxt-speedkit": "^2.0.0-beta.16",
     "postcss-custom-media": "^7.0.8",
     "postcss-functions": "^4.0.2",
     "postcss-momentum-scrolling": "3.14.22",
