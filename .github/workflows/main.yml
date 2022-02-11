@@ -81,9 +81,11 @@ jobs:
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
       - name: Build
         run: |
-          npm run generate --website-host=http://localhost
-          touch packages/sample/dist/.nojekyll
+          npm run generate
+          touch dist/.nojekyll
         env:
+          WEBSITE_HOST: https://grabarzundpartner.github.io
+          BASE_PATH: /foundation/
           DIST_PATH: dist
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master

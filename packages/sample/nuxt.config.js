@@ -138,6 +138,10 @@ export default {
     }
   },
 
+  router: {
+    base: getBasePath()
+  },
+
   image: {
     // The screen sizes predefined by `@nuxt/image`:
     screens: {
@@ -185,4 +189,8 @@ function getHost () {
 
 function getPort () {
   return process.env.npm_config_port || process.env.PORT || 3000;
+}
+
+function getBasePath () {
+  return process.env.npm_config_base || process.env.BASE_PATH || '/';
 }
