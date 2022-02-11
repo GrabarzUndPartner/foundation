@@ -17,12 +17,12 @@
 - Headline ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Headline/index.vue)) | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Headline/default.vue))
 - Icon ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Icon/index.vue)) | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Icon/default.vue))
 - Link ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Link/index.vue)) | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Link/default.vue))
-- RichText ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/RichText/index.vue)) | | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/RichText/default.vue))
-- Slider ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Slider/index.vue)) | | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Slider/default.vue))
-  - Slide  ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Slider/Slide/index.vue)) | | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Slider/Slide/default.vue))
+- RichText ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/RichText/index.vue)) | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/RichText/default.vue))
+- Slider ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Slider/index.vue)) | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Slider/default.vue))
+  - Slide  ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Slider/Slide/index.vue)) | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Slider/Slide/default.vue))
 - Svg ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Svg/index.vue))
-- Toggle  ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Toggle/index.vue)) | | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Toggle/default.vue))
-- Toggle  ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Toggle/index.vue)) | | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Toggle/default.vue))
+- Toggle  ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Toggle/index.vue)) | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Toggle/default.vue))
+- Toggle  ([index](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Toggle/index.vue)) | ([default](https://github.com/GrabarzUndPartner/foundation/blob/main/packages/core/Toggle/default.vue))
 
 
 ### Mutations

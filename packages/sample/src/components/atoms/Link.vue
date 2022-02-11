@@ -46,7 +46,6 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  font-family: sans-serif;
   color: #000;
 
   &.loading {

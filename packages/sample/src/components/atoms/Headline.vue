@@ -1,5 +1,13 @@
 <template>
-  <base-headline class="atom-headline" v-bind="$attrs" v-on="$listeners">
+  <base-headline
+    class="atom-headline"
+    v-bind="$attrs"
+    :font="[
+      $getFont('Raleway',700),
+      $getFont('Poppins',500, 'normal', {selector: 'span:first-child'})
+    ]"
+    v-on="$listeners"
+  >
     <slot>
       <span v-if="overline">{{ overline }}</span><span>{{ text }}</span>
     </slot>
@@ -31,7 +39,6 @@ export default {
 
 <style lang="postcss" scoped>
 .atom-headline {
-  font-family: sans-serif;
   font-size: 1em;
 
   /* font-size: 1em; */
@@ -43,12 +50,10 @@ export default {
   & span:first-child {
     margin-bottom: em(10, var(--font-size-overline));
     font-size: em(var(--font-size-overline));
-    font-weight: bold;
   }
 
   & span:last-child {
     font-size: em(var(--font-size-text));
-    font-weight: bold;
   }
 
 }

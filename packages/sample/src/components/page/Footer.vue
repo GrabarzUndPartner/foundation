@@ -1,5 +1,5 @@
 <template>
-  <layout-lost-container class="page-footer">
+  <layout-lost-container v-font="$getFont('Poppins', 400)" class="page-footer">
     <nav>
       <ul>
         <li v-for="(link, index) in links" :key="index">

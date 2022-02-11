@@ -38,7 +38,6 @@ export default {
     width: 100%;
     padding: em(32, 32) 0;
     margin: 0;
-    font-family: sans-serif;
     font-size: em(32);
     text-align: center;
 

@@ -1,5 +1,11 @@
 <template>
-  <div class="page-header-links">
+  <div
+    v-font="[
+      $getFont('Poppins',400, 'normal'),
+      $getFont('Poppins',700, 'normal', {selector: '.nuxt-link-exact-active'})
+    ]"
+    class="page-header-links"
+  >
     <ul>
       <li v-for="link in links" :key="link.title">
         <atom-link v-bind="link" />
@@ -51,8 +57,12 @@ export default {
   }
 
   & li {
-    width: calc(1 / 6 * 100%);
+    width: 100%;
     padding: em(8);
+
+    @media (--sm) {
+      width: calc(1 / 6 * 100%);
+    }
   }
 
   & a.nuxt-link-exact-active {

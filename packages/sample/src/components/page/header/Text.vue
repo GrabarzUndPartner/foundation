@@ -1,10 +1,15 @@
 <template>
-  <div class="page-header-text" v-html="text" />
+  <div class="page-header-text">
+    <atom-rich-text :value="text" />
+  </div>
 </template>
 
 <script>
-
+import AtomRichText from '@/components/atoms/RichText';
 export default {
+  components: {
+    AtomRichText
+  },
   props: {
     text: {
       type: String,

@@ -1,6 +1,6 @@
 <template>
   <layout-lost-container :container="false" class="organism-gallery">
-    <molecule-slider />
+    <molecule-slider class="slider" />
   </layout-lost-container>
 </template>
 
@@ -32,6 +32,20 @@ export default {
 
   @media (--sm) {
     margin: em(48) 0;
+  }
+
+  & .slider {
+    lost-column: 12 / 12;
+
+    @media (--sm) {
+      lost-offset: 1 / 12;
+      lost-column: 10 / 12;
+    }
+
+    @media (--md) {
+      lost-offset: 2 / 12;
+      lost-column: 8 / 12;
+    }
   }
 
 }

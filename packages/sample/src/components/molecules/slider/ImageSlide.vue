@@ -1,5 +1,5 @@
 <template>
-  <basic-slide class="molecule-slider-image-slide">
+  <basic-slide class="molecule-slider-image-slide" v-bind="$attrs" v-on="$listeners">
     <speedkit-picture v-bind="image" />
   </basic-slide>
 </template>
@@ -11,6 +11,7 @@ import BasicSlide from '@foundation/core/Slider/Slide';
 
 export default {
   components: { BasicSlide, SpeedkitPicture },
+  inheritAttrs: false,
   props: {
     image: {
       type: Object,

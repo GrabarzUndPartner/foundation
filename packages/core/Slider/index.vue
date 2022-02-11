@@ -1,19 +1,25 @@
 <template>
   <div>
     <div ref="slider">
-      <slot name="beforeTrack" v-bind="{index, length, go, hasNext, hasPrev}" />
-      <div class="splide__track">
-        <slot name="beforeList" v-bind="{index, length, go, hasNext, hasPrev}" />
+      <slot name="beforeTrack" v-bind="{splideId, index, length, go, hasNext, hasPrev}" />
+      <div :id="`${splideId}-track`" class="splide__track">
+        <slot name="beforeList" v-bind="{splideId, index, length, go, hasNext, hasPrev}" />
         <component :is="listTag" class="splide__list">
-          <slot v-bind="{index, length, go, hasNext, hasPrev}">
-            <base-slide>Slide 1</base-slide>
-            <base-slide>Slide 2</base-slide>
-            <base-slide>Slide 3</base-slide>
+          <slot v-bind="{splideId, index, length, go, hasNext, hasPrev}">
+            <base-slide :index="0" :splide-id="splideId">
+              Slide 1
+            </base-slide>
+            <base-slide :index="1" :splide-id="splideId">
+              Slide 2
+            </base-slide>
+            <base-slide :index="2" :splide-id="splideId">
+              Slide 3
+            </base-slide>
           </slot>
         </component>
-        <slot name="afterList" v-bind="{index, length, go, hasNext, hasPrev}" />
+        <slot name="afterList" v-bind="{splideId, index, length, go, hasNext, hasPrev}" />
       </div>
-      <slot name="afterTrack" v-bind="{index, length, go, hasNext, hasPrev}" />
+      <slot name="afterTrack" v-bind="{splideId, index, length, go, hasNext, hasPrev}" />
     </div>
   </div>
 </template>
@@ -22,6 +28,7 @@
 import { getSplide } from './utils';
 import BaseSlide from './Slide';
 
+let sliderIndex = 1;
 export default {
   components: { BaseSlide },
   props: {
@@ -29,8 +36,7 @@ export default {
     options: {
       type: Object,
       default () {
-        return {
-        };
+        return {};
       }
     },
     // https://splidejs.com/extensions/
@@ -54,6 +60,7 @@ export default {
       go: null,
       states: null,
       splide: null,
+      splideId: null,
       splideWrapper: { splide: null }
     };
   },
@@ -76,10 +83,16 @@ export default {
     }
   },
 
+  created () {
+    this.splideId = `splide${String(sliderIndex).padStart(2, '0')}`;
+    sliderIndex++;
+  },
+
   async mounted () {
     const { Splide, STATES, extensions } = await getSplide();
     const { Intersection } = extensions;
     this.states = STATES;
+
     this.splide = new Splide(this.$refs.slider, {
       ...this.options,
       pagination: false,
@@ -94,11 +107,15 @@ export default {
         }
       }
     });
+
     this.go = this.splide.go.bind(this.splide);
+
     this.splide.on('moved', index => (this.index = index));
     this.splide.on('mounted', () => {
+      this.splideId = this.splide.root.id;
       this.ready = true;
     });
+
     this.$nextTick(() => {
       this.splide.mount({ ...extensions, Intersection });
     });

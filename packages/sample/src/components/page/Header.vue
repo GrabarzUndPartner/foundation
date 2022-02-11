@@ -1,10 +1,18 @@
 <template>
   <div class="page-header" :style="{'--visible': visible}">
     <div class="inner">
-      <div>
-        <span class="logo"><span>Foundation Sample</span></span>
-      </div>
-      <page-header-flyout-navi class="flyout-navi" :dataset="dataset" />
+      <layout-lost-container>
+        <div class="logo-container">
+          <nuxt-link to="/" class="logo">
+            <span v-font="$getFont('Raleway',700)">Foundation Sample</span>
+          </nuxt-link>
+        </div>
+      </layout-lost-container>
+      <layout-lost-container>
+        <div class="navigation">
+          <page-header-flyout-navi class="flyout-navi" :dataset="dataset" />
+        </div>
+      </layout-lost-container>
     </div>
   </div>
 </template>
@@ -16,10 +24,12 @@ import Option from '@foundation/core/CollapsibleContainer/classes/Option';
 
 import { fromEvent } from 'rxjs';
 import { startWith, share } from 'rxjs/operators';
+import LayoutLostContainer from '@/components/layouts/LostContainer';
 import PageHeaderFlyoutNavi from '@/components/page/header/FlyoutNavi';
 
 export default {
   components: {
+    LayoutLostContainer,
     PageHeaderFlyoutNavi
   },
   props: {
@@ -91,21 +101,30 @@ export default {
 
   & .inner {
     position: relative;
-    padding-bottom: em(32);
     background: #fff;
 
-    & > div {
+    & .logo-container {
       position: relative;
       transition: height 0.1s;
     }
 
   }
 
+  & >>> .lost-container + .lost-container {
+    background: #eee;
+  }
+
+  & .navigation {
+    position: relative;
+    lost-column: 12 / 12;
+    height: em(32);
+  }
+
   & .logo {
     display: block;
-    padding: em(24) em(16);
+    padding: calc(em(24) * (1 - (var(--visible) / 3))) em(8);
     padding-right: 0;
-    font-family: sans-serif;
+    text-decoration: none;
 
     & > span {
       font-size: calc(em(32) * (1 - (var(--visible) / 3)));
