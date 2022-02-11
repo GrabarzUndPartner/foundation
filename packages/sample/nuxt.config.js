@@ -115,18 +115,6 @@ export default {
         'postcss-functions': {
           functions
         },
-        rfs: {
-          twoDimensional: false,
-          baseValue: 16,
-          unit: 'rem',
-          breakpoint: 1200,
-          breakpointUnit: 'px',
-          factor: 10,
-          class: false,
-          unitPrecision: 6,
-          safariIframeResizeBugFix: false,
-          remValue: 16
-        },
         'rucksack-css': {},
         lost: {
           gutter: '15px',

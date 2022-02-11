@@ -38,7 +38,6 @@
     "postcss-functions": "^4.0.2",
     "postcss-momentum-scrolling": "3.14.22",
     "postcss-normalize": "10.0.1",
-    "rfs": "^10.0.0-alpha.0",
     "rucksack-css": "1.0.2",
     "vue-svg-loader": "^0.16.0"
   },
