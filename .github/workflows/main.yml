@@ -82,14 +82,14 @@ jobs:
       - name: Build
         run: |
           npm run generate --website-host=http://localhost
-          touch dist/.nojekyll
+          touch packages/sample/dist/.nojekyll
         env:
           DIST_PATH: dist
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
           name: artifact
-          path: dist
+          path: packages/sample/dist
 
   deploy-ghpages:
     name: Deploy (GH-Pages)
