@@ -11,12 +11,12 @@
 import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
 import Model from '@foundation/core/CollapsibleContainer/classes/Model';
 
-import speedkitLoader from 'nuxt-speedkit/loader';
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
 
 export default {
   components: {
     PageHeader: () => import('@/components/page/Header'),
-    PageFooter: speedkitLoader(() => import('@/components/page/Footer'))
+    PageFooter: speedkitHydrate(() => import('@/components/page/Footer'))
   },
   data () {
     return {

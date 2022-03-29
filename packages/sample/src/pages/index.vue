@@ -7,15 +7,15 @@
 
 <script>
 
-import speedkitLoader from 'nuxt-speedkit/loader';
+import speedkitHydrate from 'nuxt-speedkit/hydrate';
 
 export default {
   components: {
-    OrganismStage: speedkitLoader(() => import('@/components/organisms/Stage')),
-    OrganismText: speedkitLoader(() => import('@/components/organisms/Text')),
-    OrganismGallery: speedkitLoader(() => import('@/components/organisms/Gallery')),
-    OrganismTextImage: speedkitLoader(() => import('@/components/organisms/TextImage')),
-    OrganismTeaserWall: speedkitLoader(() => import('@/components/organisms/TeaserWall'))
+    OrganismStage: speedkitHydrate(() => import('@/components/organisms/Stage')),
+    OrganismText: speedkitHydrate(() => import('@/components/organisms/Text')),
+    OrganismGallery: speedkitHydrate(() => import('@/components/organisms/Gallery')),
+    OrganismTextImage: speedkitHydrate(() => import('@/components/organisms/TextImage')),
+    OrganismTeaserWall: speedkitHydrate(() => import('@/components/organisms/TeaserWall'))
 
   },
   data () {
