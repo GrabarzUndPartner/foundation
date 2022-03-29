@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.2](https://github.com/GrabarzUndPartner/foundation/compare/v1.0.1...v1.0.2) (2022-03-29)
+
+
+### Bug Fixes
+
+* **speedkit:** update speedkit ([32db421](https://github.com/GrabarzUndPartner/foundation/commit/32db4218602d5a1b6ddc146840afa4ca5470b401))
+
 ## [1.0.1](https://github.com/GrabarzUndPartner/foundation/compare/v1.0.0...v1.0.1) (2022-02-11)
 
 
