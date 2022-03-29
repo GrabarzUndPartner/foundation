@@ -3,7 +3,6 @@
     v-slot="{href, navigate, isActive, isExactActive }"
     custom
     :to="to"
-    class="link"
   >
     <a
       :href="!disabled && getHref(href)"
@@ -23,9 +22,12 @@ export default {
 
   props: {
     to: {
-      type: [Object, String],
+      type: [
+        Object, String
+      ],
       required: true
     },
+
     disabled: {
       type: Boolean,
       default: false
@@ -39,11 +41,12 @@ export default {
 
   methods: {
     isExternal (href) {
-      return /https:\/\//.test(href);
+      return typeof href === 'string' && /^https?:\/\//.test(href);
     },
+
     getHref (href) {
-      if (this.external || this.isExternal(href)) {
-        return href.replace(/^\//, '');
+      if (this.external || this.isExternal(this.to)) {
+        return this.to;
       }
       return href;
     },
