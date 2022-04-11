@@ -1,90 +1,153 @@
 <template>
-  <base-accordeon class="button" :class="classes" v-bind="$attrs" v-on="$listeners">
-    <icon v-if="icon || loading" :icon="loading? 'loading' : icon" />
-    <slot name="default" :label="label">
-      <span v-if="label" v-html="label" />
-    </slot>
-    <slot name="after" />
+  <base-accordeon
+    class="molecule-accordeon"
+    v-bind="$attrs"
+    :dataset="getDataset"
+    v-on="$listeners"
+  >
+    <template #label="{option}">
+      <span
+        v-font="$getFont('Poppins', 400)"
+      >
+        {{ option.label }}
+      </span>
+    </template>
+    <template #content="{show, option}">
+      <transition-expand>
+        <section v-show="show">
+          <div>
+            <slot name="content" v-bind="{show, option}">
+              <component :is="getContentComponent(component.type)" v-for="(component, index) in option.content" :key="index" v-bind="component.props" />
+            </slot>
+          </div>
+        </section>
+      </transition-expand>
+    </template>
   </base-accordeon>
 </template>
 
 <script>
-import BaseAccordeon from '@foundation/core/mutation/Accordeon';
-import Icon from '@/components/atoms/Icon';
+import BaseAccordeon from '@foundation/core/CollapsibleContainer/Accordeon';
+import TransitionExpand from '@foundation/core/CollapsibleContainer/transition/expand';
+import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
+import Model from '@foundation/core/CollapsibleContainer/classes/Model';
+
+const CONTENT_COMPONENTS = {
+  Headline: () => import('@/components/atoms/Headline'),
+  RichText: () => import('@/components/atoms/RichText'),
+  Link: () => import('@/components/atoms/Link'),
+  Button: () => import('@/components/atoms/Button')
+};
 
 export default {
-  components: {
-    BaseAccordeon,
-    Icon
-  },
+  components: { BaseAccordeon, TransitionExpand },
+  inheritAttrs: false,
+
   props: {
-    label: {
-      type: String,
-      default: null
-    },
-    icon: {
-      type: String,
-      default: null
-    },
-    loading: {
-      type: Boolean,
-      default: null
+    items: {
+      type: Array,
+      required: true,
+      default () {
+        return [
+          {
+            label: 'Item 1',
+            value: 'item1',
+            content: [
+              {
+                type: 'RichText',
+                props: {
+                  text: 'Lorem Ipsum item 1'
+                }
+              }
+            ]
+          }
+        ];
+      }
     }
   },
+
+  data () {
+    return { unsubscribe: null };
+  },
+
   computed: {
-    classes () {
-      return {
-        loading: this.loading
-      };
+    getDataset () {
+      return new Dataset(this.items, new Model('default-a', 'b'));
+    }
+
+  },
+
+  mounted () {
+    this.unsubscribe = this.$router.afterEach(() => {
+      const model = this.dataset.model;
+      model.value = null;
+    });
+  },
+
+  destroyed () {
+    this.unsubscribe();
+  },
+
+  methods: {
+    getContentComponent (type) {
+      return CONTENT_COMPONENTS[String(type)];
     }
   }
 };
+
 </script>
 
 <style lang="postcss" scoped>
-.button {
-  position: relative;
+.molecule-accordeon {
   display: flex;
-  align-items: center;
-  padding: calc(8 / 14 * 1em) calc(16 / 14 * 1em);
-  font-size: calc(14 / 16 * 1em);
-  line-height: 1;
-  cursor: pointer;
-  background: #fff;
-  border: solid #aaa calc(1 / 14 * 1em);
-  appearance: none;
+  flex-wrap: wrap;
+  font-family: monospace;
 
-  &:not([disabled]):hover {
-    background: #eee;
-  }
+  & >>> {
+    & input:checked + label {
+      & > .icon {
+        transform: rotate(180deg);
+      }
+    }
 
-  &.loading {
-    pointer-events: none;
+    & input:checked + label,
+    & input:focus + label,
+    & label:hover {
+      color: #fff;
+      background: #333;
+    }
 
-  }
+    & label {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 8px;
+      cursor: pointer;
+      background: #eee;
 
-  &[disabled] {
-    cursor: not-allowed;
+      & .icon {
+        order: 0;
+        margin-right: 8px;
+        transition: transform 0.2s;
+      }
 
-    & >>> .icon {
-      opacity: 0.5;
+      & > span {
+        flex: 1;
+        order: 1;
+        font-size: 14px;
+        line-height: 1;
+      }
     }
   }
 
-  & >>> .icon {
-    width: 1em;
-    margin-right: calc(8 / 14 * 1em);
-  }
+  & > section {
+    width: 100%;
 
-}
-
-@keyframes spin {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
+    & > div {
+      padding: 8px;
+      border: solid #eee 1px;
+      border-top-width: 0;
+    }
   }
 }
 </style>
