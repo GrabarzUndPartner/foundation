@@ -1,5 +1,12 @@
 # Project Changelog
 
+# [1.1.0](https://github.com/GrabarzUndPartner/foundation/compare/v1.0.2...v1.1.0) (2022-04-11)
+
+
+### Features
+
+* **components:** sample accordion ([7995128](https://github.com/GrabarzUndPartner/foundation/commit/7995128ce9306d28824dc5538190c1bd6fab9f86))
+
 ## [1.0.2](https://github.com/GrabarzUndPartner/foundation/compare/v1.0.1...v1.0.2) (2022-03-29)
 
 
