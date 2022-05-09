@@ -1,7 +1,7 @@
 <template>
-  <component :is="`h${level}`" v-font="font" v-bind="$attrs" v-on="$listeners">
+  <document-heading v-font="font" v-bind="$attrs" v-on="$listeners">
     <slot />
-  </component>
+  </document-heading>
 </template>
 
 <script>
@@ -9,10 +9,6 @@
 export default {
   inheritAttrs: false,
   props: {
-    level: {
-      type: Number,
-      default: 1
-    },
     font: {
       type: [Object, Array],
       default () {

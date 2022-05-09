@@ -1,21 +1,22 @@
 <template>
   <layout-lost-container class="organism-text">
-    <molecule-article
-      :level="2"
-      v-bind="{
-        overline,
-        headline,
-        content
-      }"
-    />
+    <layout-content>
+      <template #header>
+        <sample-headline :text="headline" :overline="overline" />
+      </template>
+      <atom-rich-text :value="content" />
+    </layout-content>
   </layout-lost-container>
 </template>
 
 <script>
-import MoleculeArticle from '@/components/molecules/Article';
+import LayoutContent from '@/components/layouts/Content';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
+import SampleHeadline from '@/components/atoms/Headline';
+import AtomRichText from '@/components/atoms/RichText';
+
 export default {
-  components: { MoleculeArticle, LayoutLostContainer },
+  components: { LayoutContent, LayoutLostContainer, SampleHeadline, AtomRichText },
   props: {
     overline: {
       type: String,
@@ -41,7 +42,7 @@ export default {
     margin: em(48) 0;
   }
 
-  & >>> .article {
+  & >>> .layout-content {
     lost-offset: 1 / 12;
     lost-column: 10 / 12;
 

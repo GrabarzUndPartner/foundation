@@ -1,15 +1,19 @@
 <template>
   <layout-lost-container class="organism-teaser-wall">
-    <div class="teasers">
-      <teaser v-for="(teaser, index) in teasers" v-bind="teaser" :key="index" />
-    </div>
+    <layout-content>
+      <div class="teasers">
+        <teaser v-for="(teaser, index) in teasers" v-bind="teaser" :key="index" />
+      </div>
+    </layout-content>
   </layout-lost-container>
 </template>
 <script>
 import LayoutLostContainer from '@/components/layouts/LostContainer';
+import LayoutContent from '@/components/layouts/Content';
+
 import Teaser from '@/components/molecules/Teaser';
 export default {
-  components: { LayoutLostContainer, Teaser },
+  components: { LayoutLostContainer, LayoutContent, Teaser },
   props: {
     teasers: {
       type: Array,

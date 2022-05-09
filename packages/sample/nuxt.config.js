@@ -69,7 +69,8 @@ export default {
 
     transpile: [
       '@foundation/core',
-      '@splidejs/splide-extension-intersection'
+      '@splidejs/splide-extension-intersection',
+      'vue-headings'
     ],
 
     analyze: false,
@@ -187,6 +188,12 @@ export default {
       pickadummy: 'https://i.pickadummy.com'
     }
   },
+
+  plugins: [
+    {
+      src: '../../core/plugins/headings'
+    }
+  ],
 
   buildModules: [
     '@nuxt/postcss8',

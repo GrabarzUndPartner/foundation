@@ -2,16 +2,17 @@
 <template>
   <div class="organism-stage-image-text">
     <speedkit-picture v-bind="image" />
-    <atom-headline class="text" :level="1">
+    <sample-headline class="text">
       {{ text }}
-    </atom-headline>
+    </sample-headline>
   </div>
 </template>
 <script>
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
-import AtomHeadline from '@/components/atoms/Headline';
+import SampleHeadline from '@/components/atoms/Headline';
+
 export default {
-  components: { SpeedkitPicture, AtomHeadline },
+  components: { SpeedkitPicture, SampleHeadline },
   inheritAttrs: false,
   props: {
     image: {

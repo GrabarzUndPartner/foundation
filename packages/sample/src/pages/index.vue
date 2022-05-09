@@ -1,8 +1,8 @@
 
 <template>
-  <div>
+  <document-section tag="main">
     <component :is="component" v-for="({component, props}, index) in content" :key="index" v-bind="props" :critical="index < 2" />
-  </div>
+  </document-section>
 </template>
 
 <script>

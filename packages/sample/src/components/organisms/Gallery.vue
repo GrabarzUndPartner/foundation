@@ -1,14 +1,18 @@
 <template>
   <layout-lost-container :container="false" class="organism-gallery">
-    <molecule-slider class="slider" />
+    <layout-content>
+      <molecule-slider class="slider" />
+    </layout-content>
   </layout-lost-container>
 </template>
 
 <script>
 import MoleculeSlider from '@/components/molecules/Slider';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
+import LayoutContent from '@/components/layouts/Content';
+
 export default {
-  components: { MoleculeSlider, LayoutLostContainer },
+  components: { MoleculeSlider, LayoutLostContainer, LayoutContent },
   props: {
     overline: {
       type: String,

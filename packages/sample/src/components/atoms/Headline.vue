@@ -1,28 +1,32 @@
 <template>
-  <base-headline
+  <component
+    :is="`h${currentHeadlineLevel}`"
     class="atom-headline"
+    :class="styleClasses"
     v-bind="$attrs"
     :font="[
       $getFont('Raleway',700),
       $getFont('Poppins',500, 'normal', {selector: 'span:first-child'})
     ]"
+    :title="`h${currentHeadlineLevel}`"
     v-on="$listeners"
   >
     <slot>
-      <span v-if="overline">{{ overline }}</span><span>{{ text }}</span>
+      <span v-if="overline">{{ overline }}</span>
+      <span>{{ text }}</span>
     </slot>
-  </base-headline>
+  </component>
 </template>
 
 <script>
-
-import BaseHeadline from '@foundation/core/Headline';
-
 export default {
-  components: {
-    BaseHeadline
+  name: 'DocumentHeading',
+  inject: {
+    parentLevel: {
+      from: 'parentLevel',
+      default: null
+    }
   },
-  inheritAttrs: false,
   props: {
     overline: {
       type: String,
@@ -31,14 +35,39 @@ export default {
     text: {
       type: String,
       default: 'Atom Headline (Text)'
+    },
+
+    level: {
+      type: [Number],
+      default: null
+    },
+    debugMode: {
+      type: Boolean,
+      default: true
+    }
+  },
+  computed: {
+    currentHeadlineLevel () {
+      const result = this.level || this.parentLevel || 1;
+      return getMax(result);
+    },
+    styleClasses () {
+      return {
+        'style-debug-mode': this.debugMode
+      };
     }
   }
+
 };
 
+function getMax (number) {
+  return Math.max(1, Math.min(number, 6));
+}
 </script>
-
 <style lang="postcss" scoped>
 .atom-headline {
+  position: relative;
+  padding-left: 3em;
   font-size: 1em;
 
   /* font-size: 1em; */
@@ -56,6 +85,29 @@ export default {
     font-size: em(var(--font-size-text));
   }
 
+  &.style-debug-mode {
+    padding-left: 3em;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5em;
+      height: 1.5em;
+      font-size: 1.2em;
+      font-weight: bold;
+      content: attr(title);
+      border: 2px solid black;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
 }
 
 h1 {
@@ -66,6 +118,26 @@ h1 {
 h2 {
   --font-size-overline: 12;
   --font-size-text: 32;
+}
+
+h3 {
+  --font-size-overline: 10;
+  --font-size-text: 28;
+}
+
+h4 {
+  --font-size-overline: 8;
+  --font-size-text: 24;
+}
+
+h5 {
+  --font-size-overline: 8;
+  --font-size-text: 20;
+}
+
+h6 {
+  --font-size-overline: 8;
+  --font-size-text: 16;
 }
 
 /* h1 {

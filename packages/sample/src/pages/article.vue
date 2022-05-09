@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <atom-headline :level="2">
+    <atom-headline>
       Article
     </atom-headline>
 
@@ -61,7 +61,7 @@
         </template>
       </sample-article>
     </fieldset>
-    <atom-headline :level="2">
+    <atom-headline>
       Teaser
     </atom-headline>
     <fieldset>

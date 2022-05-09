@@ -1,30 +1,43 @@
 <template>
   <layout-lost-container class="organism-text-image" :class="{revert}">
-    <div class="image">
-      <speedkit-picture v-bind="image" />
-    </div>
-    <div class="text">
-      <molecule-article v-bind="{overline, headline, content}">
-        <template #after>
+    <layout-content>
+      <div class="image">
+        <speedkit-picture v-bind="image" />
+      </div>
+      <div class="text">
+        <layout-content :disabled="true">
+          <template #header>
+            <sample-headline :text="headline" :overline="overline" />
+          </template>
+          <atom-rich-text :value="content" />
           <ul class="buttons">
             <li v-for="(button, index) in buttons" :key="index">
               <atom-button v-bind="button" />
             </li>
           </ul>
-        </template>
-      </molecule-article>
-    </div>
+        </layout-content>
+      </div>
+    </layout-content>
   </layout-lost-container>
 </template>
 
 <script>
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
-import MoleculeArticle from '@/components/molecules/Article';
+import LayoutContent from '@/components/layouts/Content';
+import SampleHeadline from '@/components/atoms/Headline';
+import AtomRichText from '@/components/atoms/RichText';
 import AtomButton from '@/components/atoms/Button';
 
 export default {
-  components: { SpeedkitPicture, LayoutLostContainer, MoleculeArticle, AtomButton },
+  components: {
+    SpeedkitPicture,
+    LayoutLostContainer,
+    LayoutContent,
+    SampleHeadline,
+    AtomRichText,
+    AtomButton
+  },
   props: {
     image: {
       type: Object,
@@ -75,11 +88,16 @@ export default {
   }
 
   & >>> .lost-flex-container {
-    flex-direction: column;
+    background: red;
 
-    @media (--sm) {
-      flex-direction: row;
-      align-items: center;
+    & > .layout-content {
+      display: flex;
+      flex-direction: column;
+
+      @media (--sm) {
+        flex-flow: row nowrap;
+        align-items: center;
+      }
     }
   }
 

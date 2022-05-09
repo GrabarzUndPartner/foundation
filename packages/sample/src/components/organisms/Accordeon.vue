@@ -1,15 +1,22 @@
 <template>
   <layout-lost-container class="organism-accordeon">
-    <molecule-accordeon class="accordeon" :items="items" />
+    <layout-content>
+      <molecule-accordeon :items="items" />
+    </layout-content>
   </layout-lost-container>
 </template>
 
 <script>
 import MoleculeAccordeon from '@/components/molecules/Accordeon';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
+import LayoutContent from '@/components/layouts/Content';
 
 export default {
-  components: { MoleculeAccordeon, LayoutLostContainer },
+  components: {
+    MoleculeAccordeon,
+    LayoutLostContainer,
+    LayoutContent
+  },
   props: {
     items: {
       type: Array,
@@ -43,7 +50,7 @@ export default {
     margin: em(48) 0;
   }
 
-  & .accordeon {
+  & .layout-content {
     lost-offset: 1 / 12;
     lost-column: 10 / 12;
   }

@@ -1,6 +1,5 @@
 <template>
-  <component
-    :is="tag"
+  <div
     class="lost-container"
   >
     <slot name="background" />
@@ -9,12 +8,13 @@
     >
       <slot />
     </div>
-  </component>
+  </div>
 </template>
 
 <script>
 
 export default {
+  inheritAttrs: false,
   props: {
     tag: {
       type: String,
