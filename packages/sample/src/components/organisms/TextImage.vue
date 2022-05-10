@@ -1,31 +1,33 @@
 <template>
-  <layout-lost-container class="organism-text-image" :class="{revert}">
-    <layout-content>
+  <layout-structure>
+    <layout-lost-container class="organism-text-image" :class="{revert}">
       <div class="image">
         <speedkit-picture v-bind="image" />
       </div>
       <div class="text">
-        <layout-content :disabled="true">
+        <layout-structure embed>
           <template #header>
-            <sample-headline :text="headline" :overline="overline" />
+            <atom-headline v-bind="headline" />
           </template>
-          <atom-rich-text :value="content" />
-          <ul class="buttons">
-            <li v-for="(button, index) in buttons" :key="index">
-              <atom-button v-bind="button" />
-            </li>
-          </ul>
-        </layout-content>
+          <template #default>
+            <atom-rich-text :value="content" />
+            <ul class="buttons">
+              <li v-for="(button, index) in buttons" :key="index">
+                <atom-button v-bind="button" />
+              </li>
+            </ul>
+          </template>
+        </layout-structure>
       </div>
-    </layout-content>
-  </layout-lost-container>
+    </layout-lost-container>
+  </layout-structure>
 </template>
 
 <script>
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+import LayoutStructure from '@foundation/core/Structure';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
-import LayoutContent from '@/components/layouts/Content';
-import SampleHeadline from '@/components/atoms/Headline';
+import AtomHeadline from '@/components/atoms/Headline';
 import AtomRichText from '@/components/atoms/RichText';
 import AtomButton from '@/components/atoms/Button';
 
@@ -33,8 +35,8 @@ export default {
   components: {
     SpeedkitPicture,
     LayoutLostContainer,
-    LayoutContent,
-    SampleHeadline,
+    LayoutStructure,
+    AtomHeadline,
     AtomRichText,
     AtomButton
   },
@@ -50,13 +52,14 @@ export default {
         };
       }
     },
-    overline: {
-      type: String,
-      default: 'Overline'
-    },
     headline: {
-      type: String,
-      default: 'Headline'
+      type: Object,
+      default () {
+        return {
+          overline: 'Overline',
+          text: 'Headline'
+        };
+      }
     },
     content: {
       type: String,
@@ -88,16 +91,12 @@ export default {
   }
 
   & >>> .lost-flex-container {
-    background: red;
+    display: flex;
+    flex-direction: column;
 
-    & > .layout-content {
-      display: flex;
-      flex-direction: column;
-
-      @media (--sm) {
-        flex-flow: row nowrap;
-        align-items: center;
-      }
+    @media (--sm) {
+      flex-flow: row nowrap;
+      align-items: center;
     }
   }
 

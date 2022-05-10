@@ -1,30 +1,35 @@
 <template>
-  <layout-lost-container class="organism-text">
-    <layout-content>
-      <template #header>
-        <sample-headline :text="headline" :overline="overline" />
-      </template>
-      <atom-rich-text :value="content" />
-    </layout-content>
-  </layout-lost-container>
+  <layout-structure class="organism-text">
+    <template #header>
+      <layout-lost-container>
+        <atom-headline class="headline" v-bind="headline" />
+      </layout-lost-container>
+    </template>
+    <template #default>
+      <layout-lost-container>
+        <atom-rich-text class="content" :value="content" />
+      </layout-lost-container>
+    </template>
+  </layout-structure>
 </template>
 
 <script>
-import LayoutContent from '@/components/layouts/Content';
+import LayoutStructure from '@foundation/core/Structure';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
-import SampleHeadline from '@/components/atoms/Headline';
+import AtomHeadline from '@/components/atoms/Headline';
 import AtomRichText from '@/components/atoms/RichText';
 
 export default {
-  components: { LayoutContent, LayoutLostContainer, SampleHeadline, AtomRichText },
+  components: { LayoutStructure, LayoutLostContainer, AtomHeadline, AtomRichText },
   props: {
-    overline: {
-      type: String,
-      default: 'Overline'
-    },
     headline: {
-      type: String,
-      default: 'Headline'
+      type: Object,
+      default () {
+        return {
+          overline: 'Overline',
+          content: 'Headline'
+        };
+      }
     },
     content: {
       type: String,
@@ -42,7 +47,8 @@ export default {
     margin: em(48) 0;
   }
 
-  & >>> .layout-content {
+  & .headline,
+  & .content {
     lost-offset: 1 / 12;
     lost-column: 10 / 12;
 

@@ -1,18 +1,21 @@
 
 <template>
-  <div class="organism-stage-image-text">
-    <speedkit-picture v-bind="image" />
-    <sample-headline class="text">
-      {{ text }}
-    </sample-headline>
-  </div>
+  <layout-structure static class="organism-stage" v-bind="$attrs" v-on="$listeners">
+    <template #header>
+      <speedkit-picture v-bind="image" />
+      <headline class="text">
+        {{ text }}
+      </headline>
+    </template>
+  </layout-structure>
 </template>
 <script>
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
-import SampleHeadline from '@/components/atoms/Headline';
+import LayoutStructure from '@foundation/core/Structure';
+import Headline from '@/components/atoms/Headline';
 
 export default {
-  components: { SpeedkitPicture, SampleHeadline },
+  components: { LayoutStructure, SpeedkitPicture, Headline },
   inheritAttrs: false,
   props: {
     image: {
@@ -28,7 +31,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.organism-stage-image-text {
+.organism-stage {
   position: relative;
 
   & .text {

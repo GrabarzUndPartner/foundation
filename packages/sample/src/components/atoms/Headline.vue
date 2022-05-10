@@ -1,32 +1,30 @@
 <template>
-  <component
-    :is="`h${currentHeadlineLevel}`"
-    class="atom-headline"
-    :class="styleClasses"
+  <base-headline
+    class="atom-headline debug"
     v-bind="$attrs"
     :font="[
       $getFont('Raleway',700),
       $getFont('Poppins',500, 'normal', {selector: 'span:first-child'})
     ]"
-    :title="`h${currentHeadlineLevel}`"
     v-on="$listeners"
   >
     <slot>
       <span v-if="overline">{{ overline }}</span>
       <span>{{ text }}</span>
     </slot>
-  </component>
+  </base-headline>
 </template>
 
 <script>
+
+import BaseHeadline from '@foundation/core/Headline';
+
 export default {
-  name: 'DocumentHeading',
-  inject: {
-    parentLevel: {
-      from: 'parentLevel',
-      default: null
-    }
+
+  components: {
+    BaseHeadline
   },
+
   props: {
     overline: {
       type: String,
@@ -35,39 +33,16 @@ export default {
     text: {
       type: String,
       default: 'Atom Headline (Text)'
-    },
-
-    level: {
-      type: [Number],
-      default: null
-    },
-    debugMode: {
-      type: Boolean,
-      default: true
-    }
-  },
-  computed: {
-    currentHeadlineLevel () {
-      const result = this.level || this.parentLevel || 1;
-      return getMax(result);
-    },
-    styleClasses () {
-      return {
-        'style-debug-mode': this.debugMode
-      };
     }
   }
 
 };
 
-function getMax (number) {
-  return Math.max(1, Math.min(number, 6));
-}
 </script>
+
 <style lang="postcss" scoped>
 .atom-headline {
   position: relative;
-  padding-left: 3em;
   font-size: 1em;
 
   /* font-size: 1em; */
@@ -77,7 +52,6 @@ function getMax (number) {
   }
 
   & span:first-child {
-    margin-bottom: em(10, var(--font-size-overline));
     font-size: em(var(--font-size-overline));
   }
 
@@ -85,25 +59,29 @@ function getMax (number) {
     font-size: em(var(--font-size-text));
   }
 
-  &.style-debug-mode {
-    padding-left: 3em;
-
+  &.debug {
     &::before {
       position: absolute;
-      top: 50%;
+      top: 0;
+      right: 0;
+      bottom: 0;
       left: 0;
-      display: inline-block;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.5em;
-      height: 1.5em;
-      font-size: 1.2em;
-      font-weight: bold;
+      z-index: 10000;
+      box-sizing: border-box;
+      pointer-events: none;
+      content: "";
+      border: dotted #333 2px;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px 5px;
+      font-size: 12px;
+      color: white;
       content: attr(title);
-      border: 2px solid black;
-      border-radius: 50%;
-      transform: translateY(-50%);
+      background: #333;
     }
 
   }

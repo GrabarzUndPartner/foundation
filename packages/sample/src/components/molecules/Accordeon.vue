@@ -11,15 +11,16 @@
       >
         {{ option.label }}
       </span>
+      <atom-icon icon="chevronRight" />
     </template>
     <template #content="{show, option}">
       <transition-expand>
         <section v-show="show">
-          <div>
+          <layout-structure>
             <slot name="content" v-bind="{show, option}">
               <component :is="getContentComponent(component.type)" v-for="(component, index) in option.content" :key="index" v-bind="component.props" />
             </slot>
-          </div>
+          </layout-structure>
         </section>
       </transition-expand>
     </template>
@@ -31,6 +32,8 @@ import BaseAccordeon from '@foundation/core/CollapsibleContainer/Accordeon';
 import TransitionExpand from '@foundation/core/CollapsibleContainer/transition/expand';
 import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
 import Model from '@foundation/core/CollapsibleContainer/classes/Model';
+import LayoutStructure from '@foundation/core/Structure';
+import AtomIcon from '@/components/atoms/Icon';
 
 const CONTENT_COMPONENTS = {
   Headline: () => import('@/components/atoms/Headline'),
@@ -40,7 +43,7 @@ const CONTENT_COMPONENTS = {
 };
 
 export default {
-  components: { BaseAccordeon, TransitionExpand },
+  components: { LayoutStructure, AtomIcon, BaseAccordeon, TransitionExpand },
   inheritAttrs: false,
 
   props: {
@@ -105,8 +108,8 @@ export default {
 
   & >>> {
     & input:checked + label {
-      & > .icon {
-        transform: rotate(180deg);
+      & i {
+        transform: rotate(90deg);
       }
     }
 
@@ -125,8 +128,9 @@ export default {
       cursor: pointer;
       background: #eee;
 
-      & .icon {
+      & i {
         order: 0;
+        width: 22px;
         margin-right: 8px;
         transition: transform 0.2s;
       }

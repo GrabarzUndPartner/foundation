@@ -40,17 +40,17 @@
     </fieldset>
     <fieldset>
       <legend>Sample</legend>
-      <sample-headline v-bind="{text: `Headline H1`, overline: `Overline H1`}" />
+      <atom-headline v-bind="{text: `Headline H1`, overline: `Overline H1`}" />
       <document-section>
-        <sample-headline v-bind="{text: `Headline H2`, overline: `Overline H2`}" />
+        <atom-headline v-bind="{text: `Headline H2`, overline: `Overline H2`}" />
         <document-section>
-          <sample-headline v-bind="{text: `Headline H3`, overline: `Overline H3`}" />
+          <atom-headline v-bind="{text: `Headline H3`, overline: `Overline H3`}" />
           <document-section>
-            <sample-headline v-bind="{text: `Headline H4`, overline: `Overline H4`}" />
+            <atom-headline v-bind="{text: `Headline H4`, overline: `Overline H4`}" />
             <document-section>
-              <sample-headline v-bind="{text: `Headline H5`, overline: `Overline H5`}" />
+              <atom-headline v-bind="{text: `Headline H5`, overline: `Overline H5`}" />
               <document-section>
-                <sample-headline v-bind="{text: `Headline H6`, overline: `Overline H6`}" />
+                <atom-headline v-bind="{text: `Headline H6`, overline: `Overline H6`}" />
               </document-section>
             </document-section>
           </document-section>
@@ -64,12 +64,12 @@
 
 import BaseHeadline from '@foundation/core/Headline';
 import DefaultHeadline from '@foundation/core/Headline/default';
-import SampleHeadline from '@/components/atoms/Headline';
+import AtomHeadline from '@/components/atoms/Headline';
 export default {
   components: {
     BaseHeadline,
     DefaultHeadline,
-    SampleHeadline
+    AtomHeadline
   },
 
   data () {

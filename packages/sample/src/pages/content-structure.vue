@@ -3,22 +3,22 @@
     <fieldset>
       <legend>Content</legend>
       <layout-content debug-id="stage" :is-top-level="true">
-        <sample-headline v-bind="{text: `Stage Headline H1`, overline: null}" />
+        <atom-headline v-bind="{text: `Stage Headline H1`, overline: null}" />
       </layout-content>
 
       <layout-content debug-id="content-wrap" :disabled="true">
         <layout-content debug-id="content-1">
-          <sample-headline v-bind="{text: `Content 1 Headline H2`, overline: null}" />
+          <atom-headline v-bind="{text: `Content 1 Headline H2`, overline: null}" />
         </layout-content>
 
         <layout-content debug-id="content-2">
-          <sample-headline v-bind="{text: `Content 2 Headline H2`, overline: null}" />
+          <atom-headline v-bind="{text: `Content 2 Headline H2`, overline: null}" />
         </layout-content>
         <layout-content debug-id="content-3">
           <layout-content debug-id="content-4">
-            <sample-headline v-bind="{text: `Content 4 Headline H3`, overline: null}" />
+            <atom-headline v-bind="{text: `Content 4 Headline H3`, overline: null}" />
             <layout-content debug-id="content-5">
-              <sample-headline v-bind="{text: `Content 5 Headline H4`, overline: null}" />
+              <atom-headline v-bind="{text: `Content 5 Headline H4`, overline: null}" />
             </layout-content>
           </layout-content>
         </layout-content>
@@ -30,12 +30,12 @@
 <script>
 
 import LayoutContent from '@/components/layouts/Content';
-import SampleHeadline from '@/components/atoms/Headline';
+import AtomHeadline from '@/components/atoms/Headline';
 
 export default {
   components: {
     LayoutContent,
-    SampleHeadline
+    AtomHeadline
   },
 
   data () {

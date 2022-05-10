@@ -1,30 +1,34 @@
 <template>
-  <layout-lost-container :container="false" class="organism-gallery">
-    <layout-content>
-      <molecule-slider class="slider" />
-    </layout-content>
-  </layout-lost-container>
+  <layout-structure class="organism-gallery" v-bind="$attrs" v-on="$listeners">
+    <template #header>
+      <layout-lost-container v-if="headline">
+        <atom-headline class="headline" v-bind="headline" />
+      </layout-lost-container>
+    </template>
+    <template #default>
+      <layout-lost-container>
+        <molecule-slider class="slider" />
+      </layout-lost-container>
+    </template>
+  </layout-structure>
 </template>
 
 <script>
+import LayoutStructure from '@foundation/core/Structure';
+import AtomHeadline from '@/components/atoms/Headline';
 import MoleculeSlider from '@/components/molecules/Slider';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
-import LayoutContent from '@/components/layouts/Content';
 
 export default {
-  components: { MoleculeSlider, LayoutLostContainer, LayoutContent },
+  // eslint-disable-next-line vue/no-unused-components
+  components: { AtomHeadline, MoleculeSlider, LayoutLostContainer, LayoutStructure },
+  inheritAttrs: false,
   props: {
-    overline: {
-      type: String,
-      default: 'Overline'
-    },
     headline: {
-      type: String,
-      default: 'Headline'
-    },
-    content: {
-      type: String,
-      default: '<p>Text</p>'
+      type: Object,
+      default () {
+        return null;
+      }
     }
   }
 };
@@ -38,6 +42,7 @@ export default {
     margin: em(48) 0;
   }
 
+  & .headline,
   & .slider {
     lost-column: 12 / 12;
 

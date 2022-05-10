@@ -1,20 +1,36 @@
 <template>
-  <layout-lost-container class="organism-teaser-wall">
-    <layout-content>
-      <div class="teasers">
-        <teaser v-for="(teaser, index) in teasers" v-bind="teaser" :key="index" />
-      </div>
-    </layout-content>
-  </layout-lost-container>
+  <layout-structure class="organism-teaser-wall">
+    <template #header>
+      <layout-lost-container>
+        <div v-if="headline" class="headline">
+          <atom-headline v-bind="headline" />
+        </div>
+      </layout-lost-container>
+    </template>
+    <template #default>
+      <layout-lost-container>
+        <div class="teasers">
+          <molecule-teaser v-for="(teaser, index) in teasers" v-bind="teaser" :key="index" />
+        </div>
+      </layout-lost-container>
+    </template>
+  </layout-structure>
 </template>
 <script>
+import LayoutStructure from '@foundation/core/Structure';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
-import LayoutContent from '@/components/layouts/Content';
 
-import Teaser from '@/components/molecules/Teaser';
+import AtomHeadline from '@/components/atoms/Headline';
+import MoleculeTeaser from '@/components/molecules/Teaser';
 export default {
-  components: { LayoutLostContainer, LayoutContent, Teaser },
+  components: { LayoutLostContainer, LayoutStructure, MoleculeTeaser, AtomHeadline },
   props: {
+    headline: {
+      type: Object,
+      default () {
+        return null;
+      }
+    },
     teasers: {
       type: Array,
       default () {
@@ -40,6 +56,24 @@ const getTeaser = () => {
 </script>
 <style lang="postcss" scoped>
 .organism-teaser-wall {
+  margin: em(32) 0;
+
+  @media (--sm) {
+    margin: em(48) 0;
+  }
+
+  & .headline {
+    @media (--sm) {
+      lost-column: 10 / 12;
+      lost-offset: 1 / 12;
+    }
+
+    @media (--lg) {
+      lost-column: 10 / 12;
+      lost-offset: 1 / 12;
+    }
+  }
+
   & .teasers {
     --columns: 1;
 

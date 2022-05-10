@@ -2,7 +2,7 @@
   <base-article v-bind="$attrs" class="molecule-article" v-on="$listeners">
     <template #header>
       <slot name="header">
-        <sample-headline :text="headline" :overline="overline" />
+        <atom-headline :text="headline" :overline="overline" />
       </slot>
     </template>
     <template #default>
@@ -16,13 +16,13 @@
 
 <script>
 import BaseArticle from '@foundation/core/Article';
-import SampleHeadline from '@/components/atoms/Headline';
+import AtomHeadline from '@/components/atoms/Headline';
 import AtomRichText from '@/components/atoms/RichText';
 
 export default {
   components: {
     BaseArticle,
-    SampleHeadline,
+    AtomHeadline,
     AtomRichText
   },
   inheritAttrs: false,

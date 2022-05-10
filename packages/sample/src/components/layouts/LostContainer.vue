@@ -1,5 +1,6 @@
 <template>
   <div
+    :is="tag"
     class="lost-container"
   >
     <slot name="background" />
