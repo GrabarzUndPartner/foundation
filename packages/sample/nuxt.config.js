@@ -190,12 +190,6 @@ export default {
     }
   },
 
-  plugins: [
-    {
-      src: '../../core/plugins/headings'
-    }
-  ],
-
   buildModules: [
     '@nuxt/postcss8',
     '@nuxtjs/eslint-module',

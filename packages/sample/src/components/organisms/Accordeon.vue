@@ -1,5 +1,5 @@
 <template>
-  <layout-structure class="organism-accordeon">
+  <core-structure class="organism-accordeon">
     <template #header>
       <layout-lost-container>
         <div v-if="headline" class="headline">
@@ -12,12 +12,12 @@
         <molecule-accordeon class="content" :items="items" />
       </layout-lost-container>
     </template>
-  </layout-structure>
+  </core-structure>
 </template>
 
 <script>
 
-import LayoutStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/Structure';
 import AtomHeadline from '@/components/atoms/Headline';
 import MoleculeAccordeon from '@/components/molecules/Accordeon';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
@@ -27,7 +27,7 @@ export default {
     AtomHeadline,
     MoleculeAccordeon,
     LayoutLostContainer,
-    LayoutStructure
+    CoreStructure
   },
   props: {
     headline: {

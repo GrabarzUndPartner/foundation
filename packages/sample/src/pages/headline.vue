@@ -1,72 +1,77 @@
 <template>
-  <document-section tag="main">
+  <core-structure-page>
     <fieldset>
       <legend>Base</legend>
       <base-headline>Document Heading Level 1</base-headline>
-      <document-section>
+      <core-structure>
         <base-headline>Document Heading Level 2</base-headline>
-        <document-section>
+        <core-structure>
           <base-headline>Document Heading Level 3</base-headline>
-          <document-section>
+          <core-structure>
             <base-headline>Document Heading Level 4</base-headline>
-            <document-section>
+            <core-structure>
               <base-headline>Document Heading Level 5</base-headline>
-              <document-section>
+              <core-structure>
                 <base-headline>Document Heading Level 6</base-headline>
-              </document-section>
-            </document-section>
-          </document-section>
-        </document-section>
-      </document-section>
+              </core-structure>
+            </core-structure>
+          </core-structure>
+        </core-structure>
+      </core-structure>
     </fieldset>
     <fieldset>
       <legend>Default</legend>
       <default-headline>Document Heading Level 1</default-headline>
-      <document-section>
+      <core-structure>
         <default-headline>Document Heading Level 2</default-headline>
-        <document-section>
+        <core-structure>
           <default-headline>Document Heading Level 3</default-headline>
-          <document-section>
+          <core-structure>
             <default-headline>Document Heading Level 4</default-headline>
-            <document-section>
+            <core-structure>
               <default-headline>Document Heading Level 5</default-headline>
-              <document-section>
+              <core-structure>
                 <default-headline>Document Heading Level 6</default-headline>
-              </document-section>
-            </document-section>
-          </document-section>
-        </document-section>
-      </document-section>
+              </core-structure>
+            </core-structure>
+          </core-structure>
+        </core-structure>
+      </core-structure>
     </fieldset>
     <fieldset>
       <legend>Sample</legend>
       <atom-headline v-bind="{text: `Headline H1`, overline: `Overline H1`}" />
-      <document-section>
+      <core-structure>
         <atom-headline v-bind="{text: `Headline H2`, overline: `Overline H2`}" />
-        <document-section>
+        <core-structure>
           <atom-headline v-bind="{text: `Headline H3`, overline: `Overline H3`}" />
-          <document-section>
+          <core-structure>
             <atom-headline v-bind="{text: `Headline H4`, overline: `Overline H4`}" />
-            <document-section>
+            <core-structure>
               <atom-headline v-bind="{text: `Headline H5`, overline: `Overline H5`}" />
-              <document-section>
+              <core-structure>
                 <atom-headline v-bind="{text: `Headline H6`, overline: `Overline H6`}" />
-              </document-section>
-            </document-section>
-          </document-section>
-        </document-section>
-      </document-section>
+              </core-structure>
+            </core-structure>
+          </core-structure>
+        </core-structure>
+      </core-structure>
     </fieldset>
-  </document-section>
+  </core-structure-page>
 </template>
 
 <script>
+
+import CoreStructurePage from '@foundation/core/Structure/Page';
+import CoreStructure from '@foundation/core/Structure';
 
 import BaseHeadline from '@foundation/core/Headline';
 import DefaultHeadline from '@foundation/core/Headline/default';
 import AtomHeadline from '@/components/atoms/Headline';
 export default {
   components: {
+    CoreStructurePage,
+    CoreStructure,
     BaseHeadline,
     DefaultHeadline,
     AtomHeadline

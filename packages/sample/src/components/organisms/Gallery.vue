@@ -1,5 +1,5 @@
 <template>
-  <layout-structure class="organism-gallery" v-bind="$attrs" v-on="$listeners">
+  <core-structure class="organism-gallery" v-bind="$attrs" v-on="$listeners">
     <template #header>
       <layout-lost-container v-if="headline">
         <atom-headline class="headline" v-bind="headline" />
@@ -10,18 +10,17 @@
         <molecule-slider class="slider" />
       </layout-lost-container>
     </template>
-  </layout-structure>
+  </core-structure>
 </template>
 
 <script>
-import LayoutStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/Structure';
 import AtomHeadline from '@/components/atoms/Headline';
 import MoleculeSlider from '@/components/molecules/Slider';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
 
 export default {
-  // eslint-disable-next-line vue/no-unused-components
-  components: { AtomHeadline, MoleculeSlider, LayoutLostContainer, LayoutStructure },
+  components: { AtomHeadline, MoleculeSlider, LayoutLostContainer, CoreStructure },
   inheritAttrs: false,
   props: {
     headline: {

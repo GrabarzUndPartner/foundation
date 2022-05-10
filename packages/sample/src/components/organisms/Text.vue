@@ -1,5 +1,5 @@
 <template>
-  <layout-structure class="organism-text">
+  <core-structure class="organism-text">
     <template #header>
       <layout-lost-container>
         <atom-headline class="headline" v-bind="headline" />
@@ -10,17 +10,17 @@
         <atom-rich-text class="content" :value="content" />
       </layout-lost-container>
     </template>
-  </layout-structure>
+  </core-structure>
 </template>
 
 <script>
-import LayoutStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/Structure';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
 import AtomHeadline from '@/components/atoms/Headline';
 import AtomRichText from '@/components/atoms/RichText';
 
 export default {
-  components: { LayoutStructure, LayoutLostContainer, AtomHeadline, AtomRichText },
+  components: { CoreStructure, LayoutLostContainer, AtomHeadline, AtomRichText },
   props: {
     headline: {
       type: Object,

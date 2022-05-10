@@ -1,40 +1,42 @@
 <template>
-  <layout-content tag="main" debug-id="page">
+  <core-structure-page class="page">
     <fieldset>
       <legend>Content</legend>
-      <layout-content debug-id="stage" :is-top-level="true">
+      <core-structure debug-id="stage" :is-top-level="true">
         <atom-headline v-bind="{text: `Stage Headline H1`, overline: null}" />
-      </layout-content>
+      </core-structure>
 
-      <layout-content debug-id="content-wrap" :disabled="true">
-        <layout-content debug-id="content-1">
+      <core-structure debug-id="content-wrap" :disabled="true">
+        <core-structure debug-id="content-1">
           <atom-headline v-bind="{text: `Content 1 Headline H2`, overline: null}" />
-        </layout-content>
+        </core-structure>
 
-        <layout-content debug-id="content-2">
+        <core-structure debug-id="content-2">
           <atom-headline v-bind="{text: `Content 2 Headline H2`, overline: null}" />
-        </layout-content>
-        <layout-content debug-id="content-3">
-          <layout-content debug-id="content-4">
+        </core-structure>
+        <core-structure debug-id="content-3">
+          <core-structure debug-id="content-4">
             <atom-headline v-bind="{text: `Content 4 Headline H3`, overline: null}" />
-            <layout-content debug-id="content-5">
+            <core-structure debug-id="content-5">
               <atom-headline v-bind="{text: `Content 5 Headline H4`, overline: null}" />
-            </layout-content>
-          </layout-content>
-        </layout-content>
-      </layout-content>
+            </core-structure>
+          </core-structure>
+        </core-structure>
+      </core-structure>
     </fieldset>
-  </layout-content>
+  </core-structure-page>
 </template>
 
 <script>
 
-import LayoutContent from '@/components/layouts/Content';
+import CoreStructurePage from '@foundation/core/Structure/Page';
+import CoreStructure from '@foundation/core/Structure';
 import AtomHeadline from '@/components/atoms/Headline';
 
 export default {
   components: {
-    LayoutContent,
+    CoreStructurePage,
+    CoreStructure,
     AtomHeadline
   },
 
@@ -44,3 +46,11 @@ export default {
 };
 
 </script>
+
+<style lang="postcss" scoped>
+.page {
+  & >>> .atom-headline {
+    margin: 60px 0;
+  }
+}
+</style>

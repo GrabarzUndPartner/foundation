@@ -1,5 +1,5 @@
 <template>
-  <layout-structure class="organism-teaser-wall">
+  <core-structure class="organism-teaser-wall">
     <template #header>
       <layout-lost-container>
         <div v-if="headline" class="headline">
@@ -14,16 +14,16 @@
         </div>
       </layout-lost-container>
     </template>
-  </layout-structure>
+  </core-structure>
 </template>
 <script>
-import LayoutStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/Structure';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
 
 import AtomHeadline from '@/components/atoms/Headline';
 import MoleculeTeaser from '@/components/molecules/Teaser';
 export default {
-  components: { LayoutLostContainer, LayoutStructure, MoleculeTeaser, AtomHeadline },
+  components: { LayoutLostContainer, CoreStructure, MoleculeTeaser, AtomHeadline },
   props: {
     headline: {
       type: Object,

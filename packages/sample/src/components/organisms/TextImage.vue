@@ -1,11 +1,11 @@
 <template>
-  <layout-structure>
+  <core-structure>
     <layout-lost-container class="organism-text-image" :class="{revert}">
       <div class="image">
         <speedkit-picture v-bind="image" />
       </div>
       <div class="text">
-        <layout-structure embed>
+        <core-structure embed>
           <template #header>
             <atom-headline v-bind="headline" />
           </template>
@@ -17,15 +17,15 @@
               </li>
             </ul>
           </template>
-        </layout-structure>
+        </core-structure>
       </div>
     </layout-lost-container>
-  </layout-structure>
+  </core-structure>
 </template>
 
 <script>
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
-import LayoutStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/Structure';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
 import AtomHeadline from '@/components/atoms/Headline';
 import AtomRichText from '@/components/atoms/RichText';
@@ -35,7 +35,7 @@ export default {
   components: {
     SpeedkitPicture,
     LayoutLostContainer,
-    LayoutStructure,
+    CoreStructure,
     AtomHeadline,
     AtomRichText,
     AtomButton

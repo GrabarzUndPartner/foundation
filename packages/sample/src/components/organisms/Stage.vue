@@ -1,21 +1,21 @@
 
 <template>
-  <layout-structure static class="organism-stage" v-bind="$attrs" v-on="$listeners">
+  <core-structure static class="organism-stage" v-bind="$attrs" v-on="$listeners">
     <template #header>
       <speedkit-picture v-bind="image" />
       <headline class="text">
         {{ text }}
       </headline>
     </template>
-  </layout-structure>
+  </core-structure>
 </template>
 <script>
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
-import LayoutStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/Structure';
 import Headline from '@/components/atoms/Headline';
 
 export default {
-  components: { LayoutStructure, SpeedkitPicture, Headline },
+  components: { CoreStructure, SpeedkitPicture, Headline },
   inheritAttrs: false,
   props: {
     image: {

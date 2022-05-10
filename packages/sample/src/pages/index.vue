@@ -1,6 +1,6 @@
 
 <template>
-  <layout-structure-page>
+  <core-structure-page>
     <component
       :is="component"
       v-for="({component, props}, index) in content"
@@ -8,17 +8,17 @@
       v-bind="props"
       :critical="index < 2"
     />
-  </layout-structure-page>
+  </core-structure-page>
 </template>
 
 <script>
 
 import speedkitHydrate from 'nuxt-speedkit/hydrate';
-import LayoutStructurePage from '@foundation/core/Structure/Page';
+import CoreStructurePage from '@foundation/core/Structure/Page';
 
 export default {
   components: {
-    LayoutStructurePage,
+    CoreStructurePage,
     LayoutComponentWrapper: speedkitHydrate(() => import('@/components/layouts/ComponentWrapper')),
     OrganismStage: speedkitHydrate(() => import('@/components/organisms/Stage')),
     OrganismText: speedkitHydrate(() => import('@/components/organisms/Text')),

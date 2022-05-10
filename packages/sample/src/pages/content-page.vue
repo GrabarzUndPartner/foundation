@@ -1,8 +1,6 @@
 <template>
-  <layout-page>
-    <layout-content debug-id="stage" :is-top-level="true">
-      <organism-stage v-bind="stage" />
-    </layout-content>
+  <core-structure-page>
+    <organism-stage v-bind="stage" />
 
     <organism-text v-bind="text" />
     <organism-gallery />
@@ -11,26 +9,23 @@
     <organism-text-image v-bind="textImageThree" />
     <organism-teaser-wall v-bind="teaserWall" />
     <organism-accordeon v-bind="accordeon" />
-  </layout-page>
+  </core-structure-page>
 </template>
 
 <script>
 
 import speedkitHydrate from 'nuxt-speedkit/hydrate';
-import LayoutPage from '@/components/layouts/Page';
-import LayoutContent from '@/components/layouts/Content';
+import CoreStructurePage from '@foundation/core/Structure/Page';
 
 export default {
   components: {
-    LayoutContent,
-    LayoutPage,
+    CoreStructurePage,
     OrganismStage: speedkitHydrate(() => import('@/components/organisms/Stage')),
     OrganismText: speedkitHydrate(() => import('@/components/organisms/Text')),
     OrganismGallery: speedkitHydrate(() => import('@/components/organisms/Gallery')),
     OrganismTextImage: speedkitHydrate(() => import('@/components/organisms/TextImage')),
     OrganismTeaserWall: speedkitHydrate(() => import('@/components/organisms/TeaserWall')),
     OrganismAccordeon: speedkitHydrate(() => import('@/components/organisms/Accordeon'))
-
   },
 
   data () {

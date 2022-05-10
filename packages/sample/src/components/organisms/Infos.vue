@@ -1,5 +1,5 @@
 <template>
-  <layout-structure class="organism-infos">
+  <core-structure class="organism-infos">
     <template #header>
       <layout-lost-container>
         <atom-headline class="headline" v-bind="headline" />
@@ -8,24 +8,24 @@
     <template #default>
       <layout-lost-container>
         <atom-rich-text class="content" :value="content" />
-        <layout-structure>
-          <layout-structure v-for="({headline, content}, index) in infos" :key="index" embed>
+        <core-structure>
+          <core-structure v-for="({headline, content}, index) in infos" :key="index" embed>
             <template #header>
               <atom-headline class="sub-content" :text="headline" />
             </template>
             <template #default>
               <atom-rich-text class="sub-content" :value="content" />
             </template>
-          </layout-structure>
-        </layout-structure>
+          </core-structure>
+        </core-structure>
       </layout-lost-container>
     </template>
-  </layout-structure>
+  </core-structure>
 </template>
 
 <script>
 
-import LayoutStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/Structure';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
 import AtomHeadline from '@/components/atoms/Headline';
 import AtomRichText from '@/components/atoms/RichText';
@@ -34,7 +34,7 @@ export default {
 
   components: {
     LayoutLostContainer,
-    LayoutStructure,
+    CoreStructure,
     AtomHeadline,
     AtomRichText
   },

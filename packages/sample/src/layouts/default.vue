@@ -79,6 +79,10 @@ export default {
                   to: '/article'
                 },
                 {
+                  title: 'Teaser',
+                  to: '/Teaser'
+                },
+                {
                   title: 'Toggle',
                   to: '/toggle'
                 }
