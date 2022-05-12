@@ -16,6 +16,7 @@ export const makeDir = (path) => {
   /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
   return fs.promises.mkdir(path);
 };
+
 export const deleteDir = (path) => {
   return new Promise((resolve) => {
     /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */

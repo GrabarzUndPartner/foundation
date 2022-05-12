@@ -39,10 +39,10 @@
     "postcss-momentum-scrolling": "3.14.22",
     "postcss-normalize": "10.0.1",
     "rucksack-css": "1.0.2",
-    "vue-svg-loader": "0.16.0"
+    "vue-svg-loader": "0.16.0",
+    "postcss-preset-env": "6.7.0"
   },
   "devDependencies": {
-    "defu": "6.0.0",
     "get-port-please": "2.5.0",
     "h3": "0.7.8",
     "jsdom": "19.0.0",
