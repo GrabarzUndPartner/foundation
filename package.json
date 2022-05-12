@@ -20,7 +20,7 @@
     "defu": "6.0.0",
     "@js-basics/vector": "2.0.5",
     "@mapbox/stylelint-processor-arbitrary-tags": "0.4.0",
-    "@nuxtjs/eslint-config": "9.0.0",
+    "@nuxtjs/eslint-config": "10.0.0",
     "babel-preset-vue": "2.0.2",
     "branch-name-lint": "2.1.1",
     "commitlint": "16.2.4",
