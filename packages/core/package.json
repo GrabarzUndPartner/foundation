@@ -17,7 +17,7 @@
     "scripts": {},
     "dependencies": {
         "@splidejs/splide": "3.6.12",
-        "@splidejs/splide-extension-intersection": "0.1.6",
-        "nuxt-speedkit": "2.0.6"
+        "@splidejs/splide-extension-intersection": "0.2.0",
+        "nuxt-speedkit": "2.0.12"
     }
 }
