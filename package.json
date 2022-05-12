@@ -33,7 +33,7 @@
     "eslint-plugin-security": "1.5.0",
     "eslint-plugin-vue": "8.7.1",
     "eslint-plugin-xss": "0.1.11",
-    "husky": "7.0.4",
+    "husky": "8.0.1",
     "lint-staged": "12.4.1",
     "postcss-html": "1.4.1",
     "rxjs": "7.5.5",
