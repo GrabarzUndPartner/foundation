@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.2.1](https://github.com/GrabarzUndPartner/foundation/compare/v1.2.0...v1.2.1) (2022-05-12)
+
+
+### Bug Fixes
+
+* **update:** update renovate; update structure ([ab1ef59](https://github.com/GrabarzUndPartner/foundation/commit/ab1ef590771631ea1313647ebe5e23e5c0bf2726))
+
 # [1.2.0](https://github.com/GrabarzUndPartner/foundation/compare/v1.1.0...v1.2.0) (2022-05-12)
 
 
