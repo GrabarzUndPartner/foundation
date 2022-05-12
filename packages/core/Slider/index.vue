@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div ref="slider">
+    <div ref="slider" class="splide">
       <slot name="beforeTrack" v-bind="{splideId, index, length, go, hasNext, hasPrev}" />
       <div :id="`${splideId}-track`" class="splide__track">
         <slot name="beforeList" v-bind="{splideId, index, length, go, hasNext, hasPrev}" />

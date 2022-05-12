@@ -6,5 +6,7 @@
     "main"
   ],
   "rangeStrategy": "pin",
-  "ignoreDeps": []
+  "ignoreDeps": [
+    "postcss-preset-env"
+  ]
 }

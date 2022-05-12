@@ -1,13 +1,13 @@
 <template>
   <component
-    :is="`h${currentHeadlineLevel}`"
+    :is="`h${contextLevel}`"
     v-font="font"
     v-bind="$attrs"
     :data-debug="debug"
     v-on="$listeners"
   >
     <slot />
-    <pre v-if="debug" :data-debug-level="currentHeadlineLevel" />
+    <pre v-if="debug" :data-debug-context-level="contextLevel" />
   </component>
 </template>
 
@@ -16,8 +16,8 @@
 export default {
 
   inject: {
-    contextLevel: {
-      from: 'contextLevel',
+    parentLevel: {
+      from: 'parentLevel',
       default: 1
     }
   },
@@ -37,8 +37,8 @@ export default {
     debug () {
       return 'debug-headline' in this.$route.query;
     },
-    currentHeadlineLevel () {
-      return getMax(this.contextLevel);
+    contextLevel () {
+      return getMax((this.parentLevel - (this.parentLevel % 2)) / 2);
     }
   }
 };
@@ -82,7 +82,7 @@ function getMax (number) {
       padding: 10px 5px;
       font-size: 12px;
       color: white;
-      content: "H" attr(data-debug-level);
+      content: "H" attr(data-debug-context-level);
       background: #333;
     }
   }

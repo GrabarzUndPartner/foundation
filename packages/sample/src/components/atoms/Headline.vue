@@ -4,12 +4,12 @@
     v-bind="$attrs"
     :font="[
       $getFont('Raleway',700),
-      $getFont('Poppins',500, 'normal', {selector: 'span:first-child'})
+      $getFont('Poppins',500, 'normal', {selector: '.overline'})
     ]"
     v-on="$listeners"
   >
     <slot>
-      <span v-if="overline">{{ overline }}</span>
+      <span v-if="overline" class="overline">{{ overline }}</span>
       <span>{{ text }}</span>
     </slot>
   </base-headline>
@@ -49,14 +49,11 @@ export default {
 
   & span {
     display: block;
-  }
-
-  & span:first-child {
-    font-size: em(var(--font-size-overline));
-  }
-
-  & span:last-child {
     font-size: em(var(--font-size-text));
+  }
+
+  & span.overline {
+    font-size: em(var(--font-size-overline));
   }
 
 }

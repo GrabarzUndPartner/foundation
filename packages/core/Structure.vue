@@ -28,8 +28,7 @@ export default {
 
   provide () {
     return {
-      parentLevel: this.currentLevel,
-      contextLevel: (this.currentLevel - (this.currentLevel % 2)) / 2
+      parentLevel: this.currentLevel
     };
   },
 
