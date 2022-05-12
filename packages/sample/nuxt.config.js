@@ -1,10 +1,13 @@
 
 import { join, resolve } from 'path';
 import fs from 'fs';
+import nuxtBabelPresetApp from '@nuxt/babel-preset-app';
 import dotenv from 'dotenv';
 
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import * as functions from './src/globals/postcss/functions';
+
+import * as postcssPresetEnvImportFrom from './src/globals/postcss/preset-env/importFrom';
+import * as postcssFunctions from './src/globals/postcss/functions';
 
 dotenv.config({ path: resolve(__dirname, '../../.env') });
 
@@ -21,8 +24,8 @@ export default {
     timing: false,
     https: (function () {
       const dir = './env/cert';
-      const key = join(dir, 'server.key');
-      const crt = join(dir, 'server.crt');
+      const key = process.env.SERVER_SSL_KEY_PATH || join(dir, 'server.key');
+      const crt = process.env.SERVER_SSL_CRT_PATH || join(dir, 'server.crt');
 
       if (fs.existsSync(key) && fs.existsSync(crt)) {
         return { key: fs.readFileSync(key), cert: fs.readFileSync(crt) };
@@ -69,7 +72,8 @@ export default {
 
     transpile: [
       '@foundation/core',
-      '@splidejs/splide-extension-intersection'
+      '@splidejs/splide-extension-intersection',
+      'vue-headings'
     ],
 
     analyze: false,
@@ -93,7 +97,7 @@ export default {
         };
         return [
           [
-            require.resolve('@nuxt/babel-preset-app'), {
+            nuxtBabelPresetApp, {
               targets: envTargets[String(envName)],
               useBuiltIns: envUseBuiltins[String(envName)],
               // #####
@@ -118,16 +122,14 @@ export default {
         'postcss-preset-env': {
           preserve: true,
           stage: 0,
-          importFrom: [
-            'src/globals/postcss.js'
-          ]
+          importFrom: postcssPresetEnvImportFrom
         },
         'postcss-normalize': {},
         'postcss-momentum-scrolling': [
           'scroll'
         ],
         'postcss-functions': {
-          functions
+          functions: postcssFunctions
         },
         'rucksack-css': {},
         lost: {
@@ -528,11 +530,11 @@ export default {
 };
 
 function getHost () {
-  return process.env.npm_config_host || process.env.HOST || 'localhost';
+  return process.env.npm_config_host || process.env.SERVER_HOST || 'localhost';
 }
 
 function getPort () {
-  return process.env.npm_config_port || process.env.PORT || 3000;
+  return process.env.npm_config_port || process.env.SERVER_PORT || 3000;
 }
 
 function getBasePath () {

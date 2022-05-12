@@ -1,8 +1,8 @@
 <template>
   <base-article v-bind="$attrs" class="molecule-article" v-on="$listeners">
     <template #header>
-      <slot name="header" :level="level">
-        <atom-headline :level="level" :text="headline" :overline="overline" />
+      <slot name="header">
+        <atom-headline :text="headline" :overline="overline" />
       </slot>
     </template>
     <template #default>
@@ -27,10 +27,6 @@ export default {
   },
   inheritAttrs: false,
   props: {
-    level: {
-      type: Number,
-      default: 2
-    },
     overline: {
       type: String,
       default: null

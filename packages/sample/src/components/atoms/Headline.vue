@@ -1,6 +1,6 @@
 <template>
   <base-headline
-    class="atom-headline"
+    class="atom-headline debug"
     v-bind="$attrs"
     :font="[
       $getFont('Raleway',700),
@@ -9,7 +9,8 @@
     v-on="$listeners"
   >
     <slot>
-      <span v-if="overline">{{ overline }}</span><span>{{ text }}</span>
+      <span v-if="overline">{{ overline }}</span>
+      <span>{{ text }}</span>
     </slot>
   </base-headline>
 </template>
@@ -19,10 +20,11 @@
 import BaseHeadline from '@foundation/core/Headline';
 
 export default {
+
   components: {
     BaseHeadline
   },
-  inheritAttrs: false,
+
   props: {
     overline: {
       type: String,
@@ -33,12 +35,14 @@ export default {
       default: 'Atom Headline (Text)'
     }
   }
+
 };
 
 </script>
 
 <style lang="postcss" scoped>
 .atom-headline {
+  position: relative;
   font-size: 1em;
 
   /* font-size: 1em; */
@@ -48,7 +52,6 @@ export default {
   }
 
   & span:first-child {
-    margin-bottom: em(10, var(--font-size-overline));
     font-size: em(var(--font-size-overline));
   }
 
@@ -66,6 +69,26 @@ h1 {
 h2 {
   --font-size-overline: 12;
   --font-size-text: 32;
+}
+
+h3 {
+  --font-size-overline: 10;
+  --font-size-text: 28;
+}
+
+h4 {
+  --font-size-overline: 8;
+  --font-size-text: 24;
+}
+
+h5 {
+  --font-size-overline: 8;
+  --font-size-text: 20;
+}
+
+h6 {
+  --font-size-overline: 8;
+  --font-size-text: 16;
 }
 
 /* h1 {

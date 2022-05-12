@@ -1,16 +1,41 @@
 <template>
-  <layout-lost-container class="organism-accordeon">
-    <molecule-accordeon class="accordeon" :items="items" />
-  </layout-lost-container>
+  <core-structure class="organism-accordeon">
+    <template v-if="headline" #header>
+      <layout-lost-container>
+        <div class="headline">
+          <atom-headline v-bind="headline" />
+        </div>
+      </layout-lost-container>
+    </template>
+    <template #default>
+      <layout-lost-container>
+        <molecule-accordeon class="content" :items="items" />
+      </layout-lost-container>
+    </template>
+  </core-structure>
 </template>
 
 <script>
+
+import CoreStructure from '@foundation/core/Structure';
+import AtomHeadline from '@/components/atoms/Headline';
 import MoleculeAccordeon from '@/components/molecules/Accordeon';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
 
 export default {
-  components: { MoleculeAccordeon, LayoutLostContainer },
+  components: {
+    AtomHeadline,
+    MoleculeAccordeon,
+    LayoutLostContainer,
+    CoreStructure
+  },
   props: {
+    headline: {
+      type: Object,
+      default () {
+        return null;
+      }
+    },
     items: {
       type: Array,
       required: true,
@@ -43,7 +68,12 @@ export default {
     margin: em(48) 0;
   }
 
-  & .accordeon {
+  & .headline {
+    lost-offset: 1 / 12;
+    lost-column: 10 / 12;
+  }
+
+  & .content {
     lost-offset: 1 / 12;
     lost-column: 10 / 12;
   }

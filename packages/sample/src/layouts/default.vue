@@ -1,9 +1,15 @@
 <template>
-  <div>
-    <page-header :dataset="headerDataset" critical />
-    <Nuxt />
-    <page-footer :links="footerLinks" />
-  </div>
+  <core-structure>
+    <template #header>
+      <page-header :dataset="headerDataset" critical />
+    </template>
+    <template #default>
+      <Nuxt />
+    </template>
+    <template #footer>
+      <page-footer :links="footerLinks" />
+    </template>
+  </core-structure>
 </template>
 
 <script>
@@ -12,9 +18,11 @@ import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
 import Model from '@foundation/core/CollapsibleContainer/classes/Model';
 
 import speedkitHydrate from 'nuxt-speedkit/hydrate';
+import CoreStructure from '@foundation/core/Structure';
 
 export default {
   components: {
+    CoreStructure,
     PageHeader: () => import('@/components/page/Header'),
     PageFooter: speedkitHydrate(() => import('@/components/page/Footer'))
   },
@@ -69,6 +77,10 @@ export default {
                 {
                   title: 'Article',
                   to: '/article'
+                },
+                {
+                  title: 'Teaser',
+                  to: '/Teaser'
                 },
                 {
                   title: 'Toggle',

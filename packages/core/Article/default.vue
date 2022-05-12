@@ -1,8 +1,8 @@
 <template>
   <base-article v-bind="$attrs" class="design-default" v-on="$listeners">
     <template #header>
-      <slot name="header" :level="level">
-        <default-headline :level="level">
+      <slot name="header">
+        <default-headline>
           <slot name="headline" />
         </default-headline>
       </slot>

@@ -1,30 +1,45 @@
 <template>
-  <layout-lost-container class="organism-text-image" :class="{revert}">
-    <div class="image">
-      <speedkit-picture v-bind="image" />
-    </div>
-    <div class="text">
-      <molecule-article v-bind="{overline, headline, content}">
-        <template #after>
-          <ul class="buttons">
-            <li v-for="(button, index) in buttons" :key="index">
-              <atom-button v-bind="button" />
-            </li>
-          </ul>
-        </template>
-      </molecule-article>
-    </div>
-  </layout-lost-container>
+  <core-structure>
+    <layout-lost-container class="organism-text-image" :class="{revert}">
+      <div class="image">
+        <speedkit-picture v-bind="image" />
+      </div>
+      <div class="text">
+        <core-structure>
+          <template #header>
+            <atom-headline v-bind="headline" />
+          </template>
+          <template #default>
+            <atom-rich-text :value="content" />
+            <ul class="buttons">
+              <li v-for="(button, index) in buttons" :key="index">
+                <atom-button v-bind="button" />
+              </li>
+            </ul>
+          </template>
+        </core-structure>
+      </div>
+    </layout-lost-container>
+  </core-structure>
 </template>
 
 <script>
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
+import CoreStructure from '@foundation/core/Structure';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
-import MoleculeArticle from '@/components/molecules/Article';
+import AtomHeadline from '@/components/atoms/Headline';
+import AtomRichText from '@/components/atoms/RichText';
 import AtomButton from '@/components/atoms/Button';
 
 export default {
-  components: { SpeedkitPicture, LayoutLostContainer, MoleculeArticle, AtomButton },
+  components: {
+    SpeedkitPicture,
+    LayoutLostContainer,
+    CoreStructure,
+    AtomHeadline,
+    AtomRichText,
+    AtomButton
+  },
   props: {
     image: {
       type: Object,
@@ -37,13 +52,14 @@ export default {
         };
       }
     },
-    overline: {
-      type: String,
-      default: 'Overline'
-    },
     headline: {
-      type: String,
-      default: 'Headline'
+      type: Object,
+      default () {
+        return {
+          overline: 'Overline',
+          text: 'Headline'
+        };
+      }
     },
     content: {
       type: String,
@@ -75,10 +91,11 @@ export default {
   }
 
   & >>> .lost-flex-container {
+    display: flex;
     flex-direction: column;
 
     @media (--sm) {
-      flex-direction: row;
+      flex-flow: row nowrap;
       align-items: center;
     }
   }
