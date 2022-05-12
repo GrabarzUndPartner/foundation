@@ -37,7 +37,7 @@
     "lint-staged": "12.4.1",
     "postcss-html": "1.4.1",
     "rxjs": "7.5.5",
-    "standard": "16.0.4",
+    "standard": "17.0.0",
     "stylelint": "14.8.2",
     "stylelint-config-css-modules": "4.1.0",
     "stylelint-config-lost": "0.0.3",
