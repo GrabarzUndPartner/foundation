@@ -3,10 +3,11 @@
     :is="`h${currentHeadlineLevel}`"
     v-font="font"
     v-bind="$attrs"
-    :data-debug="debug && currentHeadlineLevel"
+    :data-debug="debug"
     v-on="$listeners"
   >
     <slot />
+    <pre v-if="debug" :data-debug-level="currentHeadlineLevel" />
   </component>
 </template>
 
@@ -50,28 +51,40 @@ function getMax (number) {
 
 <style lang="postcss" scoped>
 [data-debug] {
-  &::before {
+  position: relative;
+
+  & pre {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 10000;
-    box-sizing: border-box;
-    pointer-events: none;
-    content: "";
-    border: dotted #333 2px;
-  }
+    margin: 0;
 
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px 5px;
-    font-size: 12px;
-    color: white;
-    content: "H" attr(data-debug);
-    background: #333;
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-sizing: border-box;
+      pointer-events: none;
+      content: "";
+      border: dotted #333 2px;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 10000;
+      padding: 10px 5px;
+      font-size: 12px;
+      color: white;
+      content: "H" attr(data-debug-level);
+      background: #333;
+    }
   }
 }
 </style>

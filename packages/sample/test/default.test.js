@@ -60,4 +60,17 @@ function markupTests () {
     expect(dom.querySelector('article#tertiaryContentComponent > section > article')).not.toBeNull();
     expect(dom.querySelector('article#tertiaryContentComponent > section > article > header h3')).not.toBeNull();
   });
+
+  it('Test Headline (/headline)', async () => {
+    html = await getHTML(join(distDir, 'headline'));
+    dom = getDom(html);
+
+    expect(dom.querySelector('h1#headline1')).not.toBeNull();
+    expect(dom.querySelector('h2#headline2')).not.toBeNull();
+    expect(dom.querySelector('h3#headline3')).not.toBeNull();
+    expect(dom.querySelector('h4#headline4')).not.toBeNull();
+    expect(dom.querySelector('h5#headline5')).not.toBeNull();
+    expect(dom.querySelector('h6#headline6')).not.toBeNull();
+    expect(dom.querySelector('h6#headline7')).not.toBeNull(); // Clamp Headline Level 6
+  });
 }
