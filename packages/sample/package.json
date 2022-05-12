@@ -42,13 +42,13 @@
     "vue-svg-loader": "0.16.0"
   },
   "devDependencies": {
-    "defu": "^6.0.0",
-    "get-port-please": "^2.5.0",
-    "h3": "^0.7.8",
-    "jsdom": "^19.0.0",
-    "listhen": "^0.2.11",
-    "playwright": "^1.21.1",
-    "serve-static": "^1.15.0",
-    "vitest": "^0.12.4"
+    "defu": "3.2.2",
+    "get-port-please": "2.5.0",
+    "h3": "0.7.8",
+    "jsdom": "19.0.0",
+    "listhen": "0.2.11",
+    "playwright": "1.21.1",
+    "serve-static": "1.15.0",
+    "vitest": "0.12.4"
   }
 }
