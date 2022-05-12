@@ -42,7 +42,7 @@
     "vue-svg-loader": "0.16.0"
   },
   "devDependencies": {
-    "defu": "3.2.2",
+    "defu": "6.0.0",
     "get-port-please": "2.5.0",
     "h3": "0.7.8",
     "jsdom": "19.0.0",
