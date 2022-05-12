@@ -60,7 +60,7 @@ export default {
     },
 
     currentTag () {
-      return ['div', 'main'][this.parentLevel] || this.tags[this.currentLevel % this.tags.length];
+      return ['div', 'main', 'div'][this.parentLevel] || this.tags[this.currentLevel % this.tags.length];
     }
   }
 

@@ -27,9 +27,12 @@
 
           <!-- Second Content Component -->
           <core-structure id="secondaryContentComponent">
+            <template #header>
+              <core-headline>Content Component With Content Section</core-headline>
+            </template>
             <core-structure>
               <template #header>
-                <core-headline>Content Component With Content Section</core-headline>
+                <core-headline>Content Section</core-headline>
               </template>
               <p>Lorem ipsum…</p>
             </core-structure>
@@ -42,6 +45,9 @@
             </template>
             <p>Lorem ipsum…</p>
             <core-structure>
+              <template #header>
+                <core-headline>Inner Articles</core-headline>
+              </template>
               <!-- Inner Component 1 -->
               <core-structure>
                 <template #header>

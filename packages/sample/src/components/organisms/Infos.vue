@@ -9,6 +9,9 @@
       <layout-lost-container>
         <atom-rich-text class="content" :value="content" />
         <core-structure>
+          <template #header>
+            <atom-headline class="sub-headline" v-bind="subHeadline" />
+          </template>
           <core-structure v-for="({overline, headline, content}, index) in infos" :key="index">
             <template #header>
               <atom-headline class="sub-content" :text="headline" :overline="overline" />
@@ -45,6 +48,15 @@ export default {
         return {
           overline: 'Overline',
           content: 'Headline'
+        };
+      }
+    },
+    subHeadline: {
+      type: Object,
+      default () {
+        return {
+          overline: 'Overline',
+          content: 'SubHeadline'
         };
       }
     },
@@ -86,6 +98,7 @@ export default {
     }
   }
 
+  & .sub-headline,
   & .sub-content {
     lost-offset: 1 / 12;
     lost-column: 10 / 12;

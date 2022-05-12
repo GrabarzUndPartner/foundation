@@ -9,6 +9,7 @@
     </template>
   </core-structure>
 </template>
+
 <script>
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 import CoreStructure from '@foundation/core/Structure';

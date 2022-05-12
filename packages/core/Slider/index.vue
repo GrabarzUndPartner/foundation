@@ -88,12 +88,15 @@ export default {
     sliderIndex++;
   },
 
+  updated () {
+    console.log('test updated');
+  },
+
   async mounted () {
     const { Splide, STATES, extensions } = await getSplide();
     const { Intersection } = extensions;
     this.states = STATES;
-
-    this.splide = new Splide(this.$refs.slider, {
+    this.splide = new Splide(this.$el.querySelector('.splide'), {
       ...this.options,
       pagination: false,
       arrows: false,
@@ -122,7 +125,7 @@ export default {
   },
 
   destroyed () {
-    this.splide.destroy();
+    this.splide?.destroy();
   },
 
   methods: {

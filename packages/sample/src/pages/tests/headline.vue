@@ -7,47 +7,92 @@
             Headline (H1)
           </core-headline>
         </template>
+        <p>…</p>
         <core-structure>
           <template #header>
-            <core-headline id="headline2">
-              Headline (h2)
+            <core-headline id="headline2_1">
+              Headline (H2)
             </core-headline>
           </template>
+          <p>…</p>
           <core-structure>
+            <template #header>
+              <core-headline id="headline2_2">
+                Headline (H2)
+              </core-headline>
+            </template>
+            <p>…</p>
             <core-structure>
               <template #header>
-                <core-headline id="headline3">
-                  Headline (h3)
+                <core-headline id="headline3_1">
+                  Headline (H3)
                 </core-headline>
               </template>
+              <p>…</p>
               <core-structure>
+                <template #header>
+                  <core-headline id="headline3_2">
+                    Headline (H3)
+                  </core-headline>
+                </template>
+                <p>…</p>
                 <core-structure>
                   <template #header>
-                    <core-headline id="headline4">
-                      Headline (h4)
+                    <core-headline id="headline4_1">
+                      Headline (H4)
                     </core-headline>
                   </template>
+                  <p>…</p>
                   <core-structure>
+                    <template #header>
+                      <core-headline id="headline4_2">
+                        Headline (H4)
+                      </core-headline>
+                    </template>
+                    <p>…</p>
                     <core-structure>
                       <template #header>
-                        <core-headline id="headline5">
-                          Headline (h5)
+                        <core-headline id="headline5_1">
+                          Headline (H5)
                         </core-headline>
                       </template>
+                      <p>…</p>
                       <core-structure>
+                        <template #header>
+                          <core-headline id="headline5_2">
+                            Headline (H5)
+                          </core-headline>
+                        </template>
+                        <p>…</p>
                         <core-structure>
                           <template #header>
-                            <core-headline id="headline6">
-                              Headline (h6)
+                            <core-headline id="headline6_1">
+                              Headline (H6)
                             </core-headline>
                           </template>
+                          <p>…</p>
                           <core-structure>
+                            <template #header>
+                              <core-headline id="headline6_2">
+                                Headline (H6)
+                              </core-headline>
+                            </template>
+                            <p>…</p>
                             <core-structure>
                               <template #header>
-                                <core-headline id="headline7">
-                                  Headline (h6)
+                                <core-headline id="headline7_1">
+                                  Headline (H6)
                                 </core-headline>
                               </template>
+                              <p>…</p>
+                              <core-structure>
+                                <template #header>
+                                  <core-headline id="headline7_2">
+                                    Headline (H6)
+                                  </core-headline>
+                                </template>
+                                <p>…</p>
+                              </core-structure>
                             </core-structure>
                           </core-structure>
                         </core-structure>

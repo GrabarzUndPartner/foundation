@@ -1,6 +1,9 @@
 /* eslint-disable no-secrets/no-secrets */
 import { join, resolve } from 'path';
+import { promises } from 'fs';
 import { beforeAll, describe, it, expect } from 'vitest';
+import { joinURL } from 'ufo';
+import validator from 'html-validator';
 import {
   startStaticServer,
   getDom,
@@ -20,6 +23,27 @@ beforeAll(async () => {
 });
 
 describe('🧐 inspect generated html', () => {
+  const paths = [
+    '/structure',
+    '/headline'
+  ];
+
+  paths.forEach((path) => {
+    it(`W3C ${path}`, async () => {
+      const url = joinURL(runtime.serverUrl, path);
+      const options = {
+        url,
+        format: 'text',
+        data: await promises.readFile(joinURL(process.cwd(), './test/.test/dist', path, 'index.html'), 'utf8')
+      };
+      const result = await validator(options);
+      console.log(`"${result}"`);
+      if (!result.startsWith('The document validates according to the specified schema(s).')) {
+        throw new Error(`Url: ${url}\n${result}`);
+      }
+    });
+  });
+
   markupTests();
 });
 
@@ -38,11 +62,11 @@ function markupTests () {
     expect(dom.querySelector('main#page')).not.toBeNull();
     // pageDescribeComponent
 
-    expect(dom.querySelector('section#pageDescribeComponent')).not.toBeNull();
-    expect(dom.querySelector('section#pageDescribeComponent > header h1')).not.toBeNull();
+    expect(dom.querySelector('div#pageDescribeComponent')).not.toBeNull();
+    expect(dom.querySelector('div#pageDescribeComponent > header h1')).not.toBeNull();
 
     // pageComponents
-    expect(dom.querySelector('section#pageComponents')).not.toBeNull();
+    expect(dom.querySelector('div#pageComponents')).not.toBeNull();
 
     // firstContentComponent
     expect(dom.querySelector('article#firstContentComponent')).not.toBeNull();
@@ -66,11 +90,18 @@ function markupTests () {
     dom = getDom(html);
 
     expect(dom.querySelector('h1#headline1')).not.toBeNull();
-    expect(dom.querySelector('h2#headline2')).not.toBeNull();
-    expect(dom.querySelector('h3#headline3')).not.toBeNull();
-    expect(dom.querySelector('h4#headline4')).not.toBeNull();
-    expect(dom.querySelector('h5#headline5')).not.toBeNull();
-    expect(dom.querySelector('h6#headline6')).not.toBeNull();
-    expect(dom.querySelector('h6#headline7')).not.toBeNull(); // Clamp Headline Level 6
+    expect(dom.querySelector('h2#headline2_1')).not.toBeNull();
+    expect(dom.querySelector('h2#headline2_2')).not.toBeNull();
+    expect(dom.querySelector('h3#headline3_1')).not.toBeNull();
+    expect(dom.querySelector('h3#headline3_2')).not.toBeNull();
+    expect(dom.querySelector('h4#headline4_1')).not.toBeNull();
+    expect(dom.querySelector('h4#headline4_2')).not.toBeNull();
+    expect(dom.querySelector('h5#headline5_1')).not.toBeNull();
+    expect(dom.querySelector('h5#headline5_2')).not.toBeNull();
+    expect(dom.querySelector('h6#headline6_1')).not.toBeNull();
+    expect(dom.querySelector('h6#headline6_2')).not.toBeNull();
+    expect(dom.querySelector('h6#headline7_1')).not.toBeNull();
+
+    // Clamp Headline Level 6
   });
 }

@@ -41,6 +41,7 @@ export default {
       return getMax((this.parentLevel - (this.parentLevel % 2)) / 2);
     }
   }
+
 };
 
 function getMax (number) {
