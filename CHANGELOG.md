@@ -1,5 +1,20 @@
 # Project Changelog
 
+# [1.2.0](https://github.com/GrabarzUndPartner/foundation/compare/v1.1.0...v1.2.0) (2022-05-12)
+
+
+### Bug Fixes
+
+* **core:** add structure components ([d5bfb5b](https://github.com/GrabarzUndPartner/foundation/commit/d5bfb5b92971951a6b2ba80dfa4c6328302c6a5b))
+* **structure:** add structure component; … ([7464e33](https://github.com/GrabarzUndPartner/foundation/commit/7464e33b5a955bab4867742c49a3398221558426))
+
+
+### Features
+
+* **content:** content component structure ([d85c8d3](https://github.com/GrabarzUndPartner/foundation/commit/d85c8d301d3d37d8896a4f1fc56d51bee3259e24))
+* **content:** content component structure ([a80b370](https://github.com/GrabarzUndPartner/foundation/commit/a80b370d235cb8015af007d272c6b8a1eece82da))
+* **content:** content component structure ([b4a8047](https://github.com/GrabarzUndPartner/foundation/commit/b4a80477d1e452d6e50af7d954206c585c7e8b54))
+
 # [1.1.0](https://github.com/GrabarzUndPartner/foundation/compare/v1.0.2...v1.1.0) (2022-04-11)
 
 
