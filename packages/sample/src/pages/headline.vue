@@ -1,5 +1,5 @@
 <template>
-  <core-structure-page>
+  <core-structure>
     <fieldset>
       <legend>Base</legend>
       <base-headline>Document Heading Level 1</base-headline>
@@ -57,12 +57,11 @@
         </core-structure>
       </core-structure>
     </fieldset>
-  </core-structure-page>
+  </core-structure>
 </template>
 
 <script>
 
-import CoreStructurePage from '@foundation/core/Structure/Page';
 import CoreStructure from '@foundation/core/Structure';
 
 import BaseHeadline from '@foundation/core/Headline';
@@ -70,7 +69,6 @@ import DefaultHeadline from '@foundation/core/Headline/default';
 import AtomHeadline from '@/components/atoms/Headline';
 export default {
   components: {
-    CoreStructurePage,
     CoreStructure,
     BaseHeadline,
     DefaultHeadline,

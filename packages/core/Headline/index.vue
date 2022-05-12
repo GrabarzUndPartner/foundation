@@ -3,7 +3,7 @@
     :is="`h${currentHeadlineLevel}`"
     v-font="font"
     v-bind="$attrs"
-    :title="`h${currentHeadlineLevel}`"
+    :data-debug="debug && currentHeadlineLevel"
     v-on="$listeners"
   >
     <slot />
@@ -15,9 +15,9 @@
 export default {
 
   inject: {
-    parentLevel: {
-      from: 'parentLevel',
-      default: null
+    contextLevel: {
+      from: 'contextLevel',
+      default: 1
     }
   },
 
@@ -29,18 +29,15 @@ export default {
       default () {
         return [];
       }
-    },
-    level: {
-      type: [Number],
-      default: null
     }
   },
 
   computed: {
+    debug () {
+      return 'debug-headline' in this.$route.query;
+    },
     currentHeadlineLevel () {
-      console.log(this.level, this.parentLevel);
-      const result = this.level || this.parentLevel || 1;
-      return getMax(result);
+      return getMax(this.contextLevel);
     }
   }
 };
@@ -50,3 +47,31 @@ function getMax (number) {
 }
 
 </script>
+
+<style lang="postcss" scoped>
+[data-debug] {
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    box-sizing: border-box;
+    pointer-events: none;
+    content: "";
+    border: dotted #333 2px;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 5px;
+    font-size: 12px;
+    color: white;
+    content: "H" attr(data-debug);
+    background: #333;
+  }
+}
+</style>

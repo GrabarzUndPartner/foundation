@@ -5,7 +5,7 @@
         <speedkit-picture v-bind="image" />
       </div>
       <div class="text">
-        <core-structure embed>
+        <core-structure>
           <template #header>
             <atom-headline v-bind="headline" />
           </template>

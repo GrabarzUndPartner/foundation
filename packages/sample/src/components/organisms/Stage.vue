@@ -1,6 +1,6 @@
 
 <template>
-  <core-structure static class="organism-stage" v-bind="$attrs" v-on="$listeners">
+  <core-structure class="organism-stage" v-bind="$attrs" v-on="$listeners">
     <template #header>
       <speedkit-picture v-bind="image" />
       <headline class="text">

@@ -1,7 +1,7 @@
 <template>
   <core-structure class="organism-gallery" v-bind="$attrs" v-on="$listeners">
-    <template #header>
-      <layout-lost-container v-if="headline">
+    <template v-if="headline" #header>
+      <layout-lost-container>
         <atom-headline class="headline" v-bind="headline" />
       </layout-lost-container>
     </template>

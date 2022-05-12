@@ -1,5 +1,5 @@
 <template>
-  <core-structure-page class="page">
+  <core-structure class="page">
     <fieldset>
       <legend>Content</legend>
 
@@ -19,17 +19,15 @@
         </core-structure>
       </core-structure>
     </fieldset>
-  </core-structure-page>
+  </core-structure>
 </template>
 
 <script>
 
-import CoreStructurePage from '@foundation/core/Structure/Page';
 import CoreStructure from '@foundation/core/Structure';
 
 export default {
   components: {
-    CoreStructurePage,
     CoreStructure
   },
 

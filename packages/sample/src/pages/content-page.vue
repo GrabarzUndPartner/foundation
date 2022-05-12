@@ -1,5 +1,5 @@
 <template>
-  <core-structure-page>
+  <core-structure>
     <organism-stage v-bind="stage" />
 
     <organism-text v-bind="text" />
@@ -9,17 +9,17 @@
     <organism-text-image v-bind="textImageThree" />
     <organism-teaser-wall v-bind="teaserWall" />
     <organism-accordeon v-bind="accordeon" />
-  </core-structure-page>
+  </core-structure>
 </template>
 
 <script>
 
 import speedkitHydrate from 'nuxt-speedkit/hydrate';
-import CoreStructurePage from '@foundation/core/Structure/Page';
+import CoreStructure from '@foundation/core/Structure';
 
 export default {
   components: {
-    CoreStructurePage,
+    CoreStructure,
     OrganismStage: speedkitHydrate(() => import('@/components/organisms/Stage')),
     OrganismText: speedkitHydrate(() => import('@/components/organisms/Text')),
     OrganismGallery: speedkitHydrate(() => import('@/components/organisms/Gallery')),

@@ -1,5 +1,5 @@
 <template>
-  <layout-structure-layout>
+  <core-structure>
     <template #header>
       <page-header :dataset="headerDataset" critical />
     </template>
@@ -9,7 +9,7 @@
     <template #footer>
       <page-footer :links="footerLinks" />
     </template>
-  </layout-structure-layout>
+  </core-structure>
 </template>
 
 <script>
@@ -18,11 +18,11 @@ import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
 import Model from '@foundation/core/CollapsibleContainer/classes/Model';
 
 import speedkitHydrate from 'nuxt-speedkit/hydrate';
-import LayoutStructureLayout from '@foundation/core/Structure/Layout';
+import CoreStructure from '@foundation/core/Structure';
 
 export default {
   components: {
-    LayoutStructureLayout,
+    CoreStructure,
     PageHeader: () => import('@/components/page/Header'),
     PageFooter: speedkitHydrate(() => import('@/components/page/Footer'))
   },

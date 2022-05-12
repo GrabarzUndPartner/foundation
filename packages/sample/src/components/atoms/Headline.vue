@@ -59,33 +59,6 @@ export default {
     font-size: em(var(--font-size-text));
   }
 
-  &.debug {
-    &::before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 10000;
-      box-sizing: border-box;
-      pointer-events: none;
-      content: "";
-      border: dotted #333 2px;
-    }
-
-    &::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 10px 5px;
-      font-size: 12px;
-      color: white;
-      content: attr(title);
-      background: #333;
-    }
-
-  }
-
 }
 
 h1 {

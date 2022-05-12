@@ -1,8 +1,8 @@
 <template>
   <core-structure class="organism-accordeon">
-    <template #header>
+    <template v-if="headline" #header>
       <layout-lost-container>
-        <div v-if="headline" class="headline">
+        <div class="headline">
           <atom-headline v-bind="headline" />
         </div>
       </layout-lost-container>

@@ -1,12 +1,12 @@
 <template>
-  <core-structure-page class="page">
+  <core-structure class="page">
     <fieldset>
       <legend>Content</legend>
-      <core-structure debug-id="stage" :is-top-level="true">
+      <core-structure debug-id="stage">
         <atom-headline v-bind="{text: `Stage Headline H1`, overline: null}" />
       </core-structure>
 
-      <core-structure debug-id="content-wrap" :disabled="true">
+      <core-structure debug-id="content-wrap">
         <core-structure debug-id="content-1">
           <atom-headline v-bind="{text: `Content 1 Headline H2`, overline: null}" />
         </core-structure>
@@ -24,18 +24,16 @@
         </core-structure>
       </core-structure>
     </fieldset>
-  </core-structure-page>
+  </core-structure>
 </template>
 
 <script>
 
-import CoreStructurePage from '@foundation/core/Structure/Page';
 import CoreStructure from '@foundation/core/Structure';
 import AtomHeadline from '@/components/atoms/Headline';
 
 export default {
   components: {
-    CoreStructurePage,
     CoreStructure,
     AtomHeadline
   },

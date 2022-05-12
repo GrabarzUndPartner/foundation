@@ -19,10 +19,9 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
-    "lint": "npm run lint:js && npm run lint:style",
-    "test": "jest"
+    "test": "npm run vitest:run",
+    "vitest:run": "vitest run",
+    "vitest:dev": "vitest dev"
   },
   "dependencies": {
     "@nuxt/postcss8": "1.1.3",
@@ -43,9 +42,13 @@
     "vue-svg-loader": "0.16.0"
   },
   "devDependencies": {
-    "@vue/test-utils": "1.3.0",
-    "babel-jest": "27.5.1",
-    "jest": "27.5.1",
-    "vue-jest": "3.0.7"
+    "defu": "^6.0.0",
+    "get-port-please": "^2.5.0",
+    "h3": "^0.7.8",
+    "jsdom": "^19.0.0",
+    "listhen": "^0.2.11",
+    "playwright": "^1.21.1",
+    "serve-static": "^1.15.0",
+    "vitest": "^0.12.4"
   }
 }

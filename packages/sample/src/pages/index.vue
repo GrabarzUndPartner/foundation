@@ -1,25 +1,33 @@
 
 <template>
-  <core-structure-page>
+  <core-structure>
     <component
       :is="component"
-      v-for="({component, props}, index) in content"
+      v-for="({component, props}, index) in content.slice(0,1)"
       :key="index"
       v-bind="props"
-      :critical="index < 2"
+      critical
     />
-  </core-structure-page>
+    <core-structure>
+      <component
+        :is="component"
+        v-for="({component, props}, index) in content.slice(1)"
+        :key="index"
+        v-bind="props"
+        :critical="index < 1"
+      />
+    </core-structure>
+  </core-structure>
 </template>
 
 <script>
 
 import speedkitHydrate from 'nuxt-speedkit/hydrate';
-import CoreStructurePage from '@foundation/core/Structure/Page';
+import CoreStructure from '@foundation/core/Structure';
 
 export default {
   components: {
-    CoreStructurePage,
-    LayoutComponentWrapper: speedkitHydrate(() => import('@/components/layouts/ComponentWrapper')),
+    CoreStructure,
     OrganismStage: speedkitHydrate(() => import('@/components/organisms/Stage')),
     OrganismText: speedkitHydrate(() => import('@/components/organisms/Text')),
     OrganismGallery: speedkitHydrate(() => import('@/components/organisms/Gallery')),
@@ -53,36 +61,10 @@ export default {
           component: 'OrganismInfos',
           props: {
             headline: {
+              overline: null,
               text: 'Infos'
             },
             content: '<p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em> <strong><em>ut labore et dolore magna aliquyam erat</em></strong>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, sed diam</p> <p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em></p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
-          }
-        },
-        {
-          component: 'LayoutComponentWrapper',
-          props: {
-            components: [
-              {
-                component: 'OrganismText',
-                props: {
-                  headline: {
-                    overline: 'ComponentWrapper',
-                    text: 'Text'
-                  },
-                  content: '<p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em> <strong><em>ut labore et dolore magna aliquyam erat</em></strong>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, sed diam</p> <p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em></p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
-                }
-              },
-              {
-                component: 'OrganismGallery',
-                props: {
-                  headline: {
-                    overline: 'ComponentWrapper',
-                    text: 'Gallery'
-                  }
-                }
-              }
-
-            ]
           }
         },
         {
@@ -158,6 +140,7 @@ export default {
           component: 'OrganismTeaserWall',
           props: {
             headline: {
+              overline: null,
               text: 'TeaserWall'
             }
           }
@@ -231,7 +214,7 @@ export default {
           component: 'OrganismAccordeon',
           props: {
             headline: {
-              overline: 'Sample Overline',
+              overline: null,
               text: 'Sample Headline'
             },
             items: [
