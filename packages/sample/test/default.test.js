@@ -24,7 +24,7 @@ beforeAll(async () => {
 
 describe('🧐 inspect generated html', () => {
   const paths = [
-    '/structure',
+    '/content-container',
     '/headline'
   ];
 
@@ -37,7 +37,6 @@ describe('🧐 inspect generated html', () => {
         data: await promises.readFile(joinURL(process.cwd(), './test/.test/dist', path, 'index.html'), 'utf8')
       };
       const result = await validator(options);
-      console.log(`"${result}"`);
       if (!result.startsWith('The document validates according to the specified schema(s).')) {
         throw new Error(`Url: ${url}\n${result}`);
       }
@@ -49,8 +48,8 @@ describe('🧐 inspect generated html', () => {
 
 function markupTests () {
   let html, dom;
-  it('Test Structure (/structure)', async () => {
-    html = await getHTML(join(distDir, 'structure'));
+  it('Test Structure (/content-container)', async () => {
+    html = await getHTML(join(distDir, '/content-container'));
     dom = getDom(html);
 
     // layout

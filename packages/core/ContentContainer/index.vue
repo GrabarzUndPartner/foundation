@@ -49,7 +49,11 @@ export default {
       }
     }
   },
-
+  data () {
+    return {
+      headline: false
+    };
+  },
   computed: {
     debug () {
       return 'debug-structure' in this.$route.query;
@@ -127,9 +131,8 @@ export default {
   --tag-color-bg: var(--color-structure-2-bg);
 
   &::after {
-    top: auto;
+    top: 0;
     right: 0;
-    bottom: 0;
   }
 }
 
@@ -138,9 +141,9 @@ export default {
   --tag-color-bg: var(--color-structure-3-bg);
 
   &::after {
-    top: auto;
-    bottom: 0;
-    left: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -149,7 +152,7 @@ export default {
   --tag-color-bg: var(--color-structure-1-bg);
 
   &::after {
-    top: 0;
+    bottom: 0;
     left: 0;
   }
 }

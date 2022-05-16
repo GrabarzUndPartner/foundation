@@ -136,3 +136,22 @@ export default {
 };
 
 </script>
+
+<style lang="postcss" scoped>
+.splide:not(.is-initialized) {
+  & .splide__list {
+    overflow: hidden;
+
+    & >>> .splide__slide:not(:first-child) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+}
+</style>
+

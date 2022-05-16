@@ -75,7 +75,7 @@
 
 <script>
 import CoreHeadline from '@foundation/core/Headline';
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 export default {
   components: {
     CoreStructure,

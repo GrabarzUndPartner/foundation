@@ -32,7 +32,7 @@ import BaseAccordeon from '@foundation/core/CollapsibleContainer/Accordeon';
 import TransitionExpand from '@foundation/core/CollapsibleContainer/transition/expand';
 import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
 import Model from '@foundation/core/CollapsibleContainer/classes/Model';
-import LayoutStructure from '@foundation/core/Structure';
+import LayoutStructure from '@foundation/core/ContentContainer';
 import AtomIcon from '@/components/atoms/Icon';
 
 const CONTENT_COMPONENTS = {

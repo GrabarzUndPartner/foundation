@@ -29,7 +29,7 @@
 
 <script>
 
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 import AtomHeadline from '@/components/atoms/Headline';
 
 export default {

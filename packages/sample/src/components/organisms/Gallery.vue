@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 import AtomHeadline from '@/components/atoms/Headline';
 import MoleculeSlider from '@/components/molecules/Slider';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
