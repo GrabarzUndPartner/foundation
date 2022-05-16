@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.2.2](https://github.com/GrabarzUndPartner/foundation/compare/v1.2.1...v1.2.2) (2022-05-16)
+
+
+### Bug Fixes
+
+* **core:** renamed Structure to ContentContainer ([88cb0be](https://github.com/GrabarzUndPartner/foundation/commit/88cb0be5c2681311537611f5a4ecc9bc4cd1c552))
+
 ## [1.2.1](https://github.com/GrabarzUndPartner/foundation/compare/v1.2.0...v1.2.1) (2022-05-12)
 
 
