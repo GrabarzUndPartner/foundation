@@ -1,16 +1,18 @@
 <template>
   <core-structure class="organism-accordeon">
     <template v-if="headline" #header>
-      <layout-lost-container>
+      <layout-lost-container v-show="!hideHeadline">
         <div class="headline">
           <atom-headline v-bind="headline" />
         </div>
       </layout-lost-container>
     </template>
     <template #default>
-      <layout-lost-container>
-        <molecule-accordeon class="content" :items="items" />
-      </layout-lost-container>
+      <core-structure>
+        <layout-lost-container>
+          <molecule-accordeon class="content" :items="items" />
+        </layout-lost-container>
+      </core-structure>
     </template>
   </core-structure>
 </template>
@@ -29,13 +31,21 @@ export default {
     LayoutLostContainer,
     CoreStructure
   },
+
   props: {
+
     headline: {
       type: Object,
       default () {
         return null;
       }
     },
+
+    hideHeadline: {
+      type: Boolean,
+      default: false
+    },
+
     items: {
       type: Array,
       required: true,
@@ -57,6 +67,7 @@ export default {
       }
     }
   }
+
 };
 </script>
 

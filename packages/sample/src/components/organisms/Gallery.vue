@@ -1,7 +1,7 @@
 <template>
   <core-structure class="organism-gallery" v-bind="$attrs" v-on="$listeners">
-    <template #header>
-      <layout-lost-container>
+    <template v-if="headline" #header>
+      <layout-lost-container v-show="!hideHeadline">
         <atom-headline class="headline" v-bind="headline" />
       </layout-lost-container>
     </template>
@@ -22,14 +22,22 @@ import LayoutLostContainer from '@/components/layouts/LostContainer';
 export default {
   components: { AtomHeadline, MoleculeSlider, LayoutLostContainer, CoreStructure },
   inheritAttrs: false,
+
   props: {
+
     headline: {
       type: Object,
       required: true,
       default () {
         return null;
       }
+    },
+
+    hideHeadline: {
+      type: Boolean,
+      default: false
     }
+
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <core-structure class="organism-text">
-    <template #header>
-      <layout-lost-container>
+    <template v-if="headline" #header>
+      <layout-lost-container v-show="!hideHeadline">
         <atom-headline class="headline" v-bind="headline" />
       </layout-lost-container>
     </template>
@@ -20,8 +20,11 @@ import AtomHeadline from '@/components/atoms/Headline';
 import AtomRichText from '@/components/atoms/RichText';
 
 export default {
+
   components: { CoreStructure, LayoutLostContainer, AtomHeadline, AtomRichText },
+
   props: {
+
     headline: {
       type: Object,
       default () {
@@ -31,10 +34,17 @@ export default {
         };
       }
     },
+
+    hideHeadline: {
+      type: Boolean,
+      default: false
+    },
+
     content: {
       type: String,
       default: '<p>Text</p>'
     }
+
   }
 };
 </script>

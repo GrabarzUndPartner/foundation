@@ -2,17 +2,20 @@
   <base-teaser class="molecule-teaser" v-bind="$attrs" v-on="$listeners">
     <template #default>
       <speedkit-picture v-bind="image" />
-      <span v-font="$getFont('Poppins', 500)">{{ caption }}</span>
+      <core-headline v-font="$getFont('Poppins', 500)">
+        {{ caption }}
+      </core-headline>
     </template>
   </base-teaser>
 </template>
 
 <script>
+import CoreHeadline from '@foundation/core/Headline';
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
 import BaseTeaser from '@foundation/core/Article/Teaser';
 export default {
   components: {
-    SpeedkitPicture, BaseTeaser
+    CoreHeadline, SpeedkitPicture, BaseTeaser
   },
   inheritAttrs: false,
   props: {
@@ -32,7 +35,7 @@ export default {
 .molecule-teaser {
   text-decoration: none;
 
-  & span {
+  & picture + * {
     display: block;
     margin: em(10, 16);
     font-size: em(16);

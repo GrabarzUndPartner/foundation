@@ -1,7 +1,7 @@
 <template>
   <core-structure class="organism-teaser-wall">
-    <template #header>
-      <layout-lost-container>
+    <template v-if="headline" #header>
+      <layout-lost-container v-show="!hideHeadline">
         <div class="headline">
           <atom-headline v-bind="headline" />
         </div>
@@ -23,8 +23,11 @@ import LayoutLostContainer from '@/components/layouts/LostContainer';
 import AtomHeadline from '@/components/atoms/Headline';
 import MoleculeTeaser from '@/components/molecules/Teaser';
 export default {
+
   components: { LayoutLostContainer, CoreStructure, MoleculeTeaser, AtomHeadline },
+
   props: {
+
     headline: {
       type: Object,
       required: true,
@@ -32,6 +35,12 @@ export default {
         return null;
       }
     },
+
+    hideHeadline: {
+      type: Boolean,
+      default: false
+    },
+
     teasers: {
       type: Array,
       default () {
@@ -40,6 +49,7 @@ export default {
         });
       }
     }
+
   }
 };
 
