@@ -18,7 +18,7 @@ import Dataset from '@foundation/core/CollapsibleContainer/classes/Dataset';
 import Model from '@foundation/core/CollapsibleContainer/classes/Model';
 
 import speedkitHydrate from 'nuxt-speedkit/hydrate';
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 
 export default {
   components: {

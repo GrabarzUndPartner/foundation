@@ -17,7 +17,7 @@
 
 <script>
 
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 import AtomHeadline from '@/components/atoms/Headline';
 import MoleculeAccordeon from '@/components/molecules/Accordeon';
 import LayoutLostContainer from '@/components/layouts/LostContainer';

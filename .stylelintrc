@@ -22,6 +22,7 @@
         ]
       }
     ],
+    "selector-class-pattern": null,
     "block-closing-brace-empty-line-before": null,
     "max-empty-lines": null,
     "no-descending-specificity": null,

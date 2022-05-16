@@ -62,7 +62,7 @@
 
 <script>
 
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 
 import BaseHeadline from '@foundation/core/Headline';
 import DefaultHeadline from '@foundation/core/Headline/default';

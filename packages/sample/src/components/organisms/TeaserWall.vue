@@ -1,6 +1,6 @@
 <template>
   <core-structure class="organism-teaser-wall">
-    <template v-if="headline" #header>
+    <template #header>
       <layout-lost-container>
         <div class="headline">
           <atom-headline v-bind="headline" />
@@ -9,15 +9,15 @@
     </template>
     <template #default>
       <layout-lost-container>
-        <div class="teasers">
+        <core-structure class="teasers">
           <molecule-teaser v-for="(teaser, index) in teasers" v-bind="teaser" :key="index" />
-        </div>
+        </core-structure>
       </layout-lost-container>
     </template>
   </core-structure>
 </template>
 <script>
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
 
 import AtomHeadline from '@/components/atoms/Headline';
@@ -27,6 +27,7 @@ export default {
   props: {
     headline: {
       type: Object,
+      required: true,
       default () {
         return null;
       }

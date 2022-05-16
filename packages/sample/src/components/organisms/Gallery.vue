@@ -1,6 +1,6 @@
 <template>
   <core-structure class="organism-gallery" v-bind="$attrs" v-on="$listeners">
-    <template v-if="headline" #header>
+    <template #header>
       <layout-lost-container>
         <atom-headline class="headline" v-bind="headline" />
       </layout-lost-container>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 import AtomHeadline from '@/components/atoms/Headline';
 import MoleculeSlider from '@/components/molecules/Slider';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
@@ -25,6 +25,7 @@ export default {
   props: {
     headline: {
       type: Object,
+      required: true,
       default () {
         return null;
       }

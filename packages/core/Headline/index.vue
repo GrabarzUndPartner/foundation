@@ -40,7 +40,20 @@ export default {
     contextLevel () {
       return getMax((this.parentLevel - (this.parentLevel % 2)) / 2);
     }
+  },
+
+  created () {
+    const getContentContainer = (component) => {
+      if (component.tags) {
+        return component;
+      }
+      return (component && getContentContainer(component.$parent)) || null;
+    };
+
+    const contentContainer = getContentContainer(this);
+    contentContainer && (contentContainer.headline = true);
   }
+
 };
 
 function getMax (number) {

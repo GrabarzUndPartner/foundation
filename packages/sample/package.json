@@ -38,13 +38,14 @@
     "postcss-functions": "4.0.2",
     "postcss-momentum-scrolling": "3.14.22",
     "postcss-normalize": "10.0.1",
+    "postcss-preset-env": "6.7.0",
     "rucksack-css": "1.0.2",
-    "vue-svg-loader": "0.16.0",
-    "postcss-preset-env": "6.7.0"
+    "vue-svg-loader": "0.16.0"
   },
   "devDependencies": {
     "get-port-please": "2.5.0",
     "h3": "0.7.8",
+    "html-validator": "^6.0.0",
     "jsdom": "19.0.0",
     "listhen": "0.2.11",
     "playwright": "1.22.0",

@@ -24,7 +24,7 @@
 
 <script>
 
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 
 export default {
   components: {

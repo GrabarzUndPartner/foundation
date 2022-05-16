@@ -5,19 +5,13 @@
         <speedkit-picture v-bind="image" />
       </div>
       <div class="text">
-        <core-structure>
-          <template #header>
-            <atom-headline v-bind="headline" />
-          </template>
-          <template #default>
-            <atom-rich-text :value="content" />
-            <ul class="buttons">
-              <li v-for="(button, index) in buttons" :key="index">
-                <atom-button v-bind="button" />
-              </li>
-            </ul>
-          </template>
-        </core-structure>
+        <atom-headline v-bind="headline" />
+        <atom-rich-text :value="content" />
+        <ul class="buttons">
+          <li v-for="(button, index) in buttons" :key="index">
+            <atom-button v-bind="button" />
+          </li>
+        </ul>
       </div>
     </layout-lost-container>
   </core-structure>
@@ -25,7 +19,7 @@
 
 <script>
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
-import CoreStructure from '@foundation/core/Structure';
+import CoreStructure from '@foundation/core/ContentContainer';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
 import AtomHeadline from '@/components/atoms/Headline';
 import AtomRichText from '@/components/atoms/RichText';
