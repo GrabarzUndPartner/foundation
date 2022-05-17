@@ -1,6 +1,6 @@
 {
   "name": "foundation",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": true,
   "scripts": {
     "postinstall": "husky install",
@@ -15,15 +15,15 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.17.0",
-    "@commitlint/cli": "16.2.4",
-    "@commitlint/config-conventional": "16.2.4",
+    "@commitlint/cli": "17.0.0",
+    "@commitlint/config-conventional": "17.0.0",
     "defu": "6.0.0",
     "@js-basics/vector": "2.0.5",
     "@mapbox/stylelint-processor-arbitrary-tags": "0.4.0",
     "@nuxtjs/eslint-config": "10.0.0",
     "babel-preset-vue": "2.0.2",
     "branch-name-lint": "2.1.1",
-    "commitlint": "16.2.4",
+    "commitlint": "17.0.0",
     "eslint": "8.15.0",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-html": "6.2.0",
