@@ -39,7 +39,7 @@ export default {
     OrganismText: speedkitHydrate(() => import('@/components/organisms/Text')),
     OrganismGallery: speedkitHydrate(() => import('@/components/organisms/Gallery')),
     OrganismTextImage: speedkitHydrate(() => import('@/components/organisms/TextImage')),
-    OrganismTeaserWall: speedkitHydrate(() => import('@/components/organisms/TeaserWall')),
+    OrganismTileWall: speedkitHydrate(() => import('@/components/organisms/TileWall')),
     OrganismAccordeon: speedkitHydrate(() => import('@/components/organisms/Accordeon')),
     OrganismInfos: speedkitHydrate(() => import('@/components/organisms/Infos'))
 

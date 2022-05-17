@@ -1,5 +1,5 @@
 <template>
-  <core-structure class="organism-teaser-wall">
+  <core-structure class="organism-tile-wall">
     <template v-if="headline" #header>
       <layout-lost-container v-show="!hideHeadline">
         <div class="headline">
@@ -9,8 +9,8 @@
     </template>
     <template #default>
       <layout-lost-container>
-        <core-structure class="teasers">
-          <molecule-teaser v-for="(teaser, index) in teasers" v-bind="teaser" :key="index" />
+        <core-structure class="tiles">
+          <molecule-tile v-for="(item, index) in items" v-bind="item" :key="index" />
         </core-structure>
       </layout-lost-container>
     </template>
@@ -21,10 +21,10 @@ import CoreStructure from '@foundation/core/ContentContainer';
 import LayoutLostContainer from '@/components/layouts/LostContainer';
 
 import AtomHeadline from '@/components/atoms/Headline';
-import MoleculeTeaser from '@/components/molecules/Teaser';
+import MoleculeTile from '@/components/molecules/Tile';
 export default {
 
-  components: { LayoutLostContainer, CoreStructure, MoleculeTeaser, AtomHeadline },
+  components: { LayoutLostContainer, CoreStructure, MoleculeTile, AtomHeadline },
 
   props: {
 
@@ -41,11 +41,11 @@ export default {
       default: false
     },
 
-    teasers: {
+    items: {
       type: Array,
       default () {
         return Array(8).fill({}).map((v, index) => {
-          return { ...getTeaser(), caption: `Teaser ${index}` };
+          return { ...getItems(), caption: `Teaser ${index}` };
         });
       }
     }
@@ -53,7 +53,7 @@ export default {
   }
 };
 
-const getTeaser = () => {
+const getItems = () => {
   return {
     to: '/',
     image: {
@@ -66,7 +66,7 @@ const getTeaser = () => {
 };
 </script>
 <style lang="postcss" scoped>
-.organism-teaser-wall {
+.organism-tile-wall {
   margin: em(32) 0;
 
   @media (--sm) {
@@ -85,7 +85,7 @@ const getTeaser = () => {
     }
   }
 
-  & .teasers {
+  & .tiles {
     --columns: 1;
 
     display: flex;

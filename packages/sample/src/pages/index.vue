@@ -32,7 +32,7 @@ export default {
     OrganismText: speedkitHydrate(() => import('@/components/organisms/Text')),
     OrganismGallery: speedkitHydrate(() => import('@/components/organisms/Gallery')),
     OrganismTextImage: speedkitHydrate(() => import('@/components/organisms/TextImage')),
-    OrganismTeaserWall: speedkitHydrate(() => import('@/components/organisms/TeaserWall')),
+    OrganismTileWall: speedkitHydrate(() => import('@/components/organisms/TileWall')),
     OrganismAccordeon: speedkitHydrate(() => import('@/components/organisms/Accordeon')),
     OrganismInfos: speedkitHydrate(() => import('@/components/organisms/Infos'))
 
@@ -63,6 +63,10 @@ export default {
             headline: {
               overline: null,
               text: 'Infos'
+            },
+            subHeadline: {
+              overline: null,
+              text: 'More Infos'
             },
             content: '<p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em> <strong><em>ut labore et dolore magna aliquyam erat</em></strong>, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, sed diam</p> <p>Lorem ipsum dolor sit amet, <strong>consetetur sadipscing elitr</strong>, <em>sed diam nonumy eirmod tempor invidunt</em></p> <ul> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ul> <ol> <li>List Item 1</li> <li>List Item 2</li> <li>List Item 3</li> </ol>'
           }
@@ -139,11 +143,11 @@ export default {
           }
         },
         {
-          component: 'OrganismTeaserWall',
+          component: 'OrganismTileWall',
           props: {
             headline: {
               overline: null,
-              text: 'TeaserWall'
+              text: 'TileWall'
             }
           }
         },
