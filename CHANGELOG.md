@@ -1,5 +1,13 @@
 # Project Changelog
 
+## [1.2.3](https://github.com/GrabarzUndPartner/foundation/compare/v1.2.2...v1.2.3) (2022-05-17)
+
+
+### Bug Fixes
+
+* **update:** clean; renamed teaser-wall to tile-wall ([a4eba5f](https://github.com/GrabarzUndPartner/foundation/commit/a4eba5f99f8d2ac66d84895687bfc9655b766624))
+* **update:** update samples; update tests ([312c3d5](https://github.com/GrabarzUndPartner/foundation/commit/312c3d5901d45a43ac1a8c3a89e8b8d1c9dbd135))
+
 ## [1.2.2](https://github.com/GrabarzUndPartner/foundation/compare/v1.2.1...v1.2.2) (2022-05-16)
 
 
