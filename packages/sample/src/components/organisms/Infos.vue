@@ -1,7 +1,7 @@
 <template>
   <core-structure class="organism-infos">
-    <template #header>
-      <layout-lost-container>
+    <template v-if="headline" #header>
+      <layout-lost-container v-show="!hideHeadline">
         <atom-headline class="headline" v-bind="headline" />
       </layout-lost-container>
     </template>
@@ -51,6 +51,12 @@ export default {
         };
       }
     },
+
+    hideHeadline: {
+      type: Boolean,
+      default: false
+    },
+
     subHeadline: {
       type: Object,
       default () {

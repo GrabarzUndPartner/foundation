@@ -23,25 +23,17 @@
         <default-teaser v-for="(teaser, index) in teasers" v-bind="teaser" :key="index" />
       </div>
     </fieldset>
-    <fieldset>
-      <legend>Default</legend>
-      <div class="teasers">
-        <molecule-teaser v-for="(teaser, index) in teasers" v-bind="teaser" :key="index" />
-      </div>
-    </fieldset>
   </div>
 </template>
 
 <script>
 import BaseTeaser from '@foundation/core/Article/Teaser';
 import DefaultTeaser from '@foundation/core/Article/Teaser/default';
-import MoleculeTeaser from '@/components/molecules/Teaser';
 import AtomHeadline from '@/components/atoms/Headline';
 export default {
   components: {
     BaseTeaser,
     DefaultTeaser,
-    MoleculeTeaser,
     AtomHeadline
   },
 

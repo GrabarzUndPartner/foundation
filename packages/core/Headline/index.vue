@@ -33,25 +33,18 @@ export default {
     }
   },
 
+  data () {
+    return { debug: false };
+  },
+
   computed: {
-    debug () {
-      return 'debug-headline' in this.$route.query;
-    },
     contextLevel () {
       return getMax((this.parentLevel - (this.parentLevel % 2)) / 2);
     }
   },
 
-  created () {
-    const getContentContainer = (component) => {
-      if (component.tags) {
-        return component;
-      }
-      return (component && getContentContainer(component.$parent)) || null;
-    };
-
-    const contentContainer = getContentContainer(this);
-    contentContainer && (contentContainer.headline = true);
+  mounted () {
+    this.debug = 'debug-headline' in this.$route.query;
   }
 
 };
@@ -74,6 +67,8 @@ function getMax (number) {
     left: 0;
     z-index: 10000;
     margin: 0;
+    font-family: monospace;
+    font-weight: normal;
 
     &::before {
       position: absolute;
@@ -89,12 +84,13 @@ function getMax (number) {
 
     &::after {
       position: absolute;
-      top: 0;
       right: 0;
+      bottom: 0;
       z-index: 10000;
-      padding: 10px 5px;
-      font-size: 12px;
+      padding: 5px;
+      font-size: 13px;
       color: white;
+      letter-spacing: 0.1em;
       content: "H" attr(data-debug-context-level);
       background: #333;
     }

@@ -1,18 +1,19 @@
 <template>
-  <base-teaser class="molecule-teaser" v-bind="$attrs" v-on="$listeners">
-    <template #default>
-      <speedkit-picture v-bind="image" />
-      <span v-font="$getFont('Poppins', 500)">{{ caption }}</span>
-    </template>
-  </base-teaser>
+  <figure class="molecule-tile" v-bind="$attrs" v-on="$listeners">
+    <speedkit-picture v-bind="image" />
+    <figcaption v-font="$getFont('Poppins', 500)">
+      {{ caption }}
+    </figcaption>
+  </figure>
 </template>
 
 <script>
+
 import SpeedkitPicture from 'nuxt-speedkit/components/SpeedkitPicture';
-import BaseTeaser from '@foundation/core/Article/Teaser';
+
 export default {
   components: {
-    SpeedkitPicture, BaseTeaser
+    SpeedkitPicture
   },
   inheritAttrs: false,
   props: {
@@ -22,17 +23,19 @@ export default {
     },
     caption: {
       type: String,
-      default: 'Teaser Caption'
+      default: 'Tile Caption'
     }
   }
 };
+
 </script>
 
 <style lang="postcss" scoped>
-.molecule-teaser {
+.molecule-tile {
+  margin: 0;
   text-decoration: none;
 
-  & span {
+  & figcaption {
     display: block;
     margin: em(10, 16);
     font-size: em(16);

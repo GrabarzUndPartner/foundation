@@ -51,13 +51,11 @@ export default {
   },
   data () {
     return {
-      headline: false
+      debug: false
     };
   },
+
   computed: {
-    debug () {
-      return 'debug-structure' in this.$route.query;
-    },
 
     currentLevel () {
       return this.parentLevel + 1;
@@ -66,6 +64,10 @@ export default {
     currentTag () {
       return ['div', 'main', 'div'][this.parentLevel] || this.tags[this.currentLevel % this.tags.length];
     }
+  },
+
+  mounted () {
+    this.debug = 'debug-structure' in this.$route.query;
   }
 
 };
