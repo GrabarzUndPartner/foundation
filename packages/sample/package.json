@@ -46,7 +46,7 @@
     "get-port-please": "2.5.0",
     "h3": "0.7.10",
     "html-validator": "6.0.1",
-    "jsdom": "19.0.0",
+    "jsdom": "20.0.0",
     "listhen": "0.2.13",
     "playwright": "1.22.2",
     "serve-static": "1.15.0",
