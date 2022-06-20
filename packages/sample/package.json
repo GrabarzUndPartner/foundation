@@ -28,13 +28,13 @@
     "@nuxtjs/eslint-module": "3.1.0",
     "@nuxtjs/stylelint-module": "4.1.0",
     "babel-loader": "8.2.5",
-    "core-js": "3.22.7",
+    "core-js": "3.23.1",
     "dotenv": "16.0.1",
     "js-yaml": "4.1.0",
     "lost": "8.3.1",
     "nuxt": "2.15.8",
     "nuxt-speedkit": "2.0.13",
-    "postcss-custom-media": "8.0.0",
+    "postcss-custom-media": "8.0.2",
     "postcss-functions": "4.0.2",
     "postcss-momentum-scrolling": "3.14.22",
     "postcss-normalize": "10.0.1",
@@ -44,12 +44,12 @@
   },
   "devDependencies": {
     "get-port-please": "2.5.0",
-    "h3": "0.7.8",
+    "h3": "0.7.10",
     "html-validator": "6.0.1",
     "jsdom": "19.0.0",
-    "listhen": "0.2.11",
+    "listhen": "0.2.13",
     "playwright": "1.22.2",
     "serve-static": "1.15.0",
-    "vitest": "0.12.9"
+    "vitest": "0.15.1"
   }
 }

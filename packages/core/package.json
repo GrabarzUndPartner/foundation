@@ -16,7 +16,7 @@
     "private": true,
     "scripts": {},
     "dependencies": {
-        "@splidejs/splide": "4.0.2",
+        "@splidejs/splide": "4.0.7",
         "@splidejs/splide-extension-intersection": "0.2.0",
         "nuxt-speedkit": "2.0.13"
     }
