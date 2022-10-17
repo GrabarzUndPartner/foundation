@@ -122,20 +122,34 @@ export default {
         'postcss-preset-env': {
           preserve: true,
           stage: 0,
-          importFrom: postcssPresetEnvImportFrom
+          importFrom: postcssPresetEnvImportFrom,
+          features: {
+            'custom-properties': {
+              disableDeprecationNotice: true
+            },
+            'nesting-rules': true
+          }
+        },
+        'postcss-functions': {
+          functions: postcssFunctions
         },
         'postcss-normalize': {},
         'postcss-momentum-scrolling': [
           'scroll'
         ],
-        'postcss-functions': {
-          functions: postcssFunctions
-        },
         'rucksack-css': {},
         lost: {
           gutter: '15px',
           flexbox: 'flex',
           cycle: 'auto'
+        },
+        cssnano: {
+          preset: [
+            'default', {
+              discardDuplicates: false,
+              mergeRules: false
+            }
+          ]
         }
       },
       order: 'cssnanoLast'
