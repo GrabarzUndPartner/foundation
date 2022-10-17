@@ -17,13 +17,13 @@
     "@babel/eslint-parser": "7.19.1",
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
-    "defu": "6.1.0",
     "@js-basics/vector": "2.0.10",
     "@mapbox/stylelint-processor-arbitrary-tags": "0.4.0",
     "@nuxtjs/eslint-config": "10.0.0",
     "babel-preset-vue": "2.0.2",
     "branch-name-lint": "2.1.1",
     "commitlint": "17.1.2",
+    "defu": "6.1.0",
     "eslint": "8.25.0",
     "eslint-formatter-json-relative": "0.1.0",
     "eslint-plugin-html": "6.2.0",
@@ -43,7 +43,8 @@
     "stylelint-config-css-modules": "4.1.0",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-recess-order": "3.0.0",
-    "stylelint-config-standard": "26.0.0"
+    "stylelint-config-standard": "26.0.0",
+    "vite": "^3.1.8"
   },
   "workspaces": [
     "./packages/core",
