@@ -106,7 +106,7 @@ export default {
 </script>
 
 <style lang="postcss">
-@import "@/assets/css/vars.pcss";
+@import url("@/assets/css/vars.pcss");
 
 body {
   margin: 0;
