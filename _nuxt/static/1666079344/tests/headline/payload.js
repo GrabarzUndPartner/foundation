@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tests/headline", {data:[{_criticalFontStyles:{}}],fetch:{},mutations:[]});

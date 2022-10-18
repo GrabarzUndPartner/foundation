@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/test", {data:[{_img:{},_criticalFontStyles:{}}],fetch:{},mutations:[]});

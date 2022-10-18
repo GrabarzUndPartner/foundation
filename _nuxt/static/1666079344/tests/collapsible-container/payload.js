@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tests/collapsible-container", {data:[{_criticalFontStyles:{}}],fetch:{},mutations:[]});
