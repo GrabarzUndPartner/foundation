@@ -1,14 +1,17 @@
 <template>
   <div
     :is="tag"
-    class="lost-container"
+    class="layouts-lost-container"
   >
     <slot name="background" />
-    <div
-      :class="{'lost-flex-container': container}"
-    >
-      <slot />
-    </div>
+    <slot name="container">
+      <div
+        v-if="$slots.default"
+        class="lost-flex-container"
+      >
+        <slot />
+      </div>
+    </slot>
   </div>
 </template>
 
@@ -23,10 +26,6 @@ export default {
       default () {
         return 'div';
       }
-    },
-    container: {
-      type: Boolean,
-      default: true
     }
   }
 
@@ -34,8 +33,8 @@ export default {
 
 </script>
 
-<style lang="postcss">
-.lost-container {
+<style lang="postcss" scoped>
+.layouts-lost-container {
   & .lost-flex-container {
     display: flex;
 
@@ -44,19 +43,19 @@ export default {
     }
 
     @media (--xs) {
-      lost-center: em(540px);
+      lost-center: 540px;
     }
 
     @media (--sm) {
-      lost-center: em(720px);
+      lost-center: 720px;
     }
 
     @media (--md) {
-      lost-center: em(960px);
+      lost-center: 960px;
     }
 
     @media (--lg) {
-      lost-center: em(1140px);
+      lost-center: 1140px;
     }
   }
 }

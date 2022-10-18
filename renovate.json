@@ -5,8 +5,5 @@
   "baseBranches": [
     "main"
   ],
-  "rangeStrategy": "pin",
-  "ignoreDeps": [
-    "postcss-preset-env"
-  ]
+  "rangeStrategy": "pin"
 }
