@@ -19,7 +19,7 @@
     "@commitlint/config-conventional": "17.1.0",
     "@js-basics/vector": "2.0.10",
     "@mapbox/stylelint-processor-arbitrary-tags": "0.4.0",
-    "@nuxtjs/eslint-config": "11.0.0",
+    "@nuxtjs/eslint-config": "12.0.0",
     "babel-preset-vue": "2.0.2",
     "branch-name-lint": "2.1.1",
     "commitlint": "17.1.2",
