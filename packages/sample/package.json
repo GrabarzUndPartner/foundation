@@ -32,7 +32,7 @@
     "dotenv": "16.0.3",
     "js-yaml": "4.1.0",
     "lost": "9.0.1",
-    "nuxt": "2.15.8",
+    "nuxt": "3.13.2",
     "nuxt-speedkit": "2.0.22",
     "postcss-custom-media": "8.0.2",
     "postcss-functions": "4.0.2",
